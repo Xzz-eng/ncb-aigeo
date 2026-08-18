@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>逆传播AIGEO 全案代运营方案（客户匹配 + 话术流 + 季度实施规划）</title>
+<style>
+:root { --bg:#f5f5f5; --card:#fff; --border:#e5e5e5; --text:#1a1a1a; --muted:#888;
+  --accent:#EA580C; --green:#16a34a; --orange:#ea580c; --red:#dc2626; --purple:#7c3aed; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+.container { max-width:1100px; margin:0 auto; padding:24px 20px; }
+header { background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 100%); color:#fff; padding:44px 20px; text-align:center; }
+header h1 { font-size:26px; margin-bottom:8px; }
+header p { color:#93c5fd; font-size:14px; }
+.card { background:var(--card); border-radius:12px; padding:24px; margin-bottom:20px; border:1px solid var(--border); }
+.card h2 { font-size:20px; margin-bottom:16px; padding-bottom:8px; border-bottom:2px solid var(--border); }
+.card h3 { font-size:16px; margin:20px 0 10px; color:var(--accent); }
+.card h4 { font-size:14.5px; margin:16px 0 6px; }
+table { width:100%; border-collapse:collapse; font-size:13.5px; margin:12px 0; }
+th { background:#f8fafc; text-align:left; padding:10px; border-bottom:2px solid #e2e8f0; font-weight:600; white-space:nowrap; }
+td { padding:10px; border-bottom:1px solid #e2e8f0; vertical-align:top; }
+tr:hover td { background:#f8fafc; }
+.pill { display:inline-block; padding:2px 10px; border-radius:12px; font-size:12px; font-weight:600; margin-right:6px; }
+.pill-blue { background:#ffedd5; color:#9a3412; }
+.pill-green { background:#dcfce7; color:#166534; }
+.pill-orange { background:#ffedd5; color:#9a3412; }
+.pill-red { background:#fef2f2; color:#991b1b; }
+.pill-purple { background:#f3e8ff; color:#6b21a8; }
+.script { background:#f8fafc; border-left:4px solid var(--accent); padding:14px 16px; margin:10px 0; border-radius:0 8px 8px 0; font-size:13.5px; }
+.script.q { border-left-color:var(--purple); }
+.script strong { color:var(--accent); }
+.tip { background:#fffbeb; border:1px solid #fde68a; border-radius:8px; padding:10px 14px; font-size:13px; margin:10px 0; }
+.flow { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:14px 0; }
+.flow-node { background:#fff; border:1.5px solid var(--accent); color:var(--accent); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; }
+.flow-arrow { color:#94a3b8; font-size:16px; }
+.flow-node.green { border-color:var(--green); color:var(--green); }
+.flow-node.purple { border-color:var(--purple); color:var(--purple); }
+.flow-node.orange { border-color:var(--orange); color:var(--orange); }
+.funnel { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin:14px 0; }
+.funnel-item { border-radius:10px; padding:16px; text-align:center; }
+.f1 { background:#fef2f2; border:1px solid #fecaca; }
+.f2 { background:#fffbeb; border:1px solid #fde68a; }
+.f3 { background:#f0fdf4; border:1px solid #bbf7d0; }
+.funnel-item .t { font-weight:700; font-size:14px; margin-bottom:6px; }
+.funnel-item .d { font-size:12px; color:var(--muted); }
+.metrics { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin:14px 0; }
+.metric { background:#fff; border:1px solid var(--border); border-radius:10px; padding:14px; text-align:center; }
+.metric .value { font-size:24px; font-weight:700; color:var(--accent); }
+.metric .label { font-size:12px; color:var(--muted); margin-top:4px; }
+.phase { border-left:4px solid var(--accent); background:#fff; border-radius:8px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.phase h3 { margin:0 0 4px; font-size:17px; color:var(--text); }
+.phase .sub { color:var(--accent); font-weight:600; font-size:13px; margin-bottom:10px; }
+.phase p { font-size:13.5px; margin:4px 0; }
+.milestone { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:12px 0; }
+.ms { background:#fff; border:1.5px solid var(--accent); color:var(--accent); border-radius:8px; padding:8px 16px; font-weight:700; font-size:14px; }
+.ms-arrow { color:#94a3b8; font-size:18px; }
+.badge { display:inline-block; padding:2px 10px; border-radius:12px; font-size:12px; font-weight:600; }
+.badge-green { background:#dcfce7; color:#166534; }
+.badge-accent { background:#ffedd5; color:#9a3412; }
+.faq { margin:6px 0; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+.faq summary { cursor:pointer; font-weight:600; font-size:14px; padding:10px 14px; background:#f8fafc; list-style:none; }
+.faq summary::-webkit-details-marker { display:none; }
+.faq summary:hover { background:#f1f5f9; }
+.faq[open] summary { background:#fff7ed; border-bottom:1px solid var(--border); }
+.faq p { padding:10px 14px; font-size:13.5px; margin:0; background:#fff; }
+.faq p::before { content:"答："; color:var(--accent); font-weight:700; }
+@media (max-width:720px) { .funnel { grid-template-columns:1fr; } }
+footer { text-align:center; color:var(--muted); padding:20px; font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+<h1>逆传播AIGEO 全案代运营方案</h1>
+<p>三类客户匹配 × 完整话术流 × 季度实施规划 · 2026年8月</p>
+</header>
+<div class="container">
+
+<div class="card">
+<h2>一、战略总览：一套漏斗，三种承接</h2>
+<p>逆传播AIGEO 后端获客引流来的客户整体分为三类：<strong>学习课程型</strong>、<strong>工具型</strong>、<strong>全案代运营型</strong>。三类客户处于不同的认知与决策层级，匹配方案的核心原则是：<strong>不拒绝任何一类，用同一套漏斗分层承接，全部向全案代运营（核心利润产品）汇聚。</strong></p>
+<div class="funnel">
+<div class="funnel-item f1"><div class="t">① 学习课程型</div><div class="d">想自己学、预算低、观望中<br/>认知层：知道GEO但不懂怎么做</div></div>
+<div class="funnel-item f2"><div class="t">② 工具型</div><div class="d">想用系统工具自己做<br/>认知层：懂一点，以为工具能搞定</div></div>
+<div class="funnel-item f3"><div class="t">③ 全案代运营型</div><div class="d">要结果、预算明确、决策人清晰<br/>认知层：认可专业分工</div></div>
+</div>
+<p style="margin-top:8px">三类客户的共同转化终点：<strong>逆传播AIGEO 全案代运营（2万+/季度起步）</strong>。学习型和工具型先用「引流款」承接（免费诊断），在诊断中完成认知升级。</p>
+
+<h3>话术弹药库（所有话术共用，反复使用）</h3>
+<table>
+<thead><tr><th>弹药</th><th>具体表述</th><th>作用</th></tr></thead>
+<tbody>
+<tr><td><strong>团标背书</strong></td><td>逆传播是《生成引擎优化(GEO)团体标准》的制定参与者，这行业的方法论标杆有我们一份</td><td>建立专业权威，拉开与所有竞品的档次</td></tr>
+<tr><td><strong>官方媒体信源</strong></td><td>我们是目前唯一做到信源全部来自官方媒体的服务商，AI平台对官媒内容的引用权重是最高的</td><td>回答"为什么效果更好"，直击工具型客户痛点</td></tr>
+<tr><td><strong>推荐率≥70%</strong></td><td>我们对品牌推荐率做到≥70%承诺，行业普遍只敢承诺60%，我们是靠内容质量和信源硬撑起来的</td><td>回答"效果有没有保证"</td></tr>
+<tr><td><strong>2周见效</strong></td><td>首轮内容投喂后2周内就能在AI平台看到品牌露出的变化，不用等三个月</td><td>压缩决策周期</td></tr>
+<tr><td><strong>案例</strong></td><td>新东方、松鼠跃动都在用我们的全案服务</td><td>消除信任顾虑</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card">
+<h2>二、三类客户画像与匹配方案</h2>
+
+<h3>① 学习课程型客户 — 匹配「引流款」：免费GEO诊断 + 科普内容</h3>
+<p><strong>画像</strong>：咨询"GEO怎么做""有没有课程""想先学学看"；预算低或持观望；决策人是老板本人，时间敏感。</p>
+<p><strong>匹配方案</strong>：不硬推代运营，先给<strong>免费品牌诊断</strong>（扫描其品牌在AI平台上的露出现状）+ 科普内容。在诊断交付时完成认知升级。</p>
+<div class="flow">
+<div class="flow-node purple">免费诊断引流</div><div class="flow-arrow">→</div>
+<div class="flow-node">诊断报告呈现问题</div><div class="flow-arrow">→</div>
+<div class="flow-node green">点破"知道≠做到"</div><div class="flow-arrow">→</div>
+<div class="flow-node orange">升级代运营</div>
+</div>
+<div class="tip">💡 关键转化逻辑：课程解决"知道"，代运营解决"做到"。学GEO至少要3-6个月试错，我们2周见效。对时间值钱的老板，这个账很好算。</div>
+
+<h3>② 工具型客户 — 匹配「差异化」：免费诊断 + 服务≠系统对比</h3>
+<p><strong>画像</strong>：接触过摘星AI、旗引AI等系统工具，认为"买个工具自己搞更省钱"；对GEO有基础认知；预算中等。</p>
+<p><strong>匹配方案</strong>：先认可客户认知（不否定工具），再用<strong>"服务≠系统"</strong>框架做对比，免费诊断点破工具自运营的三大坑。</p>
+<div class="flow">
+<div class="flow-node purple">认可+共情</div><div class="flow-arrow">→</div>
+<div class="flow-node">免费诊断</div><div class="flow-arrow">→</div>
+<div class="flow-node green">服务vs系统对比</div><div class="flow-arrow">→</div>
+<div class="flow-node orange">代运营/混合方案</div>
+</div>
+<div class="tip">💡 关键转化逻辑：工具是"枪"，但没人帮你瞄准、开枪、复盘。摘星AI用户6个月没效果的案例太多——工具只解决"发"，解决不了"信源质量、内容策略、算法变化响应"。</div>
+
+<h3>③ 全案代运营型客户 — 直接匹配「旗舰方案」</h3>
+<p><strong>画像</strong>：直接问"代运营多少钱""怎么合作"；预算明确；决策人明确（老板或合伙人拍板）。</p>
+<p><strong>匹配方案</strong>：直接主推全案代运营，流程走「诊断→团标背书→案例→报价→签约」，压缩流程、快速成交。</p>
+<div class="flow">
+<div class="flow-node purple">需求确认</div><div class="flow-arrow">→</div>
+<div class="flow-node green">诊断+方案呈现</div><div class="flow-arrow">→</div>
+<div class="flow-node orange">报价签约</div><div class="flow-arrow">→</div>
+<div class="flow-node">交付启动</div>
+</div>
+<div class="tip">💡 关键转化逻辑：这类客户不缺钱缺时间，别讲方法论，讲"省心+确定性"。你是生意人，我们是让AI替你说话的人。</div>
+</div>
+
+<div class="card">
+<h2>三、完整话术流（六阶段）</h2>
+
+<h3>阶段一：开场破冰（30秒建立信任）</h3>
+<div class="script"><strong>话术：</strong>"X总您好，我是逆传播AIGEO的（名字）。先说下我们是谁——我们是《生成引擎优化GEO团体标准》的制定参与者，也是目前唯一做到信源全部来自官方媒体的GEO服务商。今天找您不是推销，是想先帮您做个免费的品牌AI诊断，看看您的品牌在AI搜索里现在是什么状态。很多老板一查才发现，自己在AI里是'隐形'的。"</div>
+<div class="tip">📌 目的：三句话建立权威（团标+唯一性）+ 给价值（免费诊断）+ 制造危机感（AI里隐形）。</div>
+
+<h3>阶段二：需求诊断（3-5个问题判断客户类型）</h3>
+<div class="script"><strong>话术序列：</strong><br/>
+Q1："您是怎么了解到GEO的？是刷到我们内容，还是身边有人在做？"<br/>
+Q2："您现在对这块是怎么考虑的——是想自己团队做，还是已经在看工具，还是想找服务商直接合作？"<br/>
+Q3：（若提到工具）"您看的是哪家工具？摘星还是旗引？用了多久了？"<br/>
+Q4："如果做了GEO，您最想解决什么——是想让客户搜您的时候AI推荐您，还是想做品牌背书？"<br/>
+Q5："这件事在您公司里，是您拍板，还是需要合伙人商量？大概什么时间节点想启动？"</div>
+<div class="tip">📌 判断标准：Q2答"想自己学"→学习型；答"在看工具"→工具型；答"想找专业团队"→全案型。Q5判断决策链与紧迫度。</div>
+
+<h3>阶段三：分型分流话术</h3>
+
+<h4>◆ 学习课程型话术</h4>
+<div class="script"><strong>话术：</strong>"X总，能想着自己学说明您对这块是真上心。这样，我先给您一份免费的品牌AI诊断，您看看自己品牌现在在AI里是什么水平——这个不用您花一分钱。课程和教程我们公众号里都有，您可以随便看。<br/><br/>
+但作为过来人我得跟您说句实在话：GEO这事儿，'知道'和'做到'中间隔着三个月。我们团队50个人，天天在跟6大AI平台的内容策略，光信源测算这一步就有自己的方法论。您自己从头学，试错三个月是少的，这三个月里您的同行可能已经把AI搜索的推荐位占了。<br/><br/>
+您先看诊断报告，如果报告里看到的问题您觉得值，我们再聊是您自己干还是交给我们干。您的时间用在生意上，AI搜索这块交给我们，其实更划算。"</div>
+
+<h4>◆ 工具型客户话术</h4>
+<div class="script"><strong>话术：</strong>"X总，您看工具说明您已经走在了大多数人前面，摘星/旗引这些工具确实能帮您把内容发出去。但我给您讲个数据：GEO服务商选型失败率47%，其中一大半就是'买了工具自己干'的。<br/><br/>
+工具解决的是'发'，但GEO真正的效果靠三件事：<strong>信源质量</strong>（AI只引用高权重媒体，商业媒体和自媒体权重很低）、<strong>内容策略</strong>（说什么、怎么说AI才推荐）、<strong>算法响应</strong>（AI平台一周调一次算法，您跟得住吗？）。<br/><br/>
+我们有个客户就是摘星用了6个月没效果找过来的。工具是枪，但瞄准、开枪、复盘这套活儿，才是值钱的部分。<br/><br/>
+这样，我先给您出个免费诊断，看看您这几个月工具用下来，品牌在AI里的实际水位。如果报告显示有效果，您继续用工具，我绝不劝；如果没效果，我们再聊怎么补救——怎么样？"</div>
+
+<h4>◆ 全案代运营型客户话术</h4>
+<div class="script"><strong>话术：</strong>"X总，您找对人了。逆传播就是干这个的——您把生意做好，我们负责让AI替您说话。我们的全案是：6大AI平台全覆盖，150个核心关键词，信源全部是官方媒体，品牌推荐率做到70%以上，投喂后2周您就能看到变化。<br/><br/>
+合作流程也简单：您提供资料 → 我们做核心语料和内容 → 信源测算 → 投喂 → 每阶段给您汇报验收。新东方、松鼠跃动都是这么跟我们合作的。<br/><br/>
+费用是2万+/季度，现在签还能打8折，年框合作再免一个季度。我先按您的行业出个初步诊断方案，您看完再定，今天能给您。"</div>
+
+<h3>阶段四：价值呈现（诊断报告 + 差异化收口）</h3>
+<div class="script"><strong>话术：</strong>"X总，这是您的品牌AI诊断报告。三个数您重点看：第一，AI回答里您的品牌出现率；第二，您和竞品同时被问到时AI推荐谁；第三，您的负面/缺失信息有多少条。<br/><br/>
+您看，客户在AI里问'XX行业哪家好'，AI现在推荐的是您的竞品——这就是您丢掉的那部分客户。我们的方案就是把这个局面翻过来：用官方媒体信源重建您的AI形象，让AI的回答里处处是您，竞品对比时优先推荐您。"</div>
+
+<h3>阶段五：异议处理（六大高频异议）</h3>
+<table>
+<thead><tr><th>异议</th><th>应对话术</th></tr></thead>
+<tbody>
+<tr><td><strong>太贵了</strong></td><td>"X总，2万/季度摊下来一个月不到7000，一条获客线索都买不回来。而GEO做的是让AI持续推荐您——一次投入，AI帮您免费获客，这是复利。而且我们季度合作，效果不好您随时可以停。"</td></tr>
+<tr><td><strong>效果能保证吗</strong></td><td>"我们敢把品牌推荐率≥70%写进交付目标，行业里普遍只承诺60%。敢写这个数，是因为我们的信源质量和方法论撑得住。每阶段汇报您验收，数据您看得见。"</td></tr>
+<tr><td><strong>我先用工具试试</strong></td><td>"可以，但您先看看这份诊断报告里，摘星/旗引这类工具解决不了的信源权重问题。工具能发内容，但发在什么媒体、什么内容能被AI引用，这是我们的专业。试工具可以，别试太久——时间窗口是竞品的。"</td></tr>
+<tr><td><strong>听说有人做了没效果</strong></td><td>"对，行业失败率47%，我们专门分析过失败原因：一是信源滥竽充数（商业媒体、自媒体权重低），二是灌水内容被AI识别失效，三是不做信源测算。这三条恰恰是我们逆传播的流程里都卡死的。您也可以对比——我们只做官方媒体信源，这一条就淘汰了市面上大部分同行。"</td></tr>
+<tr><td><strong>要跟合伙人商量</strong></td><td>"明白，您把诊断报告和方案带过去。我可以补一句给合伙人：GEO不是投广告，是长期品牌资产，越早做AI对品牌的认知越早建立。您约个时间，我一起参加，合伙人有什么疑问我当面答。"</td></tr>
+<tr><td><strong>再考虑考虑</strong></td><td>"X总，考虑很正常。给您个参考：AI搜索的用户量每月都在涨，您的同行里已经有人在做GEO了——早一个月启动，AI对您品牌的认知就早一个月积累。这样，我先免费把诊断报告发您，您看着报告考虑，比空想更有依据。我下周三前给您个电话，行不行？"</td></tr>
+</tbody>
+</table>
+
+<h3>阶段六：促单成交</h3>
+<div class="script"><strong>话术：</strong>"X总，方案和诊断您都看到了，我建议就直接按季度启动——2周见效，一个季度您就能看到AI推荐位的变化。这个月签约8折，我给您把合同今天出出来。您资料提供过来，我们这周就排期开干。"</div>
+<div class="tip">📌 促单三要素：给出明确时间锚点（本周启动）、稀缺激励（本月8折）、降低启动门槛（资料提供即可启动）。</div>
+</div>
+
+<div class="card">
+<h2>四、客户常见问题FAQ（36问）</h2>
+<p style="color:var(--muted);font-size:13px;margin-bottom:12px">基于多轮真实客户沟通场景整理，按七大类别归档，覆盖价格、竞品对比、模式逻辑、效果验证、内容执行、团队公司、销售场景。点击问题展开答案。</p>
+
+<h3>4.1 价格与预算类</h3>
+<details class="faq"><summary>Q1：你们的价格太贵了，你们一个季度的费用相当于别家一个年的费用。</summary><p>不是贵，是模式完全不同。一两万一年的本质是系统工具：AI批量生成文章，一键发布到免费自媒体，发官方媒体需要额外付费。我们是全案代运营——品牌语义建模、核心语料撰写、官方媒体采买发布、月度监测校准，全部人工执行。系统工具卖的是算力，我们做的是品牌在AI中的认知资产。</p></details>
+<details class="faq"><summary>Q2：老板给的预算大概一年一万，你们能不能做？</summary><p>一年一万的预算，只能够系统工具的算力成本。那种模式就是AI批量生成文章→一键发到免费自媒体→效果靠运气。我们的模式是品牌语义建模+人工撰写+官方媒体投喂，成本结构完全不一样。但建议您可以让老板先验证系统工具的案例是否能被推荐，投喂的内容是什么样的，您对比后就知道啦。</p></details>
+<details class="faq"><summary>Q3：合作价格有什么优惠？年度合作能更优惠吗？</summary><p>我们可以申请折扣优惠，年度合作可以赠送一个季度，相当于付三个季度的费用享受四个季度的服务。这个力度已经是全年底价了。</p></details>
+<details class="faq"><summary>Q4：费用是一次支付完，还是预付一部分按效果付尾款？</summary><p>年度合作是一次性支付。我们理解品牌方的顾虑，所以提供一个季度体验版（19800元/季度），先看效果再决定是否年付。</p></details>
+
+<h3>4.2 竞品对比类</h3>
+<details class="faq"><summary>Q5：友商说不限制关键词数量、不限制发布数量，你们为什么有限制？</summary><p>不限制本身就是最大的坑。关键词越多，内容越散，AI越难建立品牌认知——等于什么都没做。不限制发布数量而没有成本说明——意味着发布的是免费渠道（自媒体），算力成本都覆盖不了，怎么可能保证效果？我们限制数量，是因为每个关键词都要匹配高质量内容和权威渠道，成本透明。</p></details>
+<details class="faq"><summary>Q6：友商说一年服务了3000多家客户，你们呢？</summary><p>GEO行业从2026年3.15才开始爆发，不到一年3000家意味着每天新增8-9个付费客户——这在B2B服务领域几乎不可能，除非是系统工具的试用用户或者代理模式。我们不做这种数字包装。我们的客户续费率90%以上，服务品质是市场长期验证的。</p></details>
+<details class="faq"><summary>Q7：友商也说发权威媒体，也说有自研系统，也说质量好——区别在哪？</summary><p>每一家都会这么说，但关键看两点。第一，内容是人写的还是系统生成的？我们是人工撰写，大多数友商是系统AI批量生成。第二，媒体是真正的高权重官方媒体（中华网、中国网等），还是综合门户下的个人自媒体账号？他说的是"综合门户"，但综合门户下既有官方媒体频道，也有个人注册的自媒体——AI只认前者。要他拿出媒体链接清单验证就知道了。</p></details>
+<details class="faq"><summary>Q8：友商说也包含自媒体或免费媒体，根据数据分析结果来定。怎么反驳？</summary><p>数据分析结果是可以说得很漂亮——因为自媒体发布成本几乎为零，铺了海量内容，监测数据肯定好看。但问题是：这些免费自媒体的内容AI真的引用了吗？用户能看到吗？我们不用自媒体，不是因为做不了（我们有几十万家自媒体资源），而是因为GEO优化中自媒体实际推荐价值占比低。用高权重官方媒体成本高，但效果可验证。换句话来说我能用更好的权威官方媒体为什么要选择低权威低权重的自媒体呢？</p></details>
+<details class="faq"><summary>Q9：怎么区分媒体级别和效果？B2B和B2C的媒体策略有什么不同？</summary><p>B2B行业需要更高权重的媒体——因为决策链条长，AI在推荐时会天然倾向引用新华网、中国食品安全网、行业垂直官方媒体等。B2C可以混用一些综合门户。关键指标是：这条媒体链接是不是正规新闻源？有没有互联网新闻信息服务许可证？AI引用权重有多高？我们投的媒体是经过五维标签体系筛选的，包含行业垂直官方媒体。</p></details>
+<details class="faq"><summary>Q10：你们能做中国食品安全网这种级别的媒体吗？</summary><p>能。我们投放的官方媒体包括综合类（新华网、中华网、中国新闻网等）和行业垂直类（比如医疗行业的39健康网、寻医问药、妙手医生等）。行业垂直官方媒体的AI权重往往比综合门户更高，因为更精准。</p></details>
+<details class="faq"><summary>Q11：315曝光过GEO公司（比如东莞力量），你们怎么看？合规风险怎么处理？</summary><p>315曝光说明行业确实鱼龙混杂。那些被曝光的基本都是系统工具批量生成虚假宣传内容。我们的应对：第一，所有内容人工撰写并经过审核，不涉及虚假宣传。第二，合同明确约定内容合规责任。第三，建议品牌方自己的法务/品牌部门逐条审核内容后再发布。品牌方和服务方都有责任，但先被罚的是品牌方——所以我们比品牌方更在意内容合规。</p></details>
+<details class="faq"><summary>Q12：如果出现虚假宣传，品牌方被罚20万，服务方怎么办？</summary><p>法律规定：先罚品牌方，然后品牌方向服务方追诉合同违约责任。所以我们合同里明确约定内容合规审核条款，并且建议所有品牌方自己审核内容后再发布。这也是我们坚持人工撰写+多轮审核的原因——系统工具批量生成的内容，谁去审核？</p></details>
+
+<h3>4.3 模式与逻辑类</h3>
+<details class="faq"><summary>Q13：GEO核心语料和关键词有什么区别？</summary><p>关键词是百度SEO时代的逻辑——把品牌词/行业词大量植入文章，靠铺量博取搜索收录。AI搜索和百度不一样：AI会交叉验证多个信源，判断信息的可信度。GEO核心语料是围绕品牌定位、产品优势、应用场景、用户常见问题，制作一份统一、准确、结构化、适合AI理解与引用的品牌内容资产。不是比谁文章多，而是比谁让AI"相信"。</p></details>
+<details class="faq"><summary>Q14：系统工具到底是什么？为什么市面80-90%的系统都是源码贴牌？</summary><p>系统工具就是一个封装好的软件——一键绑定自媒体账号→AI生成文章→一键群发。因为GEO行业爆发快，很多人买一套源码贴上自己的品牌就开始卖，所以80-90%长得差不多。源码贴牌的问题是：模板固定、内容同质化、只能发免费自媒体、无法对接官方媒体API。所以效果有限，竞争越激烈越难保证。</p></details>
+<details class="faq"><summary>Q15：系统工具做和你们做，对品牌方最终效果的差异是什么？</summary><p>系统工具模式：用AI批量生成同质化内容→发布到低权重免费渠道→短期内可能有些效果→但随着AI模型更新和竞争加剧，效果越来越不稳定。我们模式：品牌语义建模→人工撰写差异化核心语料→官方高权重媒体发布→月度监测+动态校准→推荐稳定且持续累积。系统工具是吃快餐，我们是建地基——地基不会因为合作结束就消失。</p></details>
+<details class="faq"><summary>Q16：怎么保证长期效果？合作结束后会不会就没了？</summary><p>我们第一季度的重点是品牌语义建模和权威信源铺设——这是品牌的AI认知地基。这部分内容在官方媒体上发布后，即使不再续费，也会长期被AI引用。后续季度是在地基上持续加固和拓展。这就是为什么我们的续费率能到90%——因为品牌方看到了持续累积的效果。</p></details>
+<details class="faq"><summary>Q17：全部投喂官方媒体，不用自媒体？为什么？</summary><p>自媒体（公众号、百家号、头条号等）和官方媒体的区别：AI几乎不引用自媒体内容，因为来源不可信、质量不稳定。官方媒体（新华网、中华网、中国新闻网等）是AI最高权重信源。我们不是做不了自媒体（有几十万家资源），而是不用——因为没用。GEO优化的核心是让AI引用和推荐，AI不引用的渠道投了等于白投。</p></details>
+
+<h3>4.4 效果与验证类</h3>
+<details class="faq"><summary>Q18：稳定推荐是什么意思？是每次都能被推荐吗？</summary><p>不是100%，没有人能做到100%。我们承诺核心搜索词在六大平台的稳定推荐率不低于70%。意思是用户提出行业核心搜索词时，品牌被AI推荐的概率不低于70%。</p></details>
+<details class="faq"><summary>Q19：70%的推荐率怎么验证？</summary><p>两种方式：我们用自研监测系统定期输出品牌AI扫描报告；品牌方自己随时去六大平台搜索验证——我们欢迎现场验证。</p></details>
+<details class="faq"><summary>Q20：效果不好怎么办？能退钱吗？</summary><p>提供一个季度体验版（19800元/季度），效果品牌方自己看——品牌有没有在AI中被收录、信息准不准确、排名有没有提升。零效果随时停，无违约金。90%体验客户续费。</p></details>
+
+<h3>4.5 内容与执行类</h3>
+<details class="faq"><summary>Q21：你们一个季度交付多少篇内容？</summary><p>基础版不少于100条官方媒体发布。但数量不是核心——核心是每条内容围绕品牌语义模型撰写，统一、准确、结构化。一条高质量内容的价值远大于十条AI批量生成的水文。</p></details>
+<details class="faq"><summary>Q22：你们是人写的还是AI写的？</summary><p>策略、品牌语义建模、核心语料撰写——全人工。只有信息采集和结果监测用自研系统辅助。为什么不用AI写？因为用AI写的内容去喂AI，等于两个AI互相读——这种内容在AI搜索中没有权威性。AI最认的是人写的、有观点、有数据、有来源的专业内容。</p></details>
+<details class="faq"><summary>Q23：AI写的和人写的到底哪个好？</summary><p>不做主观评价。但事实是：AI生成的内容是同质化的——同一提示词给不同系统工具，输出内容大同小异。而AI大模型在交叉验证信息时，会天然倾向引用有人工痕迹、有独特观点、有数据支撑的内容。最终效果品牌方自己对比验证。</p></details>
+<details class="faq"><summary>Q24：发了文可以给我们链接吗？</summary><p>可以。每条内容都提供发布链接和平台截图。季度结案报告也汇总全部发布清单。内容可以逐条经品牌方审核后再发布。</p></details>
+<details class="faq"><summary>Q25：你们能覆盖哪些AI平台？</summary><p>六大主流平台全覆盖：DeepSeek、豆包、元宝（腾讯）、通义千问（阿里）、文心一言（百度）、KIMI（月之暗面）。品牌语义模型针对每个平台的推荐偏好做差异化适配。</p></details>
+<details class="faq"><summary>Q26：UGC是什么？你们用UGC吗？</summary><p>UGC是用户生成内容——个人自媒体和企业自媒体都属于这个范畴。我们不用。因为AI大模型在构建答案时优先引用PGC（专业生成内容），即官方媒体和有公信力的机构发布的内容。UGC的AI权重极低。</p></details>
+
+<h3>4.6 团队与公司类</h3>
+<details class="faq"><summary>Q27：你们团队多少人？公司多久了？</summary><p>深圳团队目前不到50人。公司核心业务是国内新媒体首发和新媒体代运营，GEO业务是近年重点发展的新业务线。公司位置在前海科兴科学园，工商信息一致可查。</p></details>
+<details class="faq"><summary>Q28：老板觉得GEO公司都是新成立来蹭风口的，水深。怎么说服？</summary><p>确实水深——315都曝光过GEO公司。但正因为行业乱，品牌方才更需要选对人。我们的区别：第一，不是新公司，核心团队有多年媒体和品牌服务经验。第二，有可验证的真实客户案例和AI搜索截图。第三，公司主体和办公地址可实地考察。建议先面谈看案例，眼见为实。</p></details>
+<details class="faq"><summary>Q29：公司之前是做什么的？不是突然转行做GEO吧？</summary><p>公司基本盘是国内新媒体首发和代运营，合作官方媒体资源一万多家。GEO业务是基于原有媒体资源和品牌服务经验的自然延伸，不是突然转行。</p></details>
+
+<h3>4.7 销售场景类</h3>
+<details class="faq"><summary>Q30：怎么说服老板？面谈需要准备什么？</summary><p>面谈重点准备三样东西：第一，系统工具模式和我们人工模式的实际效果差异对比（可以提前准备客户案例截图）。第二，之前合作品牌客户的真实反馈和口碑。第三，你们品牌自己的行业案例——老板最关心的是"我们行业有没有人做过、效果怎么样"。我们这边会带上完整的案例材料过来。</p></details>
+<details class="faq"><summary>Q31：为什么在AI上搜GEO服务商，找不到你们？</summary><p>这正是我们专业的地方。我们是做GEO优化的，不是做排名的。如果我们在GEO服务商这个词上疯狂做排名，那就相当于拿石头砸自己脚——平台会认为我们在用同样的手法给自己优化，反而降低我们的可信度。我们看重的是品牌在全AI生态中的稳定认知，不是某一个词上的自我包装。</p></details>
+<details class="faq"><summary>Q32：你们和系统工具模式到底怎么区分？有什么直观的判断方法？</summary><p>四个判断维度：一看内容生产方式——向他们要已经发布过的客户案例文章链接，看是AI生成的还是人工写的（AI生成的内容有明显模板痕迹）。二看发布渠道——要他们列出发过的媒体清单，看是官方新闻媒体还是自媒体账号。三看团队——问他们团队有多少人，如果不到10个人能服务几百家客户，一定是系统工具。四看价格——低于市场平均价的，成本根本支撑不了人工服务。</p></details>
+<details class="faq"><summary>Q33：客户在合作前已经找过系统工具了，内容质量很差，怎么说清楚我们的价值？</summary><p>直接给他们看系统工具发过的内容和我们的内容对比。系统工具的典型特征：模板化开头、关键词硬塞、段落不连贯。我们人工撰写的内容：有行业观点、有数据支撑、结构完整。最重要的不是对比内容本身，而是让品牌方去AI搜索验证——哪一家的内容被AI真正引用了。</p></details>
+<details class="faq"><summary>Q34：老板觉得GEO服务商都差不多，怎么破？</summary><p>让老板做一个小测试。去DeepSeek搜一下自己的行业核心搜索词，看看AI推荐了哪些品牌。然后分别找系统工具和我们的客户案例去搜索验证——被AI真正稳定推荐的品牌，背后一定不是系统工具做出来的。眼见为实，效果会说话。</p></details>
+<details class="faq"><summary>Q35：怎么让老板理解这不是第二个百度竞价？</summary><p>百度竞价是花钱买点击——停了就没了。GEO是品牌在AI搜索中的认知资产——AI是通过交叉验证多个信源来判断谁是可信品牌的。一个在医院被研究过、有论文、有临床数据的药，和一个只在百度投广告的药，你信哪个？AI也是一样的逻辑。一个品牌在官方媒体有真实报道、在行业平台有专业内容、在用户中有真实口碑——AI自然信任它、推荐它。这不是花钱买来的，是建起来的。</p></details>
+<details class="faq"><summary>Q36：竞品报价几百万的也有，你们在什么价格区间？为什么不能更便宜？</summary><p>GEO行业确实价格混乱——从几千的系统工具到几百万的4A公司方案都有。我们的定位是"专业全案代运营"，处于中高端区间。价格决定了服务深度：几千块只能买到系统工具的输出量，几百万买的是全套品牌战略咨询。我们的价格对应的是——品牌语义建模+人工核心语料撰写+官方媒体采买+六大平台全覆盖+月度监测校准。这些服务每一项都有明确的成本和交付标准。</p></details>
+</div>
+
+<div class="card">
+<h2>五、全案代运营交付标准（含季度实施规划）</h2>
+
+<h3>4.1 交付承诺</h3>
+<div class="metrics">
+<div class="metric"><div class="value">6</div><div class="label">大AI平台全覆盖</div></div>
+<div class="metric"><div class="value">150</div><div class="label">核心关键词/问题</div></div>
+<div class="metric"><div class="value">官方</div><div class="label">媒体信源（唯一）</div></div>
+<div class="metric"><div class="value">≥70%</div><div class="label">品牌推荐率</div></div>
+<div class="metric"><div class="value">2周</div><div class="label">首轮见效</div></div>
+</div>
+
+<h3>4.2 交付内容</h3>
+<table>
+<thead><tr><th>维度</th><th>标准内容</th></tr></thead>
+<tbody>
+<tr><td><strong>覆盖平台</strong></td><td>6大AI平台（含主流大模型搜索/对话入口）</td></tr>
+<tr><td><strong>信源矩阵</strong></td><td>全部官方媒体（综合类 + 行业垂直类），不做低权重商业媒体/自媒体灌水</td></tr>
+<tr><td><strong>交付成果</strong></td><td>品牌露出、竞品对比优化、品牌推荐率、转化引导信息</td></tr>
+<tr><td><strong>内容产出</strong></td><td>结构化品牌语料库 + 目标问题内容矩阵 + 信源投放 + 持续优化</td></tr>
+<tr><td><strong>效果验证</strong></td><td>监测系统追踪 + 周汇报截图 + 月度进度报告 + 季度总结报告</td></tr>
+<tr><td><strong>合作流程</strong></td><td>资料提供 → 核心语料 → 做内容 → 信源测算 → 投喂 → 阶段性汇报和验收</td></tr>
+</tbody>
+</table>
+
+<h3>4.3 季度实施规划</h3>
+<p style="color:var(--muted);font-size:13px">达标率里程碑：首周启动 → 第一月50% → 第二月70% → 第三月70%+维持</p>
+<div class="milestone">
+<span class="ms">首周·启动策划</span><span class="ms-arrow">→</span>
+<span class="ms">M1·达标50%</span><span class="ms-arrow">→</span>
+<span class="ms">M2·达标70%</span><span class="ms-arrow">→</span>
+<span class="ms">M3·维持70%+</span>
+</div>
+
+<div class="phase">
+<h3>阶段一 · 启动与策划期 <span class="badge badge-accent">首周</span></h3>
+<div class="sub">把「品牌资料」变成「AI听得懂的语料」</div>
+<p><strong>核心目标：</strong>完成品牌/产品/业务资料梳理；明确品牌定位、核心优势及GEO优化方向；完成关键词与目标问题规划；分析品牌在各AI平台中的搜索现状。</p>
+<p><strong>甲方协同：</strong>品牌方提供基础资料包；确认核心业务、产品优势及目标问题。</p>
+<p><strong>交付结果：</strong>① 品牌资料整理归档 ②《GEO核心语料（结构化品牌知识库）》③《关键词及问题规划》④《品牌AI搜索现状》含截图归档。</p>
+<p><strong>验收标准：</strong>资料整理完成、核心语料确认完成、关键词规划确认完成、优化前现状归档完成。</p>
+</div>
+
+<div class="phase">
+<h3>阶段二 · 执行与优化期 <span class="badge badge-green">M1 第一个月</span></h3>
+<div class="sub">达标率 50%：让品牌进入AI推荐结果</div>
+<p><strong>核心目标：</strong>完成基础内容及信源布局；优化品牌目标问题进入AI推荐结果；重点优化核心目标问题的AI推荐表现；持续监测问题达标情况并调整策略。</p>
+<p><strong>甲方协同：</strong>首批内容初稿完成（一般3篇）；品牌方审核人员确认稿件内容；后续按已确认语料及内容方向执行。</p>
+<p><strong>交付结果：</strong>① 目标问题整体达标率阶段性达50%左右 ② 品牌类问题在AI回答中与资料基本一致 ③ 转化层信息与品牌方信息一致 ④ 周汇报AI平台收录截图 ⑤ 月度进度报告。</p>
+<p><strong>验收标准：</strong>监测系统查看达标进度；对已优化问题AI抽检；目标问题词整体推荐达50%以上；查看进度报告。</p>
+</div>
+
+<div class="phase">
+<h3>阶段二 · 执行与优化期 <span class="badge badge-green">M2 第二个月</span></h3>
+<div class="sub">达标率 70%：从「被推荐」到「被优先推荐」</div>
+<p><strong>核心目标：</strong>集中提升目标问题整体达标率；强化品牌优势、应用场景和推荐理由；针对未达标平台及问题持续调整优化。</p>
+<p><strong>甲方协同：</strong>M1阶段完成并持续优化；甲方可通过主流AI平台参与阶段性效果抽检。</p>
+<p><strong>交付结果：</strong>① 目标问题整体达标率达70%及以上 ② 目标问题在各大AI平台的推荐及稳定性持续提升 ③ 周汇报收录截图 ④ 月度优化进度报告。</p>
+<p><strong>验收标准：</strong>目标关键词推荐达70%以上；对已优化问题AI抽检；检查品牌推荐理由及信息表述准确；查看达标进度报告。</p>
+</div>
+
+<div class="phase">
+<h3>阶段三 · 维护与总结期 <span class="badge badge-green">M3 第三个月</span></h3>
+<div class="sub">达标率 70%+：稳住基本盘，交季度答卷</div>
+<p><strong>核心目标：</strong>持续优化维护目标问题的推荐率；对推荐波动、信息偏差及平台差异进行动态调整；完成季度总结报告及下一季度优化建议。</p>
+<p><strong>甲方协同：</strong>M2阶段完成并持续优化；甲方可全程参与问题搜索与效果验收。</p>
+<p><strong>交付结果：</strong>① 维护目标问题整体达标率达70%以上 ② 周汇报收录截图 ③ 系统持续监测达标情况 ④《季度总结报告及下季度优化建议》。</p>
+<p><strong>验收标准：</strong>以目标问题整体达标率为主要标准；结合监测系统数据验收；随机抽取目标问题AI搜索验证；完成季度总结报告验收。</p>
+</div>
+
+<div class="tip">📌 本计划为季度整体规划，具体优化节奏将根据 AI 平台更新、品牌信息变化及目标问题达标情况动态调整，不影响双方约定的季度整体优化目标。</div>
+
+<h3>4.4 交付签约话术（全案代运营型）</h3>
+<div class="script"><strong>话术：</strong>"X总，跟您说一下我们的交付方式——不是一锤子买卖，是按季度滚动推进、每个阶段都能验收的。<br/><br/>
+第一个星期我们把您的品牌资料梳理成 AI 听得懂的语料库，把关键词和要抢的推荐位都规划清楚，您能看到一份《品牌AI搜索现状》，就是您现在在 AI 里的真实水位。<br/><br/>
+第一个月目标问题达标率做到 50%，第二个月 70%，第三个月稳住 70% 以上——每个阶段都有周汇报截图和月度报告，您随时可以在 AI 上抽验。季度结束我们出一份总结报告和下季度的优化建议。<br/><br/>
+也就是说，效果不是我们嘴上说，是每个月您自己能在 AI 里搜出来、看得见的数字。"</div>
+
+<h3>4.5 甲方协同清单</h3>
+<table>
+<thead><tr><th>阶段</th><th>客户需配合</th></tr></thead>
+<tbody>
+<tr><td><strong>启动策划期</strong></td><td>提供品牌基础资料包；确认核心业务、产品优势、目标问题</td></tr>
+<tr><td><strong>M1</strong></td><td>审核首批3篇内容初稿；确认后续内容方向</td></tr>
+<tr><td><strong>M2</strong></td><td>参与阶段性效果抽检</td></tr>
+<tr><td><strong>M3</strong></td><td>参与问题搜索与效果验收</td></tr>
+</tbody>
+</table>
+<p style="font-size:13px;color:var(--muted);margin-top:8px">客户配合成本极低：只需提供资料、确认方向、参与抽检，其余全部由逆传播50人团队执行。</p>
+</div>
+
+<div class="card">
+<h2>六、落地执行建议</h2>
+<table>
+<thead><tr><th>动作</th><th>内容</th><th>时间</th></tr></thead>
+<tbody>
+<tr><td><strong>免费诊断工具</strong></td><td>用现自研系统AI品牌诊断模块【https://control.zhihuigrowth.com】（扫描6大AI平台品牌5G现状），作为所有客户的第一触点</td><td>1周内</td></tr>
+<tr><td><strong>话术培训</strong></td><td>将本话术流固化为销售SOP，团队话术演练，重点练阶段二"分型判断"和阶段五"异议处理"</td><td>2周内</td></tr>
+<tr><td><strong>引流内容矩阵</strong></td><td>持续发布"GEO科普+免费诊断案例"内容（视频号+朋友圈），吸引三类客户并预埋"服务≠系统"认知</td><td>持续</td></tr>
+<tr><td><strong>分层产品包</strong></td><td>基础版（1.2-1.5万/季）/标准版（2万+/季）/旗舰版（3.5-5万/季），让工具型客户有中间选项可承接</td><td>1周内定稿</td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+<footer>逆传播AIGEO 全案代运营方案 · 客户匹配 × 话术流 × 季度实施规划 · 2026年8月18日</footer>
+</body>
+</html>
