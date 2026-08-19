@@ -58,6 +58,18 @@ tr:hover td { background:#f8fafc; }
 .badge { display:inline-block; padding:2px 10px; border-radius:12px; font-size:12px; font-weight:600; }
 .badge-green { background:#dcfce7; color:#166534; }
 .badge-accent { background:#ffedd5; color:#9a3412; }
+.search-bar { position:sticky; top:0; z-index:100; background:#fff; border-bottom:1px solid var(--border); box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+.search-inner { position:relative; max-width:720px; margin:0 auto; padding:10px 16px; }
+.search-inner input { width:100%; padding:10px 40px 10px 14px; font-size:14px; border:1.5px solid var(--border); border-radius:8px; outline:none; background:#fff; }
+.search-inner input:focus { border-color:var(--accent); }
+.search-clear { position:absolute; right:28px; top:50%; transform:translateY(-50%); cursor:pointer; color:#94a3b8; font-size:14px; display:none; }
+.search-results { position:absolute; left:16px; right:16px; top:calc(100% - 4px); background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 10px 28px rgba(0,0,0,0.14); max-height:60vh; overflow-y:auto; display:none; }
+.search-results .sr-item { padding:9px 14px; cursor:pointer; font-size:13px; border-bottom:1px solid #f1f5f9; line-height:1.5; }
+.search-results .sr-item:last-child { border-bottom:none; }
+.search-results .sr-item:hover { background:#fff7ed; }
+.search-results .sr-item mark { background:#fed7aa; color:inherit; padding:0 2px; border-radius:2px; }
+.sr-tag { display:inline-block; min-width:34px; font-size:11px; color:var(--accent); font-weight:700; margin-right:8px; }
+h2,h3,h4,summary,p,td { scroll-margin-top:72px; }
 .faq { margin:6px 0; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
 .faq summary { cursor:pointer; font-weight:600; font-size:14px; padding:10px 14px; background:#f8fafc; list-style:none; }
 .faq summary::-webkit-details-marker { display:none; }
@@ -74,6 +86,13 @@ footer { text-align:center; color:var(--muted); padding:20px; font-size:12px; }
 <h1>逆传播AIGEO 全案代运营方案</h1>
 <p>三类客户匹配 × 完整话术流 × 季度实施规划 · 2026年8月</p>
 </header>
+<div class="search-bar">
+<div class="search-inner">
+<input id="search-input" type="text" placeholder="搜索：关键词 / 客户问题 / 话术 / 价格…（回车跳转到第一个结果）" autocomplete="off" />
+<span class="search-clear" id="search-clear">✕</span>
+<div class="search-results" id="search-results"></div>
+</div>
+</div>
 <div class="container">
 
 <div class="card">
@@ -360,5 +379,90 @@ Q5："这件事在您公司里，是您拍板，还是需要合伙人商量？�
 
 </div>
 <footer>逆传播AIGEO 全案代运营方案 · 客户匹配 × 话术流 × 季度实施规划 · 2026年8月18日</footer>
+<script>
+(function(){
+  var input = document.getElementById('search-input');
+  var box = document.getElementById('search-results');
+  var clearBtn = document.getElementById('search-clear');
+  var items = [];
+  document.querySelectorAll('h2,h3,h4,summary,p,td').forEach(function(el){
+    if (el.closest('.search-bar')) return;
+    var t = (el.textContent || '').trim();
+    if (t.length >= 2) items.push({ el: el, text: t });
+  });
+  function tagOf(el){
+    var t = el.tagName.toLowerCase();
+    if (t === 'summary') return 'FAQ';
+    if (t === 'h2' || t === 'h3' || t === 'h4') return '标题';
+    if (t === 'td') return '表格';
+    return '内容';
+  }
+  function esc(s){ return s.replace(/[&<>\"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]; }); }
+  function escapeRegExp(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function doSearch(){
+    var q = input.value.trim();
+    box.innerHTML = '';
+    clearBtn.style.display = q ? 'block' : 'none';
+    if (!q){ box.style.display = 'none'; window.__hits = []; return; }
+    var ql = q.toLowerCase();
+    var hits = [];
+    for (var i = 0; i < items.length && hits.length < 20; i++){
+      var idx = items[i].text.toLowerCase().indexOf(ql);
+      if (idx >= 0){
+        var s = Math.max(0, idx - 18);
+        var e = Math.min(items[i].text.length, idx + q.length + 45);
+        var snip = (s > 0 ? '…' : '') + items[i].text.slice(s, e) + (e < items[i].text.length ? '…' : '');
+        hits.push({ el: items[i].el, tag: tagOf(items[i].el), snip: snip });
+      }
+    }
+    window.__hits = hits;
+    if (!hits.length){
+      box.style.display = 'block';
+      box.innerHTML = '<div class="sr-item" style="color:#888">没有匹配内容，换个词试试</div>';
+      return;
+    }
+    var re = new RegExp(escapeRegExp(q), 'gi');
+    var html = '';
+    hits.forEach(function(h, i){
+      var snipHtml = esc(h.snip).replace(re, '<mark>$&</mark>');
+      html += '<div class="sr-item" data-i="' + i + '"><span class="sr-tag">' + h.tag + '</span>' + snipHtml + '</div>';
+    });
+    box.innerHTML = html;
+    box.style.display = 'block';
+    Array.prototype.forEach.call(box.querySelectorAll('.sr-item'), function(node){
+      node.addEventListener('click', function(){ jumpTo(parseInt(node.getAttribute('data-i'), 10)); });
+    });
+  }
+  function jumpTo(i){
+    var h = window.__hits && window.__hits[i];
+    if (!h) return;
+    var el = h.el;
+    var d = el;
+    while (d && d.tagName !== 'DETAILS') d = d.parentElement;
+    if (d) d.open = true;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var oldBg = el.style.background, oldT = el.style.transition;
+    el.style.transition = 'background 0.4s';
+    el.style.background = '#ffedd5';
+    setTimeout(function(){ el.style.background = oldBg; el.style.transition = oldT; }, 1600);
+    box.style.display = 'none';
+    input.value = '';
+    clearBtn.style.display = 'none';
+  }
+  input.addEventListener('input', doSearch);
+  input.addEventListener('keydown', function(ev){
+    if (ev.key === 'Enter'){
+      ev.preventDefault();
+      if (window.__hits && window.__hits.length) jumpTo(0);
+    } else if (ev.key === 'Escape'){
+      box.style.display = 'none';
+      input.value = '';
+      clearBtn.style.display = 'none';
+    }
+  });
+  clearBtn.addEventListener('click', function(){ input.value = ''; box.style.display = 'none'; clearBtn.style.display = 'none'; input.focus(); });
+  document.addEventListener('click', function(ev){ if (!ev.target.closest('.search-bar')) { box.style.display = 'none'; } });
+})();
+</script>
 </body>
 </html>
