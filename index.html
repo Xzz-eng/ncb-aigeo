@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>逆传播AIGEO 销售SOP（双业务线：系统工具·生态合伙人 + 全案代运营）</title>
+<title>逆传播AIGEO 商务作战手册（系统工具产品手册 × 销售SOP双业务线）</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:"Microsoft YaHei","PingFang SC",sans-serif; background:#F9FAFB; color:#1F2937; line-height:1.75; padding:32px 16px; }
@@ -61,6 +61,27 @@
   .faq p { padding:10px 14px; font-size:13.5px; margin:0; background:#fff; }
   .faq p::before { content:"答："; color:#F76707; font-weight:700; }
   .footer { text-align:center; color:#9CA3AF; font-size:12px; margin-top:36px; }
+  /* 产品手册补充样式 */
+  .tag { display:inline-block; background:#F76707; color:#fff; font-size:11px; padding:2px 8px; border-radius:4px; margin-right:4px; vertical-align:1px; }
+  .tag-green { background:#059669; }
+  .tag-purple { background:#7C3AED; }
+  .highlight { background:#FFF8E1; }
+  .highlight-green { background:#F0FDF4; }
+  .card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(235px,1fr)); gap:14px; margin:14px 0; }
+  .price-tag { font-size:22px; font-weight:700; color:#F76707; margin-bottom:4px; }
+  .price-tag .unit { font-size:14px; color:#6B7280; font-weight:400; }
+  .card .sub { font-size:12px; color:#6B7280; margin-bottom:10px; }
+  .card ul { list-style:none; font-size:13px; color:#1F2937; }
+  .card ul li { padding:3px 0; border-bottom:1px dashed #F3F4F6; }
+  .card ul li:last-child { border-bottom:none; }
+  .card ul li::before { content:"✓ "; color:#059669; font-weight:700; }
+  .notice { background:#FFF8E1; border-left:4px solid #F76707; padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:13px; }
+  .notice b { color:#D9480F; }
+  .pricing-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin:14px 0; }
+  .pricing-strip .cell { background:#fff; border-radius:10px; padding:14px 16px; box-shadow:0 1px 4px rgba(0,0,0,.06); border-top:4px solid #F76707; }
+  .pricing-strip .cell .name { font-size:13px; color:#6B7280; }
+  .pricing-strip .cell .price { font-size:20px; font-weight:700; color:#E8590C; margin-top:2px; }
+  .pricing-strip .cell .note { font-size:11.5px; color:#9CA3AF; margin-top:2px; }
   @media (max-width:640px){ .header { padding:26px 22px; } .header h1 { font-size:21px; } .kpi .item { min-width:140px; } }
 </style>
 </head>
@@ -68,8 +89,9 @@
 <div class="wrap">
 
 <div class="header">
-  <h1>逆传播AIGEO 销售 SOP · 双业务线</h1>
-  <p>业务线一：系统工具 → 生态合伙人&nbsp;&nbsp;|&nbsp;&nbsp;业务线二：全案代运营（高预算头部品牌）&nbsp;&nbsp;·&nbsp;&nbsp;2026年8月</p>
+  <h1>逆传播AIGEO 商务作战手册</h1>
+  <p>系统工具产品手册（套餐·功能·扣点·充值） × 销售SOP双业务线（生态合伙人 + 全案代运营）· 2026-08-31 合并版</p>
+  <span class="tag">工具 598 / 980 / 1,980 元/月</span>
   <span class="tag">生态合伙人 6,980 元/年</span>
   <span class="tag">全案代运营 29,800 元/季度起</span>
   <span class="tag">销售提成 终算 6%</span>
@@ -78,7 +100,7 @@
 
 <div class="search-bar">
 <div class="search-inner">
-<input id="search-input" type="text" placeholder="搜索：关键词 / 客户问题 / 话术 / 价格…（回车跳转到第一个结果）" autocomplete="off" />
+<input id="search-input" type="text" placeholder="搜索：关键词 / 客户问题 / 话术 / 价格 / 扣点…（回车跳转到第一个结果）" autocomplete="off" />
 <span class="search-clear" id="search-clear">✕</span>
 <div class="search-results" id="search-results"></div>
 </div>
@@ -93,6 +115,26 @@
 <span class="step">② 工具订阅（蓄水）</span><span class="arr">→</span>
 <span class="step dark">③ 全案代运营线</span>
 </div>
+
+<h3>〇.1 产品定价速览（报价口径，不可错）</h3>
+<div class="pricing-strip">
+  <div class="cell"><div class="name">体验版 · 工具订阅</div><div class="price">¥598<span style="font-size:13px;color:#9CA3AF">/月</span></div><div class="note">100 基础点 + 50 媒体信源点 · 1 品牌 ≤10 问题</div></div>
+  <div class="cell"><div class="name">PLUS 版 · 工具订阅</div><div class="price">¥980<span style="font-size:13px;color:#9CA3AF">/月</span></div><div class="note">300 基础点 + 200 媒体信源点 · 3 品牌 ≤100 问题</div></div>
+  <div class="cell"><div class="name">MAX 版 · 工具订阅</div><div class="price">¥1,980<span style="font-size:13px;color:#9CA3AF">/月</span></div><div class="note">1,000 基础点 + 500 媒体信源点 · 5 品牌 ≤500 问题</div></div>
+  <div class="cell"><div class="name">生态合伙人</div><div class="price">¥6,980<span style="font-size:13px;color:#9CA3AF">/年</span></div><div class="note">含 100 次品牌诊断 · 分成 40% + 10% + 8%</div></div>
+  <div class="cell"><div class="name">全案代运营</div><div class="price">¥29,800<span style="font-size:13px;color:#9CA3AF">/季起</span></div><div class="note">只服务高预算头部品牌 · 人工全量交付</div></div>
+</div>
+
+<h3>〇.2 线索分流判断（3 分钟内定型）</h3>
+<table>
+  <tr><th>客户说</th><th>型号</th><th>报价口径</th></tr>
+  <tr><td>"想试试 GEO / 预算有限 / 自己能不能做"</td><td>A 型</td><td rowspan="2" class="highlight"><b>系统工具</b><br>体验版 598/月 → Plus 980/月<br><span style="font-size:12px;color:var(--muted,#6B7280)">按月订阅，随时可升级；先跑 30 天看效果</span></td></tr>
+  <tr><td>"代运营太贵 / 预算几千 / 想自己运营"</td><td>B 型</td></tr>
+  <tr><td>"想拿代理 / 给本地企业做优化"</td><td>C 型</td><td class="highlight-green"><b>生态合伙人 6,980/年</b><br><span style="font-size:12px;color:#6B7280">含 100 次品牌诊断 + 拓新分成 40% + 基础点 10% + 信源点 8%</span></td></tr>
+  <tr><td>"多少钱一个季度 / 怎么合作 / 老板拍板要结果"</td><td>头部型</td><td><b>全案代运营 29,800/季度起</b>，走旗舰流程，不卖工具</td></tr>
+</table>
+<div class="quote"><b>分流铁律（3 分钟内定型）：</b>线索上来先问两句话——「您是自己品牌要做优化，还是想代理这个业务给别的企业做？」前者走工具订阅/代运营判断（看预算），后者直接进生态合伙人线。预算 3 万/季度以上且要结果的企业客户，直接走业务线二，<b>不得降级卖工具了事</b>。</div>
+
 <table>
   <tr><th>维度</th><th>业务线一 · 系统工具（生态合伙人）</th><th>业务线二 · 全案代运营</th></tr>
   <tr><td><b>卖什么</b></td><td>卖「商机 + 分钱体系」：一套能交付的 GEO 工具 + 持续分成</td><td>卖「确定性 + 省心」：人工全量交付，推荐结果可承诺</td></tr>
@@ -102,11 +144,237 @@
   <tr><td><b>成单关键</b></td><td>让对方相信「能赚钱」——收益模型算得清</td><td>让对方相信「有效果」——诊断报告 + 案例背书</td></tr>
   <tr><td><b>红线</b></td><td>不夸大分成收益、不承诺躺赚</td><td>预算不过线不硬推；效果承诺只按交付标准口径说</td></tr>
 </table>
-<div class="quote"><b>分流铁律（3 分钟内定型）：</b>线索上来先问两句话——「您是自己品牌要做优化，还是想代理这个业务给别的企业做？」前者走工具订阅/代运营判断（看预算），后者直接进生态合伙人线。预算 3 万/季度以上且要结果的企业客户，直接走业务线二，<b>不得降级卖工具了事</b>。</div>
 
-<h2>一、业务线一：系统工具 · 生态合伙人销售 SOP</h2>
+<h2>一、系统工具产品手册（卖什么）</h2>
 
-<h3>1.1 目标画像与资格筛选</h3>
+<h3>1.1 套餐版本总览</h3>
+<div class="card-grid">
+  <div class="card">
+    <h4 style="font-size:15px;margin-bottom:8px"><span class="tag">体验版</span>适合首次开展 GEO 优化的品牌</h4>
+    <div class="price-tag">¥598<span class="unit">/月</span></div>
+    <div class="sub">月付，灵活订阅 · 一次支付 ¥598</div>
+    <ul>
+      <li><b>100</b> 基础点 / 月 + <b>50</b> 媒体信源点 / 月</li>
+      <li><b>1</b> 个品牌，最多 <b>10</b> 个监测问题</li>
+      <li>1/3/7 天监测频率自选</li>
+      <li><b>1</b> 个子账号，<b>0</b> 个竞品</li>
+      <li>数据保存 <b>7</b> 天</li>
+      <li>在线支持</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4 style="font-size:15px;margin-bottom:8px"><span class="tag tag-green">PLUS 版</span>成长企业 · 持续运营团队 · 单品牌标准运营</h4>
+    <div class="price-tag">¥980<span class="unit">/月</span></div>
+    <div class="sub">月付，灵活订阅 · 一次支付 ¥980</div>
+    <ul>
+      <li><b>300</b> 基础点 / 月 + <b>200</b> 媒体信源点 / 月</li>
+      <li><b>3</b> 个品牌，最多 <b>100</b> 个监测问题</li>
+      <li>1/3/7 天监测频率自选</li>
+      <li><b>3</b> 个子账号，<b>3</b> 个竞品</li>
+      <li>数据保存 <b>60</b> 天</li>
+      <li>专属客服</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4 style="font-size:15px;margin-bottom:8px"><span class="tag tag-purple">MAX 版</span>成熟企业 · 专业市场团队 · 高频 GEO 运营</h4>
+    <div class="price-tag">¥1,980<span class="unit">/月</span></div>
+    <div class="sub">月付，灵活订阅 · 一次支付 ¥1,980</div>
+    <ul>
+      <li><b>1,000</b> 基础点 / 月 + <b>500</b> 媒体信源点 / 月</li>
+      <li><b>5</b> 个品牌，最多 <b>500</b> 个监测问题（账户合计）</li>
+      <li>1/3/7 天监测频率自选</li>
+      <li><b>5</b> 个子账号，<b>5</b> 个竞品</li>
+      <li>数据保存 <b>90</b> 天</li>
+      <li>客户成功经理</li>
+    </ul>
+  </div>
+  <div class="card" style="border:2px solid #F76707">
+    <h4 style="font-size:15px;margin-bottom:8px"><span class="tag">定制版</span>适合品牌中大型企业</h4>
+    <div class="price-tag" style="color:#059669">按需定价</div>
+    <div class="sub">根据企业需求量身定制</div>
+    <ul>
+      <li>更多监控问题查询</li>
+      <li>批量品牌诊断</li>
+      <li>AI 模型定制</li>
+      <li>产品 OEM 定制</li>
+      <li>API 接口输出</li>
+      <li>功能定制 + 全案代运营服务</li>
+    </ul>
+  </div>
+</div>
+<div class="notice">
+  <b>报价铁律：</b>三档工具以产品最新配置为准，只报价格和档位定位；不承诺推荐率数字；媒体信源发布按实际采购报价另付，销售必须提前讲清。
+</div>
+
+<h3>1.2 功能权益对比表</h3>
+<table>
+  <tr>
+    <th>权益项目</th><th>体验版</th><th>PLUS 版</th><th>MAX 版</th>
+  </tr>
+  <tr><td><b>支持周期</b></td><td>月付 / 季付 / 年付</td><td>月付 / 季付 / 年付</td><td>月付 / 季付 / 年付</td></tr>
+  <tr><td><b>月付基准价</b></td><td class="highlight">¥598</td><td class="highlight">¥980</td><td class="highlight">¥1,980</td></tr>
+  <tr><td><b>每月基础点</b></td><td>100 点</td><td>300 点</td><td>1,000 点</td></tr>
+  <tr><td><b>每月媒体信源点</b></td><td>50 点</td><td>200 点</td><td>500 点</td></tr>
+  <tr><td><b>品牌数量</b></td><td>1</td><td>3</td><td>5</td></tr>
+  <tr><td><b>问题监测数</b></td><td>≤10</td><td>≤100</td><td>≤500（账户合计）</td></tr>
+  <tr><td><b>六大 AI 模型</b></td><td>全部开放</td><td>全部开放</td><td>全部开放</td></tr>
+  <tr><td><b>监测频率</b></td><td>1/3/7 天自选</td><td>1/3/7 天自选</td><td>1/3/7 天自选</td></tr>
+  <tr><td><b>子账号</b></td><td>1</td><td>3</td><td>5</td></tr>
+  <tr><td><b>数据保存</b></td><td>7 天</td><td>60 天</td><td>90 天</td></tr>
+  <tr><td><b>竞品数量</b></td><td>0</td><td>3</td><td>5</td></tr>
+  <tr><td><b>内容创作</b></td><td>可用、扣点</td><td>可用、扣点</td><td>可用、扣点</td></tr>
+  <tr><td><b>自媒体发布</b></td><td>可用、扣点</td><td>可用、扣点</td><td>可用、扣点</td></tr>
+  <tr><td><b>API 接口</b></td><td>不可用</td><td>不可用</td><td>不可用</td></tr>
+  <tr><td><b>服务支持</b></td><td>在线支持</td><td>专属客服</td><td>客户成功经理</td></tr>
+</table>
+
+<h3>1.3 所有版本共同开放的系统功能</h3>
+<p style="font-size:13px;color:#6B7280;margin-bottom:10px">查看已有结果和基础设置不扣点，产生新的模型调用、采集、内容或发布动作时扣点。</p>
+<table>
+  <tr><th>系统功能模块</th><th>版本权限</th><th>查看已有结果（不扣点）</th><th>需要消耗点数的动作</th></tr>
+  <tr><td>品牌诊断分析</td><td style="color:#059669;font-weight:600">全部开放</td><td>查看历史诊断和已有结论</td><td>发起快检、六模型诊断、深度战略诊断</td></tr>
+  <tr><td>品牌知识库</td><td style="color:#059669;font-weight:600">全部开放</td><td>知识查看、人工编辑、分类和权限设置</td><td>AI 解析、OCR、去重、冲突检查、事实核验</td></tr>
+  <tr><td>问题监测设置</td><td style="color:#059669;font-weight:600">全部开放</td><td>新增、编辑、停用问题及频率设置</td><td>按设置执行新的模型监测和联网采集</td></tr>
+  <tr><td>AI 推荐及排名</td><td style="color:#059669;font-weight:600">全部开放</td><td>查看已有推荐率、排名和趋势</td><td>刷新模型结果、重新计算与 AI 解读</td></tr>
+  <tr><td>品牌舆情分析</td><td style="color:#059669;font-weight:600">全部开放</td><td>查看已有舆情结果和预警</td><td>发起新的舆情采集、错误信息和情感分析</td></tr>
+  <tr><td>信源引用分析</td><td style="color:#059669;font-weight:600">全部开放</td><td>查看已有信源、引用趋势和分布</td><td>刷新信源、竞品信源和引用缺口分析</td></tr>
+  <tr><td>文章引用分析</td><td style="color:#059669;font-weight:600">全部开放</td><td>查看已分析文章及历史引用</td><td>指定 URL 复测、收录巡检和新引用分析</td></tr>
+  <tr><td>AI 查询对话明细</td><td style="color:#059669;font-weight:600">全部开放</td><td>查看已有问答、模型回复和任务记录</td><td>新增查询、重新生成或切换模型查询</td></tr>
+  <tr><td>数据导出报告</td><td style="color:#059669;font-weight:600">全部开放</td><td>每月基础导出与标准报告免费额度</td><td>超额导出、AI 解读报告和专项报告</td></tr>
+  <tr><td>GEO 内容创作</td><td style="color:#059669;font-weight:600">全部开放</td><td>查看、编辑和管理已有内容</td><td>选题、大纲、文章、审核、改编均扣点</td></tr>
+  <tr><td>内容分发同步</td><td style="color:#059669;font-weight:600">全部开放</td><td>账号绑定、渠道配置和发布记录查看</td><td>同步、定时发布、巡检、更新重发均扣点</td></tr>
+  <tr><td>媒体信源发布</td><td style="color:#059669;font-weight:600">全部开放</td><td>查看媒体目录、报价和发布记录</td><td>按媒体实际采购报价支付</td></tr>
+</table>
+
+<h3>1.4 扣点明细</h3>
+<h4 style="font-size:14px;color:#1F2937;margin:14px 0 4px">4.1 品牌诊断与策略（3 项）</h4>
+<table>
+  <tr><th>功能</th><th>扣点</th><th>计费单位 / 交付</th></tr>
+  <tr><td>单模型品牌快检</td><td class="highlight">1 点</td><td>1 品牌 / 次</td></tr>
+  <tr><td>5G 六模型品牌诊断</td><td class="highlight">30 点</td><td>1 品牌 / 次</td></tr>
+  <tr><td>GEO 问题词拓展</td><td class="highlight">0.5 点</td><td>1 次</td></tr>
+</table>
+<h4 style="font-size:14px;color:#1F2937;margin:14px 0 4px">4.2 AI 效果监测与验证（5 项）</h4>
+<table>
+  <tr><th>功能</th><th>扣点</th><th>计费单位 / 交付</th></tr>
+  <tr><td>单模型有引用监测</td><td class="highlight">1 点</td><td>1 问题 × 1 模型 × 1 次</td></tr>
+  <tr><td>六模型全景监测</td><td class="highlight">3 点</td><td>1 问题 × 六模型 × 1 次</td></tr>
+  <tr><td>单模型快速复测</td><td class="highlight">0.5 点</td><td>1 问题 × 1 模型 × 1 次</td></tr>
+  <tr><td>指定 URL 引用监测</td><td class="highlight">0.5 点</td><td>1 条 URL × 1 次</td></tr>
+  <tr><td>舆情与错误信息检查</td><td class="highlight">1 点</td><td>1 条 URL × 1 次</td></tr>
+</table>
+<h4 style="font-size:14px;color:#1F2937;margin:14px 0 4px">4.3 品牌知识库（1 项）</h4>
+<table>
+  <tr><th>功能</th><th>扣点</th><th>计费单位 / 交付</th></tr>
+  <tr><td>品牌知识库初始化</td><td class="highlight">30 点</td><td>1 品牌</td></tr>
+</table>
+<h4 style="font-size:14px;color:#1F2937;margin:14px 0 4px">4.4 套餐权益扩容（2 项）</h4>
+<table>
+  <tr><th>功能</th><th>扣点</th><th>计费单位 / 交付</th></tr>
+  <tr><td>品牌数量扩容</td><td class="highlight">50 点</td><td>1 个品牌</td></tr>
+  <tr><td>监测问题数扩容</td><td class="highlight">5 点</td><td>1 个监测问题</td></tr>
+</table>
+<h4 style="font-size:14px;color:#1F2937;margin:14px 0 4px">4.5 GEO 内容创作（2 项）</h4>
+<table>
+  <tr><th>功能</th><th>扣点</th><th>计费单位 / 交付</th></tr>
+  <tr><td>GEO 选题生成</td><td class="highlight">1 点</td><td>1 次</td></tr>
+  <tr><td>GEO 文章生成</td><td class="highlight">3 点</td><td>1 篇</td></tr>
+</table>
+<div class="notice">
+  <b>扣点规则说明：</b>套餐每月赠送的基础点用于抵扣上述消耗动作；点数用完后可通过点数充值包补充；媒体信源发布按实际采购报价另付，不走点数体系。
+</div>
+
+<h3>1.5 点数充值</h3>
+<p style="font-size:13px;color:#6B7280;margin-bottom:10px">固定套餐由平台统一配置，实付点数与赠送点数一次入账，余额长期累计。</p>
+<table>
+  <tr><th>充值套餐</th><th>到账点数</th><th>实付金额</th><th>赠送点数</th><th>计算明细</th><th>适用场景</th></tr>
+  <tr>
+    <td><b>轻量补充包</b></td>
+    <td style="font-size:18px;font-weight:700;color:#F76707">550 点</td>
+    <td>¥500</td>
+    <td>50 点</td>
+    <td>实付 500 点 + 赠送 50 点</td>
+    <td>适合临时补量</td>
+  </tr>
+  <tr>
+    <td><b>常用充值包</b></td>
+    <td style="font-size:18px;font-weight:700;color:#F76707">1,150 点</td>
+    <td>¥1,000</td>
+    <td>150 点</td>
+    <td>实付 1,000 点 + 赠送 150 点</td>
+    <td>适合日常运营</td>
+  </tr>
+  <tr>
+    <td><b>运营加速包</b><span class="tag">热销推荐</span></td>
+    <td style="font-size:18px;font-weight:700;color:#F76707">3,600 点</td>
+    <td>¥3,000</td>
+    <td>600 点</td>
+    <td>实付 3,000 点 + 赠送 600 点</td>
+    <td>适合持续监测与内容生产</td>
+  </tr>
+  <tr>
+    <td><b>高频运营包</b><span class="tag tag-purple">赠点最多</span></td>
+    <td style="font-size:18px;font-weight:700;color:#F76707">6,250 点</td>
+    <td>¥5,000</td>
+    <td>1,250 点</td>
+    <td>实付 5,000 点 + 赠送 1,250 点</td>
+    <td>适合高频持续运营</td>
+  </tr>
+</table>
+<div class="notice">
+  <b>充值规则：</b>支付方式为支付宝支付；点数余额长期累计，不清零；充值后即时到账，可用于抵扣所有扣点动作。
+</div>
+
+<h3>1.6 点数消耗示例（给销售参考）</h3>
+<table>
+  <tr><th>场景</th><th>动作组合</th><th>单次消耗</th><th>月消耗估算</th></tr>
+  <tr><td>新客户首次诊断</td><td>六模型品牌诊断(30) + 问题词拓展(0.5) + 知识库初始化(30)</td><td>60.5 点</td><td>—</td></tr>
+  <tr><td>单品牌日常监测（10个问题）</td><td>六模型全景监测 ×10(30) + 快速复测 ×5(2.5)</td><td>32.5 点/轮</td><td>约 130 点（4轮/月）</td></tr>
+  <tr><td>内容生产（10篇/月）</td><td>选题生成 ×10(10) + 文章生成 ×10(30)</td><td>40 点</td><td>40 点</td></tr>
+  <tr><td>舆情检查（20条URL）</td><td>舆情检查 ×20(20)</td><td>20 点</td><td>20 点</td></tr>
+  <tr class="highlight"><td><b>合计（单品牌月度）</b></td><td>—</td><td>—</td><td><b>约 190–250 点</b></td></tr>
+</table>
+<div class="notice">
+  <b>给销售的建议：</b>体验版 100 基础点/月对单品牌轻度运营刚好够用；PLUS 版 300 点适合 1–2 个品牌标准运营；MAX 版 1,000 点可支撑 3–5 个品牌高频运营 + 内容生产。客户问"够不够用"时直接报这个数。
+</div>
+
+<h3>1.7 工具订阅线的成交话术与异议（自用型客户）</h3>
+<div class="quote">
+  <b>开场（工具差异化）：</b>"X 总/同学，你肯定也刷到过摘星 AI、微盟启星这些——他们是把工具卖给企业，买完没人教，最后还是得签他们的代运营。我们反过来做：把给新东方、松鼠跃动做代运营的整套流程，直接装进工具交给你自己跑。你拿到的是《GEO 团体标准》制定参与者的方法论，不是网课二手货。"
+</div>
+<div class="quote">
+  <b>对 B 型（嫌代运营贵的）：</b>"29,800 一个季度你接受不了，完全没问题——那就自己动手。598/月拿走工具，先跑 30 天看效果，跑通了再考虑要不要升级。同样的方法论，自己动手，成本砍掉一大半。"
+</div>
+<div class="quote">
+  <b>对 C 型（要代理的）：</b>"你要给本地企业做 GEO，缺的就是能交付的工具和背书。生态合伙人三件事：6,980/年含 100 次品牌诊断、拓新分成 40%、基础点 10%、信源点 8%。你先用工具给自己跑出一个标杆案例，合伙人政策就撑得住你的报价。"
+</div>
+<table>
+  <tr><th>异议</th><th>应对</th></tr>
+  <tr><td>"跟摘星/珍岛的工具有什么区别？"</td><td>"他们的工具是给服务商做代运营用的，你买回来只会一键群发——发的都是免费自媒体，AI 权重最低。我们的工具里装的是三层问题库和信源分级逻辑，这是团标方法论，教的是'什么内容、发在哪、怎么验'。你可以让他拿出媒体清单验证，也欢迎拿我们的 SOP 对比。"</td></tr>
+  <tr><td>"598/月还是贵"</td><td>"代运营一个季度 29,800，工具 598/月摊到每天不到 20 块——你花的是一杯咖啡钱，买走的是整套 GEO 运营方法论。而且按月订阅，跑一个月不满意随时停，没有绑定风险。"</td></tr>
+  <tr><td>"自己能做出效果吗？"</td><td>"做代运营我们敢承诺推荐率 70%，因为那是人工全量交付。自助版我不跟你空口承诺数字，但 SOP 每一步都有交付物、每 30 天有对比截图——30 天后你自己看变化说话，没变化我们有人工诊断复盘兜底。"</td></tr>
+  <tr><td>"点数用完了怎么办？"</td><td>"套餐每月送基础点，轻度运营够用；不够用随时充值，500 元起充，余额长期累计不清零。而且充值有赠送——充 3,000 送 600，充 5,000 送 1,250，用得越多越划算。"</td></tr>
+</table>
+
+<h3>1.8 升级漏斗</h3>
+<div class="flow">
+  <span class="step" style="background:#9CA3AF">免费诊断</span><span class="arr">→</span>
+  <span class="step">体验版 598/月</span><span class="arr">→</span>
+  <span class="step">PLUS 980 / MAX 1,980</span><span class="arr">→</span>
+  <span class="step dark">生态合伙人 6,980/年</span><span class="arr">→</span>
+  <span class="step dark" style="background:#7C2D12">全案代运营 29,800/季</span>
+</div>
+<table>
+  <tr><th>升级信号</th><th>判断</th><th>动作</th></tr>
+  <tr><td>"我自己做着挺累的""公司其实有预算"</td><td>预算过线、时间不够</td><td>推全案代运营：官媒信源全包 + 推荐率≥70% + 2 周见效</td></tr>
+  <tr><td>"点数不够用 / 品牌多了"</td><td>运营规模扩大</td><td>引导升级 PLUS / MAX，或推荐充值包</td></tr>
+  <tr><td>"我朋友公司也想做""本地商家很多需求"</td><td>转介绍 / 渠道</td><td>推生态合伙人 6,980/年，给拓新分成政策</td></tr>
+  <tr><td>连续 2 个月无进展</td><td>执行力 / 理解卡点</td><td>触发人工诊断复核，向代运营或合伙人分流</td></tr>
+</table>
+
+<h2>二、业务线一：系统工具 · 生态合伙人销售 SOP</h2>
+
+<h3>2.1 目标画像与资格筛选</h3>
 <table>
   <tr><th>画像</th><th>识别特征</th><th>优先级</th></tr>
   <tr><td><b>存量服务商</b>（做建站/代账/广告/短视频代运营的）</td><td>手上有 10 家以上企业客户，正缺新产品增值</td><td>⭐⭐⭐ 最高</td></tr>
@@ -116,7 +384,7 @@
 </table>
 <div class="ok"><b>合格线（三条全满足才深谈）：</b>① 有真实企业客户资源或本地获客能力；② 能投入至少 1 人专职做 GEO 服务交付；③ 认可「先跑标杆案例再放大」的节奏。三条缺一的，先引导其成为工具订阅用户（598/980/1,980 元/月），养熟后再升级合伙人。</div>
 
-<h3>1.2 产品与分钱机制（报价口径，不可错）</h3>
+<h3>2.2 产品与分钱机制（报价口径，不可错）</h3>
 <div class="kpi">
   <div class="item"><div class="num">6,980 元/年</div><div class="lbl">生态合伙人年费（含 100 次品牌诊断）</div></div>
   <div class="item"><div class="num">40%</div><div class="lbl">拓新分成（合伙人卖出工具/产品的分佣）</div></div>
@@ -132,13 +400,13 @@
 </table>
 <div class="warn"><b>报价红线：</b>三个分成比例（40%/10%/8%）不得口头放大或改动，结算规则以签约合同为准；「躺赚」「保证月入 X 万」一类表述禁止出现。</div>
 
-<h3>1.3 销售流程（六步，目标 3–14 天闭环）</h3>
+<h3>2.3 销售流程（六步，目标 3–14 天闭环）</h3>
 <div class="timeline">
   <div class="titem">
     <h4>第 1 步 · 破冰定性质</h4>
     <div class="meta">Day 1 · 电话/微信 15 分钟</div>
     <p>开场定位差异化：别人卖工具给企业做代运营收割，我们把工具交给你、教你、还分你钱。</p>
-    <ul><li>必问三件事：手上多少企业客户？团队几人？为什么现在想加 GEO 业务？</li><li>判断是否过 1.1 合格线，不过线的转工具订阅线</li></ul>
+    <ul><li>必问三件事：手上多少企业客户？团队几人？为什么现在想加 GEO 业务？</li><li>判断是否过 2.1 合格线，不过线的转工具订阅线</li></ul>
   </div>
   <div class="titem">
     <h4>第 2 步 · 算账演示（胜负手）</h4>
@@ -156,7 +424,7 @@
     <h4>第 4 步 · 签约打款</h4>
     <div class="meta">Day 7–10</div>
     <p>6,980 元/年，代理档位当场可定。</p>
-    <ul><li>合同要点：年费、100 次诊断、40%/10%/8% 三个分成比例、结算周期</li><li>异议就地处理（见 1.5），价格谈判空间为零——用权益对冲，不用降价</li></ul>
+    <ul><li>合同要点：年费、100 次诊断、40%/10%/8% 三个分成比例、结算周期</li><li>异议就地处理（见 2.5），价格谈判空间为零——用权益对冲，不用降价</li></ul>
   </div>
   <div class="titem">
     <h4>第 5 步 · 交付交接</h4>
@@ -170,12 +438,12 @@
   </div>
 </div>
 
-<h3>1.4 核心话术</h3>
+<h3>2.4 核心话术</h3>
 <div class="quote"><b>开场（打差异化）：</b>"X总，你肯定见过摘星AI、微盟启星、珍岛这些——他们的工具是卖给企业的，买完没人教，最后客户还得签他们的代运营，钱让他们赚完了。我们反过来：把《GEO 团体标准》制定参与者跑出来的整套代运营流程装进工具，交给你，教会你，你卖给自己的客户，我们只拿小头。你不是在买软件，是在拿一个区域的生意。"</div>
 <div class="quote"><b>算账（对有客户资源的）：</b>"你手上 10 家企业客户对吧？每家先用品牌诊断免费体检一次——100 次诊断就在你年费里，够你把所有老客户扫一遍。扫完有意向的，转成工具订阅，你拿 40%；客户以后充值点数，基础点你拿 10%、信源点 8%，这是持续的收入，不是一锤子买卖。"</div>
 <div class="quote"><b>推首单（推 30 天标杆）：</b>"别一上来就铺 10 个客户。先用你自己或最熟的一个客户跑 30 天：诊断、问题词、语料、监测一个完整循环。跑通了，你拿着前后对比截图去谈后面的客户，比什么话术都硬。"</div>
 
-<h3>1.5 异议处理</h3>
+<h3>2.5 异议处理</h3>
 <table>
   <tr><th>异议</th><th>应对</th></tr>
   <tr><td>"6,980 有点贵"</td><td>"拆开看：100 次品牌诊断，市面上单次诊断收费 200–500 元，100 次就是 2 万–5 万的价值，年费已经回本了；工具代理资格和分成体系等于是送的。而且你第一个月用它激活老客户，拓新分成很快就能覆盖年费。"</td></tr>
@@ -185,9 +453,9 @@
   <tr><td>"你们会不会绕开我直接做我的客户"</td><td>"不会，也没必要——你们的客户你们交付，我们赚的是工具和点数的钱，你越做大我们越省销售成本，这是利益绑定，不是竞争关系。合同里客户归属写清楚。"</td></tr>
 </table>
 
-<h2>二、业务线二：全案代运营销售 SOP</h2>
+<h2>三、业务线二：全案代运营销售 SOP</h2>
 
-<h3>2.1 客户准入门槛（不过线不接）</h3>
+<h3>3.1 客户准入门槛（不过线不接）</h3>
 <table>
   <tr><th>门槛项</th><th>标准</th></tr>
   <tr><td><b>预算</b></td><td>≥ 29,800 元/季度，且可接受按季度续投（全年预算 12 万+ 更佳）</td></tr>
@@ -197,12 +465,12 @@
 </table>
 <div class="warn"><b>两条不许：</b>①预算不足的客户不得硬推进代运营（转工具线留住）；②过了线的头部客户不得为图省事降级卖工具了事——高客单交付是公司的利润锚。</div>
 
-<h3>2.2 销售流程（七步，周期 2–6 周）</h3>
+<h3>3.2 销售流程（七步，周期 2–6 周）</h3>
 <div class="timeline">
   <div class="titem">
     <h4>第 1 步 · 线索初筛</h4>
     <div class="meta">Day 1 · 15 分钟</div>
-    <ul><li>四问定型：行业与体量？预算区间？谁拍板？现在 AI 平台上搜得到你们吗？</li><li>过 2.1 门槛的进全案流程；不过线的当场分流工具线，态度不变</li></ul>
+    <ul><li>四问定型：行业与体量？预算区间？谁拍板？现在 AI 平台上搜得到你们吗？</li><li>过 3.1 门槛的进全案流程；不过线的当场分流工具线，态度不变</li></ul>
   </div>
   <div class="titem">
     <h4>第 2 步 · 免费品牌诊断（钩子）</h4>
@@ -222,7 +490,7 @@
   <div class="titem">
     <h4>第 5 步 · 商务谈判</h4>
     <div class="meta">Day 12–25</div>
-    <ul><li>首轮讲方案：只讲客户能得到什么，不讲我们多辛苦</li><li>异议处理见 2.4；价格守住 29,800 底线，可调整的是服务范围（增减问题词/信源组合），不是单价</li><li>竞争对手比稿时，打「团标制定参与者 + 人工全量交付 + 交付物清单」三张牌</li></ul>
+    <ul><li>首轮讲方案：只讲客户能得到什么，不讲我们多辛苦</li><li>异议处理见 3.4；价格守住 29,800 底线，可调整的是服务范围（增减问题词/信源组合），不是单价</li><li>竞争对手比稿时，打「团标制定参与者 + 人工全量交付 + 交付物清单」三张牌</li></ul>
   </div>
   <div class="titem">
     <h4>第 6 步 · 签约与启动</h4>
@@ -236,13 +504,13 @@
   </div>
 </div>
 
-<h3>2.3 核心话术</h3>
+<h3>3.3 核心话术</h3>
 <div class="quote"><b>开场（立差异化）：</b>"X总，市面上的 GEO 服务商——摘星、微盟启星、珍岛、引旗——模式都是卖你一套工具，然后劝你加钱买他们的代运营，工具变成收割入口。我们是《GEO 团体标准》的制定参与者，给新东方、松鼠跃动这类品牌做的是人工全量交付：什么问题词、什么语料、发到什么信源、怎么验证，每一步都有交付物，你随时查。"</div>
 <div class="quote"><b>抛诊断钩子：</b>"我先不谈合作，先免费给你们做一次 AI 可见度诊断——看看客户在豆包、DeepSeek、文心一言里问你们行业的问题时，AI 推荐的是你，还是你的对手。报告明天给你，看完再决定聊不聊。"</div>
 <div class="quote"><b>谈价值（对价格锚）：</b>"29,800 一个季度，你买的是三件事：一套逐条列明的问题词清单、一批按信源分级策略投放的语料、一份每周期更新的监测报告。这些是能拿给老板看的东西，不是后台数据截图。"</div>
 <div class="quote"><b>推续约：</b>"这是这个季度的监测对比——这批问题词的推荐率起来了，但 GEO 是持续经营，停投之后 AI 会逐步降低引用。下个季度我们在现有基础上扩 30% 的问题词覆盖，方案下周给你。"</div>
 
-<h3>2.4 异议处理</h3>
+<h3>3.4 异议处理</h3>
 <table>
   <tr><th>异议</th><th>应对</th></tr>
   <tr><td>"为什么不直接卖工具给我们自己用？"</td><td>"可以，工具线我们有。但工具是给谁都能用的标准化流程，你们这个体量要的是结果和效率——头部品牌的问题词策略、信源组合、语料深度都不是模板能覆盖的，这也是我们只服务高预算客户的原因：人工全量交付，成本摆在这，值得的客户才做。"</td></tr>
@@ -252,18 +520,18 @@
   <tr><td>"我们要内部汇报，等等看"</td><td>"应该的。我配合你汇报：诊断报告、方案、竞品对比这三样材料我给你做成汇报版，你们内部什么时候定，我什么时候启动——但 AI 可见度这个窗口期，你对手先做三个月，你追的成本就不止这个数了。"</td></tr>
 </table>
 
-<h2>三、通用规则（两条线共用）</h2>
+<h2>四、通用规则（两条线共用）</h2>
 
-<h3>3.1 内部机制</h3>
+<h3>4.1 内部机制</h3>
 <table>
   <tr><th>事项</th><th>口径</th></tr>
-  <tr><td><b>销售提成</b></td><td>两条线统一<b>终算 6%</b></td></tr>
+  <tr><td><b>销售提成</b></td><td>两条线统一<b>终算 6%</b>，按实际回款计算</td></tr>
   <tr><td><b>拓客方式</b></td><td><b>自助拓客</b>，无分配线索依赖</td></tr>
   <tr><td><b>拓展重点</b></td><td><b>代理商（生态合伙人）优先</b>——一个合伙人 = 一个本地渠道，长期产出高于散单</td></tr>
   <tr><td><b>双线互转</b></td><td>工具用户成长（预算/规模上来）→ 升级全案；全案接触中预算不足的 → 转工具线留住，不得流失</td></tr>
 </table>
 
-<h3>3.2 红线清单（违规即事故）</h3>
+<h3>4.2 红线清单（违规即事故）</h3>
 <div class="warn">
 <ul>
 <li><b>报价口径：</b>工具 598/980/1,980 元/月、合伙人 6,980 元/年、全案 29,800 元/季度起——不得口头改价、放大分成比例</li>
@@ -273,10 +541,11 @@
 <li><b>黑帽红线：</b>严禁批量灌水、虚假信息投放（内容被 AI 批量识别即整体失效，反面教材见弘动数据案例）</li>
 <li><b>竞品尺度：</b>只讲模式差异，不点名贬低、不引用未经证实数据</li>
 <li><b>信源费用：</b>官媒信源费用不含在服务费内，按需另付，销售必须提前讲清</li>
+<li><b>与代运营边界：</b>不得为冲业绩把预算不足客户硬推进代运营；头部型客户不得降级卖工具</li>
 </ul>
 </div>
 
-<h3>3.3 线索池衔接（对接周报口径）</h3>
+<h3>4.3 线索池衔接（对接周报口径）</h3>
 <table>
   <tr><th>周报线索类型</th><th>承接动作</th></tr>
   <tr><td>"想拿代理 / 给本地企业做 GEO"（如高领·发现庆阳）</td><td>直接进合伙人线第 2 步算账演示</td></tr>
@@ -286,32 +555,32 @@
   <tr><td>有 GEO 痛史（做过掉出推荐）</td><td>诊断切入 + 全案/合伙人双线判断</td></tr>
 </table>
 
-<h2>四、高频口径 FAQ（14 问）</h2>
-<p style="color:#6B7280;font-size:13px;margin-bottom:12px">两条业务线客户与销售最常问的口径问题，按价格与分成、合作模式、效果验证、竞品对比四大类归档。点击问题展开答案。</p>
+<h2>五、高频口径 FAQ（14 问）</h2>
+<p style="color:#6B7280;font-size:13px;margin-bottom:12px">覆盖产品、价格与分成、合作模式、效果验证、竞品对比等高频问题。点击问题展开答案。</p>
 
-<h3>4.1 价格与分成类</h3>
-<details class="faq"><summary>Q1：系统工具怎么收费？</summary><p>按月订阅三档：体验版 598 元/月（100 基础点，适合单品牌轻度运营）、PLUS 版 980 元/月（300 基础点，适合 1–2 品牌标准运营）、MAX 版 1,980 元/月（1,000 基础点，适合 3–5 品牌高频运营加内容生产）。另有定制版按需报价。点数用完可单独充值：充 500 送 50、充 1,000 送 150、充 3,000 送 600、充 5,000 送 1,250，用得越多越划算。</p></details>
+<h3>5.1 产品与价格类</h3>
+<details class="faq"><summary>Q1：系统工具怎么收费？三档有什么区别？</summary><p>按月订阅三档：体验版 598 元/月（100 基础点 + 50 媒体信源点，1 品牌、≤10 个监测问题，适合单品牌轻度运营）、PLUS 版 980 元/月（300 基础点 + 200 媒体信源点，3 品牌、≤100 个监测问题，适合 1–2 品牌标准运营）、MAX 版 1,980 元/月（1,000 基础点 + 500 媒体信源点，5 品牌、≤500 个监测问题，适合 3–5 品牌高频运营加内容生产）。另有定制版按需报价。点数用完可单独充值：充 500 送 50、充 1,000 送 150、充 3,000 送 600、充 5,000 送 1,250，用得越多越划算。</p></details>
 <details class="faq"><summary>Q2：生态合伙人是怎么回事？能赚多少？</summary><p>生态合伙人 6,980 元/年，含 100 次品牌诊断。分成机制三块：拓新分成 40%（卖出工具/产品的分佣）、基础点分润 10%、信源点分润 8%。客户用得越久，点数分润持续越久。我们不承诺具体收入数字——赚多少取决于你手上的客户数量和推进节奏，工具、培训、案例背书、首单陪谈支持都由总部提供。</p></details>
 <details class="faq"><summary>Q3：全案代运营多少钱？</summary><p>29,800 元/季度起，按问题词数量与服务范围分档，具体金额以最终合同为准。预算不足 3 万/季度的客户建议先走系统工具线自助运营，跑出结果、预算上来后再升级全案。</p></details>
 <details class="faq"><summary>Q4：合作价格有优惠吗？</summary><p>三条产品线价格都是标准报价：工具按月订阅、合伙人按年费、全案按季度，不以降价换单。预算有限的客户靠调整服务范围解决（如全案减少问题词数量），不靠打折。价格谈判空间为零是纪律，不是姿态。</p></details>
 
-<h3>4.2 合作模式类</h3>
+<h3>5.2 合作模式类</h3>
 <details class="faq"><summary>Q5：合伙人和工具订阅用户有什么区别？</summary><p>订阅是你自己用工具做自己的品牌；合伙人是拿工具去做生意：代理价进货、40% 拓新分成、点数持续分润 10%/8%、系统培训认证、总部案例背书、首单陪谈支持。有企业客户资源、能投入人做交付的，直接上合伙人；纯自用的，先订阅，用顺手了随时可升级。</p></details>
 <details class="faq"><summary>Q6：做合伙人有什么门槛？</summary><p>三条合格线：① 有真实企业客户资源或本地获客能力；② 能投入至少 1 人专职做 GEO 服务交付；③ 认可「先跑标杆案例再放大」的节奏。三条缺一的，先从工具订阅用户做起，养熟后再升级——硬把没资源的人拉进来做合伙人，做不成反而伤口碑。</p></details>
 <details class="faq"><summary>Q7：全案代运营和买工具自己做，我该怎么选？</summary><p>看预算和要什么。要结果、要省心、预算 3 万+/季度的，走全案——问题词策略、信源组合、语料深度都是人工全量交付。预算有限或想自己掌握方法的，走工具自助——同样的方法论装进了系统，跟着 SOP 跑，30 天一个完整循环。两条线不互斥：工具用户做大了，随时升级全案。</p></details>
 <details class="faq"><summary>Q8：你们会不会绕开合伙人直接做合伙人的客户？</summary><p>不会，也没必要——合伙人的客户由合伙人交付，我们赚的是工具和点数的钱，合伙人做得越大我们销售成本越低，这是利益绑定不是竞争关系。客户归属在合同里写清楚。</p></details>
 
-<h3>4.3 效果与验证类</h3>
+<h3>5.3 效果与验证类</h3>
 <details class="faq"><summary>Q9：效果能保证吗？</summary><p>分口径说：全案代运营承诺的是交付标准——问题词清单逐条列明、语料按信源分级投放、每周期监测报告，每一步留痕可验证；工具自助线不承诺推荐率数字，承诺的是 30 天完整循环 + 每步交付物 + 监测对比存档，30 天后你自己看变化说话。任何承诺具体推荐数字的说法都不符合我们的口径。</p></details>
 <details class="faq"><summary>Q10：工具点数会不会不够用？</summary><p>按单品牌标准运营测算，月度消耗约 190–250 点：体验版 100 点适合轻度运营刚好够用，PLUS 300 点覆盖 1–2 品牌标准运营，MAX 1,000 点支撑 3–5 品牌高频运营加内容生产。不够就单独充点，充得越多赠送比例越高（充 5,000 送 1,250）。</p></details>
 <details class="faq"><summary>Q11：官媒信源的费用包含在服务费里吗？</summary><p>不包含。官媒信源费用按需另付，销售必须提前向客户讲清——这是红线，事后扯皮都是这里出的。工具线同理：点数覆盖的是系统操作，官媒投放消耗另计。</p></details>
 
-<h3>4.4 竞品对比类</h3>
+<h3>5.4 竞品对比类</h3>
 <details class="faq"><summary>Q12：跟摘星AI、微盟启星、珍岛、引旗这些有什么区别？</summary><p>模式差异：他们是「工具钩子收割代运营」——工具卖给企业，买完没人教，最后客户还得签他们的代运营，钱让他们赚完。我们反过来：把《GEO 团体标准》制定参与者跑通的整套代运营流程装进工具，交给用户自己跑、教会他们、还分他们钱（合伙人 40%/10%/8% 分成）。只讲模式差异，不贬低对方。</p></details>
 <details class="faq"><summary>Q13：为什么你们的工具里要教信源分级？别家一键群发不更快？</summary><p>一键群发发的是免费自媒体，AI 权重最低，发了等于白发。我们的工具里装的是三层问题库和信源分级逻辑——什么内容、发在哪、怎么验，这是团标方法论。可以拿任何一家的媒体清单来对比验证。</p></details>
 <details class="faq"><summary>Q14：怎么验证你们说的是真的？</summary><p>三个动作：① 要交付物清单——问题词、语料、信源链接、监测报告逐条对；② 自己去六大 AI 平台搜客户的行业词，看推荐结果；③ 找我们的标杆案例前后对比截图看。眼见为实，效果会说话。</p></details>
 
-<div class="footer">逆传播AIGEO 销售 SOP · 双业务线（生态合伙人 × 全案代运营） · 2026年8月29日 · 内部资料</div>
+<div class="footer">逆传播AIGEO 商务作战手册（系统工具产品手册 × 销售SOP双业务线） · 2026年8月31日 合并版 · 内部资料 · 报价以最新口径为准</div>
 </div>
 <script>
 (function(){
