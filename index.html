@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>逆传播AIGEO 商务作战手册（系统工具产品手册 × 销售SOP双业务线）</title>
+<title>智汇Growth 商务作战手册（系统工具产品手册 × 销售SOP双业务线）</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
   body { font-family:"Microsoft YaHei","PingFang SC",sans-serif; background:#F9FAFB; color:#1F2937; line-height:1.75; padding:32px 16px; }
   .wrap { max-width:1000px; margin:0 auto; }
   .header { background:linear-gradient(135deg,#E8590C,#F59E0B); color:#fff; border-radius:16px; padding:36px 40px; margin-bottom:20px; }
@@ -40,7 +41,15 @@
   .titem p { font-size:14px; color:#374151; }
   .titem ul { margin:6px 0 0 18px; font-size:13px; color:#4B5563; }
   .titem li { margin-bottom:3px; }
-  .search-bar { position:sticky; top:0; z-index:100; background:#fff; border:1px solid #F3F4F6; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.07); }
+  /* 吸顶锚点导航 */
+  .nav-bar { position:sticky; top:0; z-index:200; display:flex; gap:8px; flex-wrap:nowrap; overflow-x:auto; background:#fff; border:1px solid #F3F4F6; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.07); padding:8px 12px; margin-bottom:14px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .nav-bar::-webkit-scrollbar { display:none; }
+  .nav-link { flex:0 0 auto; text-decoration:none; font-size:13px; font-weight:600; color:#D9480F; background:#FFF3E0; border:1px solid #FFE8CC; border-radius:20px; padding:6px 14px; transition:all .2s; white-space:nowrap; }
+  .nav-link:hover { background:#F76707; color:#fff; border-color:#F76707; }
+  .nav-link:active { transform:scale(.97); }
+  .nav-top { background:#FEF2F2; color:#991B1B; border-color:#FECACA; margin-left:auto; }
+  .nav-top:hover { background:#991B1B; color:#fff; border-color:#991B1B; }
+  .search-bar { position:sticky; top:52px; z-index:100; background:#fff; border:1px solid #F3F4F6; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.07); }
   .search-inner { position:relative; max-width:720px; margin:0 auto; padding:10px 16px; }
   .search-inner input { width:100%; padding:10px 40px 10px 14px; font-size:14px; border:1.5px solid #F3F4F6; border-radius:8px; outline:none; background:#FFF; transition:border-color .2s; }
   .search-inner input:focus { border-color:#F76707; }
@@ -52,7 +61,7 @@
   .search-results .sr-item:hover { background:#FFF8E1; }
   .search-results .sr-item mark { background:#FED7AA; color:inherit; padding:0 2px; border-radius:2px; }
   .sr-tag { display:inline-block; min-width:34px; font-size:11px; color:#F76707; font-weight:700; margin-right:8px; }
-  h2,h3,h4,summary,p,td { scroll-margin-top:76px; }
+  h2,h3,h4,summary,p,td { scroll-margin-top:132px; }
   .faq { margin:6px 0; border:1px solid #F3F4F6; border-radius:8px; overflow:hidden; background:#fff; }
   .faq summary { cursor:pointer; font-weight:600; font-size:14px; padding:10px 14px; background:#FFF8E1; list-style:none; }
   .faq summary::-webkit-details-marker { display:none; }
@@ -86,10 +95,10 @@
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" id="top">
 
 <div class="header">
-  <h1>逆传播AIGEO 商务作战手册</h1>
+  <h1>智汇Growth 商务作战手册</h1>
   <p>系统工具产品手册（套餐·功能·扣点·充值） × 销售SOP双业务线（生态合伙人 + 全案代运营）· 2026-08-31 合并版</p>
   <span class="tag">工具 598 / 980 / 1,980 元/月</span>
   <span class="tag">生态合伙人 6,980 元/年</span>
@@ -97,6 +106,16 @@
   <span class="tag">销售提成 终算 6%</span>
   <span class="tag">自助拓客 · 重点拓展代理商</span>
 </div>
+
+<nav class="nav-bar" aria-label="章节导航">
+  <a class="nav-link" href="#overview">〇 总纲</a>
+  <a class="nav-link" href="#handbook">一 产品手册</a>
+  <a class="nav-link" href="#partner">二 合伙人SOP</a>
+  <a class="nav-link" href="#manage">三 代运营SOP</a>
+  <a class="nav-link" href="#rules">四 通用规则</a>
+  <a class="nav-link" href="#faq">五 FAQ</a>
+  <a class="nav-link nav-top" href="#top">▲ 顶部</a>
+</nav>
 
 <div class="search-bar">
 <div class="search-inner">
@@ -106,7 +125,7 @@
 </div>
 </div>
 
-<h2>〇、总纲：一条线索，两套打法</h2>
+<h2 id="overview">〇、总纲：一条线索，两套打法</h2>
 <div class="card">
 <p><b>公司整体市场方向只有两条：</b>①系统工具线（面向普通人/小商家/渠道商，先推工具，不主推课程教学）；②全案代运营线（只服务预算充足、有品牌诉求的头部客户）。销售为<b>自助拓客</b>，重点拓展<b>代理商（生态合伙人）</b>。</p>
 </div>
@@ -145,7 +164,7 @@
   <tr><td><b>红线</b></td><td>不夸大分成收益、不承诺躺赚</td><td>预算不过线不硬推；效果承诺只按交付标准口径说</td></tr>
 </table>
 
-<h2>一、系统工具产品手册（卖什么）</h2>
+<h2 id="handbook">一、系统工具产品手册（卖什么）</h2>
 
 <h3>1.1 套餐版本总览</h3>
 <div class="card-grid">
@@ -372,7 +391,7 @@
   <tr><td>连续 2 个月无进展</td><td>执行力 / 理解卡点</td><td>触发人工诊断复核，向代运营或合伙人分流</td></tr>
 </table>
 
-<h2>二、业务线一：系统工具 · 生态合伙人销售 SOP</h2>
+<h2 id="partner">二、业务线一：系统工具 · 生态合伙人销售 SOP</h2>
 
 <h3>2.1 目标画像与资格筛选</h3>
 <table>
@@ -453,7 +472,7 @@
   <tr><td>"你们会不会绕开我直接做我的客户"</td><td>"不会，也没必要——你们的客户你们交付，我们赚的是工具和点数的钱，你越做大我们越省销售成本，这是利益绑定，不是竞争关系。合同里客户归属写清楚。"</td></tr>
 </table>
 
-<h2>三、业务线二：全案代运营销售 SOP</h2>
+<h2 id="manage">三、业务线二：全案代运营销售 SOP</h2>
 
 <h3>3.1 客户准入门槛（不过线不接）</h3>
 <table>
@@ -520,7 +539,7 @@
   <tr><td>"我们要内部汇报，等等看"</td><td>"应该的。我配合你汇报：诊断报告、方案、竞品对比这三样材料我给你做成汇报版，你们内部什么时候定，我什么时候启动——但 AI 可见度这个窗口期，你对手先做三个月，你追的成本就不止这个数了。"</td></tr>
 </table>
 
-<h2>四、通用规则（两条线共用）</h2>
+<h2 id="rules">四、通用规则（两条线共用）</h2>
 
 <h3>4.1 内部机制</h3>
 <table>
@@ -555,7 +574,7 @@
   <tr><td>有 GEO 痛史（做过掉出推荐）</td><td>诊断切入 + 全案/合伙人双线判断</td></tr>
 </table>
 
-<h2>五、高频口径 FAQ（14 问）</h2>
+<h2 id="faq">五、高频口径 FAQ（14 问）</h2>
 <p style="color:#6B7280;font-size:13px;margin-bottom:12px">覆盖产品、价格与分成、合作模式、效果验证、竞品对比等高频问题。点击问题展开答案。</p>
 
 <h3>5.1 产品与价格类</h3>
@@ -580,7 +599,7 @@
 <details class="faq"><summary>Q13：为什么你们的工具里要教信源分级？别家一键群发不更快？</summary><p>一键群发发的是免费自媒体，AI 权重最低，发了等于白发。我们的工具里装的是三层问题库和信源分级逻辑——什么内容、发在哪、怎么验，这是团标方法论。可以拿任何一家的媒体清单来对比验证。</p></details>
 <details class="faq"><summary>Q14：怎么验证你们说的是真的？</summary><p>三个动作：① 要交付物清单——问题词、语料、信源链接、监测报告逐条对；② 自己去六大 AI 平台搜客户的行业词，看推荐结果；③ 找我们的标杆案例前后对比截图看。眼见为实，效果会说话。</p></details>
 
-<div class="footer">逆传播AIGEO 商务作战手册（系统工具产品手册 × 销售SOP双业务线） · 2026年8月31日 合并版 · 内部资料 · 报价以最新口径为准</div>
+<div class="footer">智汇Growth 商务作战手册（系统工具产品手册 × 销售SOP双业务线） · 2026年8月31日 合并版 · 内部资料 · 报价以最新口径为准</div>
 </div>
 <script>
 (function(){
