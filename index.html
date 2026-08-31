@@ -5,87 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>逆传播AIGEO 销售SOP（双业务线：系统工具·生态合伙人 + 全案代运营）</title>
 <style>
-:root { --bg:#f5f5f5; --card:#fff; --border:#e5e5e5; --text:#1a1a1a; --muted:#888;
-  --accent:#EA580C; --green:#16a34a; --orange:#ea580c; --red:#dc2626; --purple:#7c3aed; }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
-.container { max-width:1100px; margin:0 auto; padding:24px 20px; }
-header { background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 100%); color:#fff; padding:44px 20px; text-align:center; }
-header h1 { font-size:26px; margin-bottom:8px; }
-header p { color:#93c5fd; font-size:14px; }
-.card { background:var(--card); border-radius:12px; padding:24px; margin-bottom:20px; border:1px solid var(--border); }
-.card h2 { font-size:20px; margin-bottom:16px; padding-bottom:8px; border-bottom:2px solid var(--border); }
-.card h3 { font-size:16px; margin:20px 0 10px; color:var(--accent); }
-.card h4 { font-size:14.5px; margin:16px 0 6px; }
-table { width:100%; border-collapse:collapse; font-size:13.5px; margin:12px 0; }
-th { background:#f8fafc; text-align:left; padding:10px; border-bottom:2px solid #e2e8f0; font-weight:600; white-space:nowrap; }
-td { padding:10px; border-bottom:1px solid #e2e8f0; vertical-align:top; }
-tr:hover td { background:#f8fafc; }
-.pill { display:inline-block; padding:2px 10px; border-radius:12px; font-size:12px; font-weight:600; margin-right:6px; }
-.pill-blue { background:#ffedd5; color:#9a3412; }
-.pill-green { background:#dcfce7; color:#166534; }
-.pill-orange { background:#ffedd5; color:#9a3412; }
-.pill-red { background:#fef2f2; color:#991b1b; }
-.pill-purple { background:#f3e8ff; color:#6b21a8; }
-.script { background:#f8fafc; border-left:4px solid var(--accent); padding:14px 16px; margin:10px 0; border-radius:0 8px 8px 0; font-size:13.5px; }
-.script.q { border-left-color:var(--purple); }
-.script strong { color:var(--accent); }
-.tip { background:#fffbeb; border:1px solid #fde68a; border-radius:8px; padding:10px 14px; font-size:13px; margin:10px 0; }
-.flow { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:14px 0; }
-.flow-node { background:#fff; border:1.5px solid var(--accent); color:var(--accent); border-radius:8px; padding:8px 14px; font-size:13px; font-weight:600; }
-.flow-arrow { color:#94a3b8; font-size:16px; }
-.flow-node.green { border-color:var(--green); color:var(--green); }
-.flow-node.purple { border-color:var(--purple); color:var(--purple); }
-.flow-node.orange { border-color:var(--orange); color:var(--orange); }
-.funnel { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin:14px 0; }
-.funnel-item { border-radius:10px; padding:16px; text-align:center; }
-.f1 { background:#fef2f2; border:1px solid #fecaca; }
-.f2 { background:#fffbeb; border:1px solid #fde68a; }
-.f3 { background:#f0fdf4; border:1px solid #bbf7d0; }
-.funnel-item .t { font-weight:700; font-size:14px; margin-bottom:6px; }
-.funnel-item .d { font-size:12px; color:var(--muted); }
-.metrics { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin:14px 0; }
-.metric { background:#fff; border:1px solid var(--border); border-radius:10px; padding:14px; text-align:center; }
-.metric .value { font-size:24px; font-weight:700; color:var(--accent); }
-.metric .label { font-size:12px; color:var(--muted); margin-top:4px; }
-.phase { border-left:4px solid var(--accent); background:#fff; border-radius:8px; padding:18px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
-.phase h3 { margin:0 0 4px; font-size:17px; color:var(--text); }
-.phase .sub { color:var(--accent); font-weight:600; font-size:13px; margin-bottom:10px; }
-.phase p { font-size:13.5px; margin:4px 0; }
-.milestone { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:12px 0; }
-.ms { background:#fff; border:1.5px solid var(--accent); color:var(--accent); border-radius:8px; padding:8px 16px; font-weight:700; font-size:14px; }
-.ms-arrow { color:#94a3b8; font-size:18px; }
-.badge { display:inline-block; padding:2px 10px; border-radius:12px; font-size:12px; font-weight:600; }
-.badge-green { background:#dcfce7; color:#166534; }
-.badge-accent { background:#ffedd5; color:#9a3412; }
-.search-bar { position:sticky; top:0; z-index:100; background:#fff; border-bottom:1px solid var(--border); box-shadow:0 2px 8px rgba(0,0,0,0.06); }
-.search-inner { position:relative; max-width:720px; margin:0 auto; padding:10px 16px; }
-.search-inner input { width:100%; padding:10px 40px 10px 14px; font-size:14px; border:1.5px solid var(--border); border-radius:8px; outline:none; background:#fff; }
-.search-inner input:focus { border-color:var(--accent); }
-.search-clear { position:absolute; right:28px; top:50%; transform:translateY(-50%); cursor:pointer; color:#94a3b8; font-size:14px; display:none; }
-.search-results { position:absolute; left:16px; right:16px; top:calc(100% - 4px); background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:0 10px 28px rgba(0,0,0,0.14); max-height:60vh; overflow-y:auto; display:none; }
-.search-results .sr-item { padding:9px 14px; cursor:pointer; font-size:13px; border-bottom:1px solid #f1f5f9; line-height:1.5; }
-.search-results .sr-item:last-child { border-bottom:none; }
-.search-results .sr-item:hover { background:#fff7ed; }
-.search-results .sr-item mark { background:#fed7aa; color:inherit; padding:0 2px; border-radius:2px; }
-.sr-tag { display:inline-block; min-width:34px; font-size:11px; color:var(--accent); font-weight:700; margin-right:8px; }
-h2,h3,h4,summary,p,td { scroll-margin-top:72px; }
-.faq { margin:6px 0; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
-.faq summary { cursor:pointer; font-weight:600; font-size:14px; padding:10px 14px; background:#f8fafc; list-style:none; }
-.faq summary::-webkit-details-marker { display:none; }
-.faq summary:hover { background:#f1f5f9; }
-.faq[open] summary { background:#fff7ed; border-bottom:1px solid var(--border); }
-.faq p { padding:10px 14px; font-size:13.5px; margin:0; background:#fff; }
-.faq p::before { content:"答："; color:var(--accent); font-weight:700; }
-@media (max-width:720px) { .funnel { grid-template-columns:1fr; } }
-footer { text-align:center; color:var(--muted); padding:20px; font-size:12px; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Microsoft YaHei","PingFang SC",sans-serif; background:#F9FAFB; color:#1F2937; line-height:1.75; padding:32px 16px; }
+  .wrap { max-width:1000px; margin:0 auto; }
+  .header { background:linear-gradient(135deg,#7C2D12,#EA580C); color:#fff; border-radius:16px; padding:36px 40px; margin-bottom:20px; }
+  .header h1 { font-size:26px; margin-bottom:8px; }
+  .header p { opacity:.92; font-size:14px; }
+  .header .tag { display:inline-block; background:rgba(255,255,255,.18); border-radius:20px; padding:2px 14px; font-size:12px; margin-right:8px; margin-top:10px; }
+  h2 { font-size:20px; color:#7C2D12; border-left:5px solid #EA580C; padding-left:12px; margin:36px 0 14px; }
+  h3 { font-size:16px; color:#9A3412; margin:24px 0 10px; }
+  table { width:100%; border-collapse:collapse; background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.06); margin:12px 0 20px; font-size:14px; }
+  th { background:#FFEDD5; color:#7C2D12; padding:10px 12px; text-align:left; font-size:13px; }
+  td { padding:9px 12px; border-top:1px solid #F3F4F6; vertical-align:top; }
+  .quote { background:#FFF7ED; border-left:4px solid #EA580C; border-radius:8px; padding:14px 18px; margin:12px 0; font-size:14px; }
+  .quote b { color:#C2410C; }
+  .card { background:#fff; border-radius:12px; padding:20px 24px; box-shadow:0 1px 4px rgba(0,0,0,.06); margin:14px 0; }
+  .flow { background:#fff; border-radius:12px; padding:18px 20px; box-shadow:0 1px 4px rgba(0,0,0,.06); margin:14px 0; text-align:center; }
+  .step { display:inline-block; background:#EA580C; color:#fff; border-radius:8px; padding:6px 14px; font-size:13px; margin:4px 2px; }
+  .step.dark { background:#9A3412; }
+  .arr { color:#9CA3AF; margin:0 4px; }
+  .warn { background:#FEF2F2; border:1px solid #FECACA; border-radius:10px; padding:14px 18px; color:#991B1B; font-size:14px; margin:14px 0; }
+  .warn ul { margin:6px 0 0 18px; }
+  .warn li { margin-bottom:3px; }
+  .ok { background:#F0FDF4; border:1px solid #BBF7D0; border-radius:10px; padding:14px 18px; color:#166534; font-size:14px; margin:14px 0; }
+  .kpi { display:flex; gap:14px; flex-wrap:wrap; margin:16px 0; }
+  .kpi .item { flex:1; min-width:200px; background:#fff; border-radius:12px; padding:16px 20px; box-shadow:0 1px 4px rgba(0,0,0,.06); text-align:center; }
+  .kpi .num { font-size:24px; font-weight:700; color:#EA580C; }
+  .kpi .lbl { font-size:12px; color:#6B7280; margin-top:2px; }
+  .timeline { border-left:3px solid #FDBA74; margin:16px 0 8px 8px; padding-left:22px; }
+  .titem { position:relative; margin-bottom:18px; background:#fff; border-radius:10px; padding:14px 18px; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+  .titem::before { content:''; position:absolute; left:-29px; top:18px; width:11px; height:11px; border-radius:50%; background:#EA580C; }
+  .titem h4 { font-size:15px; color:#1F2937; }
+  .titem .meta { font-size:12px; color:#EA580C; margin:2px 0 4px; font-weight:600; }
+  .titem p { font-size:14px; color:#374151; }
+  .titem ul { margin:6px 0 0 18px; font-size:13px; color:#4B5563; }
+  .titem li { margin-bottom:3px; }
+  .search-bar { position:sticky; top:0; z-index:100; background:#fff; border:1px solid #F3F4F6; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.07); }
+  .search-inner { position:relative; max-width:720px; margin:0 auto; padding:10px 16px; }
+  .search-inner input { width:100%; padding:10px 40px 10px 14px; font-size:14px; border:1.5px solid #F3F4F6; border-radius:8px; outline:none; background:#FFF; transition:border-color .2s; }
+  .search-inner input:focus { border-color:#EA580C; }
+  .search-inner input::placeholder { color:#9CA3AF; }
+  .search-clear { position:absolute; right:28px; top:50%; transform:translateY(-50%); cursor:pointer; color:#9CA3AF; font-size:14px; display:none; }
+  .search-results { position:absolute; left:16px; right:16px; top:calc(100% - 4px); background:#fff; border:1px solid #F3F4F6; border-radius:10px; box-shadow:0 10px 28px rgba(0,0,0,.14); max-height:60vh; overflow-y:auto; display:none; }
+  .search-results .sr-item { padding:9px 14px; cursor:pointer; font-size:13px; border-bottom:1px solid #F3F4F6; line-height:1.5; }
+  .search-results .sr-item:last-child { border-bottom:none; }
+  .search-results .sr-item:hover { background:#FFF7ED; }
+  .search-results .sr-item mark { background:#FED7AA; color:inherit; padding:0 2px; border-radius:2px; }
+  .sr-tag { display:inline-block; min-width:34px; font-size:11px; color:#EA580C; font-weight:700; margin-right:8px; }
+  h2,h3,h4,summary,p,td { scroll-margin-top:76px; }
+  .faq { margin:6px 0; border:1px solid #F3F4F6; border-radius:8px; overflow:hidden; background:#fff; }
+  .faq summary { cursor:pointer; font-weight:600; font-size:14px; padding:10px 14px; background:#FFF7ED; list-style:none; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary:hover { background:#FFEDD5; }
+  .faq[open] summary { background:#FFEDD5; border-bottom:1px solid #F3F4F6; color:#7C2D12; }
+  .faq p { padding:10px 14px; font-size:13.5px; margin:0; background:#fff; }
+  .faq p::before { content:"答："; color:#EA580C; font-weight:700; }
+  .footer { text-align:center; color:#9CA3AF; font-size:12px; margin-top:36px; }
+  @media (max-width:640px){ .header { padding:26px 22px; } .header h1 { font-size:21px; } .kpi .item { min-width:140px; } }
 </style>
 </head>
 <body>
-<header>
-<h1>逆传播AIGEO 销售 SOP · 双业务线</h1>
-<p>业务线一：系统工具 → 生态合伙人 × 业务线二：全案代运营（高预算头部品牌） · 2026年8月</p>
-</header>
+<div class="wrap">
+
+<div class="header">
+  <h1>逆传播AIGEO 销售 SOP · 双业务线</h1>
+  <p>业务线一：系统工具 → 生态合伙人&nbsp;&nbsp;|&nbsp;&nbsp;业务线二：全案代运营（高预算头部品牌）&nbsp;&nbsp;·&nbsp;&nbsp;2026年8月</p>
+  <span class="tag">生态合伙人 3,980 元/年</span>
+  <span class="tag">全案代运营 29,800 元/季度起</span>
+  <span class="tag">销售提成 终算 6%</span>
+  <span class="tag">自助拓客 · 重点拓展代理商</span>
+</div>
+
 <div class="search-bar">
 <div class="search-inner">
 <input id="search-input" type="text" placeholder="搜索：关键词 / 客户问题 / 话术 / 价格…（回车跳转到第一个结果）" autocomplete="off" />
@@ -93,278 +83,211 @@ footer { text-align:center; color:var(--muted); padding:20px; font-size:12px; }
 <div class="search-results" id="search-results"></div>
 </div>
 </div>
-<div class="container">
 
-<div class="card">
 <h2>〇、总纲：一条线索，两套打法</h2>
-<p>公司整体市场方向只有两条：<strong>①系统工具线</strong>（面向普通人/小商家/渠道商，先推工具，不主推课程教学）；<strong>②全案代运营线</strong>（只服务预算充足、有品牌诉求的头部客户）。销售为<strong>自助拓客</strong>，重点拓展<strong>代理商（生态合伙人）</strong>。</p>
-<div class="funnel">
-<div class="funnel-item f1"><div class="t">① 系统工具 · 生态合伙人线</div><div class="d">卖「商机 + 分钱体系」<br/>3,980 元/年 · 3–14 天快单</div></div>
-<div class="funnel-item f2"><div class="t">② 工具订阅（蓄水）</div><div class="d">598 / 980 / 1,980 元/月<br/>不过合伙人合格线的先养熟</div></div>
-<div class="funnel-item f3"><div class="t">③ 全案代运营线</div><div class="d">卖「确定性 + 省心」<br/>29,800 元/季度起 · 2–6 周</div></div>
+<div class="card">
+<p><b>公司整体市场方向只有两条：</b>①系统工具线（面向普通人/小商家/渠道商，先推工具，不主推课程教学）；②全案代运营线（只服务预算充足、有品牌诉求的头部客户）。销售为<b>自助拓客</b>，重点拓展<b>代理商（生态合伙人）</b>。</p>
+</div>
+<div class="flow">
+<span class="step dark">① 系统工具·生态合伙人线</span><span class="arr">→</span>
+<span class="step">② 工具订阅（蓄水）</span><span class="arr">→</span>
+<span class="step dark">③ 全案代运营线</span>
 </div>
 <table>
-<thead><tr><th>维度</th><th>业务线一 · 系统工具（生态合伙人）</th><th>业务线二 · 全案代运营</th></tr></thead>
-<tbody>
-<tr><td><strong>卖什么</strong></td><td>卖「商机 + 分钱体系」：一套能交付的 GEO 工具 + 持续分成</td><td>卖「确定性 + 省心」：人工全量交付，推荐结果可承诺</td></tr>
-<tr><td><strong>目标客户</strong></td><td>本地服务商、营销/广告公司、有客户资源的个人、想入行接单的人</td><td>预算充足的企业与头部品牌，决策链清晰、要结果不要过程</td></tr>
-<tr><td><strong>客单价</strong></td><td>生态合伙人 3,980 元/年（含 100 次品牌诊断）</td><td>29,800 元/季度起</td></tr>
-<tr><td><strong>销售周期</strong></td><td>短：3–14 天，当场算账可当场定</td><td>长：2–6 周，需方案、比稿、多轮谈判</td></tr>
-<tr><td><strong>成单关键</strong></td><td>让对方相信「能赚钱」——收益模型算得清</td><td>让对方相信「有效果」——诊断报告 + 案例背书</td></tr>
-<tr><td><strong>红线</strong></td><td>不夸大分成收益、不承诺躺赚</td><td>预算不过线不硬推；效果承诺只按交付标准口径说</td></tr>
-</tbody>
+  <tr><th>维度</th><th>业务线一 · 系统工具（生态合伙人）</th><th>业务线二 · 全案代运营</th></tr>
+  <tr><td><b>卖什么</b></td><td>卖「商机 + 分钱体系」：一套能交付的 GEO 工具 + 持续分成</td><td>卖「确定性 + 省心」：人工全量交付，推荐结果可承诺</td></tr>
+  <tr><td><b>目标客户</b></td><td>本地服务商、营销/广告公司、有客户资源的个人、想入行接单的人</td><td>预算充足的企业与头部品牌，决策链清晰、要结果不要过程</td></tr>
+  <tr><td><b>客单价</b></td><td>生态合伙人 3,980 元/年（含 100 次品牌诊断）；工具订阅 598/980/1,980 元/月</td><td>29,800 元/季度起</td></tr>
+  <tr><td><b>销售周期</b></td><td>短：3–14 天，当场算账可当场定</td><td>长：2–6 周，需方案、比稿、多轮谈判</td></tr>
+  <tr><td><b>成单关键</b></td><td>让对方相信「能赚钱」——收益模型算得清</td><td>让对方相信「有效果」——诊断报告 + 案例背书</td></tr>
+  <tr><td><b>红线</b></td><td>不夸大分成收益、不承诺躺赚</td><td>预算不过线不硬推；效果承诺只按交付标准口径说</td></tr>
 </table>
-<div class="script q"><strong>分流铁律（3 分钟内定型）：</strong>线索上来先问两句话——"您是自己品牌要做优化，还是想代理这个业务给别的企业做？"前者走工具订阅/代运营判断（看预算），后者直接进生态合伙人线。预算 3 万/季度以上且要结果的企业客户，直接走业务线二，<strong>不得降级卖工具了事</strong>。</div>
-</div>
+<div class="quote"><b>分流铁律（3 分钟内定型）：</b>线索上来先问两句话——「您是自己品牌要做优化，还是想代理这个业务给别的企业做？」前者走工具订阅/代运营判断（看预算），后者直接进生态合伙人线。预算 3 万/季度以上且要结果的企业客户，直接走业务线二，<b>不得降级卖工具了事</b>。</div>
 
-<div class="card">
 <h2>一、业务线一：系统工具 · 生态合伙人销售 SOP</h2>
 
 <h3>1.1 目标画像与资格筛选</h3>
 <table>
-<thead><tr><th>画像</th><th>识别特征</th><th>优先级</th></tr></thead>
-<tbody>
-<tr><td><strong>存量服务商</strong>（做建站/代账/广告/短视频代运营的）</td><td>手上有 10 家以上企业客户，正缺新产品增值</td><td><span class="pill pill-red">最高</span></td></tr>
-<tr><td><strong>营销/咨询公司</strong></td><td>有团队、有客户关系，想加 AI 营销新业务线</td><td><span class="pill pill-red">最高</span></td></tr>
-<tr><td><strong>个人创业者/自由职业者</strong></td><td>想入行 GEO、接本地商家单变现</td><td><span class="pill pill-orange">中</span></td></tr>
-<tr><td><strong>行业资源型</strong>（商会、协会、园区运营方）</td><td>能批量触达企业客户</td><td><span class="pill pill-orange">中</span></td></tr>
-</tbody>
+  <tr><th>画像</th><th>识别特征</th><th>优先级</th></tr>
+  <tr><td><b>存量服务商</b>（做建站/代账/广告/短视频代运营的）</td><td>手上有 10 家以上企业客户，正缺新产品增值</td><td>⭐⭐⭐ 最高</td></tr>
+  <tr><td><b>营销/咨询公司</b></td><td>有团队、有客户关系，想加 AI 营销新业务线</td><td>⭐⭐⭐ 最高</td></tr>
+  <tr><td><b>个人创业者/自由职业者</b></td><td>想入行 GEO、接本地商家单变现</td><td>⭐⭐</td></tr>
+  <tr><td><b>行业资源型</b>（商会、协会、园区运营方）</td><td>能批量触达企业客户</td><td>⭐⭐</td></tr>
 </table>
-<div class="tip">💡 <strong>合格线（三条全满足才深谈）：</strong>① 有真实企业客户资源或本地获客能力；② 能投入至少 1 人专职做 GEO 服务交付；③ 认可「先跑标杆案例再放大」的节奏。三条缺一的，先引导其成为工具订阅用户（598/980/1,980 元/月），养熟后再升级合伙人。</div>
+<div class="ok"><b>合格线（三条全满足才深谈）：</b>① 有真实企业客户资源或本地获客能力；② 能投入至少 1 人专职做 GEO 服务交付；③ 认可「先跑标杆案例再放大」的节奏。三条缺一的，先引导其成为工具订阅用户（598/980/1,980 元/月），养熟后再升级合伙人。</div>
 
 <h3>1.2 产品与分钱机制（报价口径，不可错）</h3>
-<div class="metrics">
-<div class="metric"><div class="value">3,980<span style="font-size:13px">元/年</span></div><div class="label">生态合伙人年费（含 100 次品牌诊断）</div></div>
-<div class="metric"><div class="value">40%</div><div class="label">拓新分成（卖出工具/产品的分佣）</div></div>
-<div class="metric"><div class="value">10%</div><div class="label">基础点分润</div></div>
-<div class="metric"><div class="value">8%</div><div class="label">信源点分润</div></div>
+<div class="kpi">
+  <div class="item"><div class="num">3,980 元/年</div><div class="lbl">生态合伙人年费（含 100 次品牌诊断）</div></div>
+  <div class="item"><div class="num">40%</div><div class="lbl">拓新分成（合伙人卖出工具/产品的分佣）</div></div>
+  <div class="item"><div class="num">10%</div><div class="lbl">基础点分润</div></div>
+  <div class="item"><div class="num">8%</div><div class="lbl">信源点分润</div></div>
 </div>
 <table>
-<thead><tr><th>合伙人核心权益</th><th>说明</th></tr></thead>
-<tbody>
-<tr><td><strong>100 次品牌诊断</strong></td><td>年费内含的核心交付，等于 100 个「免费体检」获客钩子——每个都能转化为商机</td></tr>
-<tr><td><strong>工具代理资格</strong></td><td>以代理价向自己客户销售工具订阅（598/980/1,980 元/月），拿 40% 拓新分成</td></tr>
-<tr><td><strong>点数持续分润</strong></td><td>客户充值基础点拿 10%、充值信源点拿 8%——客户用得越久，合伙人持续收入越高</td></tr>
-<tr><td><strong>培训认证与背书</strong></td><td>系统工具操作培训 + 服务认证，总部提供方案模板与案例背书</td></tr>
-</tbody>
+  <tr><th>合伙人核心权益</th><th>说明</th></tr>
+  <tr><td><b>100 次品牌诊断</b></td><td>年费内含的核心交付，等于 100 个「免费体检」获客钩子——每个都能转化为商机</td></tr>
+  <tr><td><b>工具代理资格</b></td><td>以代理价向自己客户销售工具订阅（598/980/1,980 元/月），拿 40% 拓新分成</td></tr>
+  <tr><td><b>点数持续分润</b></td><td>客户充值基础点拿 10%、充值信源点拿 8%——客户用得越久，合伙人持续收入越高</td></tr>
+  <tr><td><b>培训认证与背书</b></td><td>系统工具操作培训 + 服务认证，总部提供方案模板与案例背书</td></tr>
 </table>
-<div class="tip">⚠️ <strong>报价红线：</strong>三个分成比例（40%/10%/8%）不得口头放大或改动，结算规则以签约合同为准；「躺赚」「保证月入 X 万」一类表述禁止出现。</div>
+<div class="warn"><b>报价红线：</b>三个分成比例（40%/10%/8%）不得口头放大或改动，结算规则以签约合同为准；「躺赚」「保证月入 X 万」一类表述禁止出现。</div>
 
 <h3>1.3 销售流程（六步，目标 3–14 天闭环）</h3>
-<div class="flow">
-<div class="flow-node purple">破冰定性质</div><div class="flow-arrow">→</div>
-<div class="flow-node">算账演示</div><div class="flow-arrow">→</div>
-<div class="flow-node green">标杆案例承诺</div><div class="flow-arrow">→</div>
-<div class="flow-node orange">签约打款</div><div class="flow-arrow">→</div>
-<div class="flow-node">交付交接</div><div class="flow-arrow">→</div>
-<div class="flow-node">持续赋能</div>
-</div>
-
-<div class="phase">
-<h3>第 1 步 · 破冰定性质 <span class="badge badge-accent">Day 1 · 15分钟</span></h3>
-<div class="sub">开场定位差异化：别人卖工具给企业做代运营收割，我们把工具交给你、教你、还分你钱</div>
-<p><strong>必问三件事：</strong>手上多少企业客户？团队几人？为什么现在想加 GEO 业务？</p>
-<p><strong>动作：</strong>判断是否过 1.1 合格线，不过线的转工具订阅线。</p>
-</div>
-
-<div class="phase">
-<h3>第 2 步 · 算账演示（胜负手） <span class="badge badge-accent">Day 1–3</span></h3>
-<div class="sub">本线成单的胜负手——现场用对方的数据跑收益模型</div>
-<p><strong>动作：</strong>现场演示系统工具全流程（品牌诊断 → 问题词 → 语料 → 监测）。</p>
-<p><strong>算账：</strong>用对方手上客户数算收益模型：10 个客户 × 月订阅均价 ≈ 月流水，× 40% 拓新 + 客户续费点数 10%/8% 持续分润。</p>
-<p><strong>强调：</strong>100 次品牌诊断 = 100 个免费获客钩子，第一个月就能用来激活老客户。</p>
-</div>
-
-<div class="phase">
-<h3>第 3 步 · 标杆案例承诺 <span class="badge badge-accent">Day 3–7</span></h3>
-<div class="sub">降低决策压力：不要求对方一上来就大规模铺</div>
-<p><strong>动作：</strong>给对方定「首个 30 天跑通 1 个标杆案例」的小目标（可用其自有品牌或老客户）。</p>
-<p><strong>背书：</strong>提供总部案例：新东方、松鼠跃动等代运营案例作方法论背书。</p>
-<p><strong>交付标准：</strong>30 天完整循环 + 每步交付物 + 监测对比存档。</p>
-</div>
-
-<div class="phase">
-<h3>第 4 步 · 签约打款 <span class="badge badge-green">Day 7–10</span></h3>
-<div class="sub">3,980 元/年，低客单价当场可定</div>
-<p><strong>合同要点：</strong>年费、100 次诊断、40%/10%/8% 三个分成比例、结算周期。</p>
-<p><strong>原则：</strong>异议就地处理（见 1.5），价格谈判空间为零——用权益对冲，不用降价。</p>
-</div>
-
-<div class="phase">
-<h3>第 5 步 · 交付交接 <span class="badge badge-green">签约后 3 天内</span></h3>
-<div class="sub">让合伙人第一天就有「武器」</div>
-<p><strong>动作：</strong>拉交付群（合伙人 + 工具培训师 + 商务）；开通账号、完成工具操作培训与认证。</p>
-<p><strong>发放「合伙人作战包」：</strong>销售话术、报价单模板、诊断报告模板、常见异议 Q&amp;A。</p>
-</div>
-
-<div class="phase">
-<h3>第 6 步 · 持续赋能（销售的长尾责任） <span class="badge badge-green">每月固定动作</span></h3>
-<div class="sub">合伙人的续费和转介绍都从这里来</div>
-<p><strong>动作：</strong>每月 1 次回访：标杆案例进度、诊断次数消耗、客户续费情况。</p>
-<p><strong>首单协助：</strong>合伙人谈第一个客户时可申请总部陪谈 1 次。</p>
-<p><strong>续费提醒：</strong>年费到期前 30 天启动续约；诊断次数用完引导充值。</p>
+<div class="timeline">
+  <div class="titem">
+    <h4>第 1 步 · 破冰定性质</h4>
+    <div class="meta">Day 1 · 电话/微信 15 分钟</div>
+    <p>开场定位差异化：别人卖工具给企业做代运营收割，我们把工具交给你、教你、还分你钱。</p>
+    <ul><li>必问三件事：手上多少企业客户？团队几人？为什么现在想加 GEO 业务？</li><li>判断是否过 1.1 合格线，不过线的转工具订阅线</li></ul>
+  </div>
+  <div class="titem">
+    <h4>第 2 步 · 算账演示（胜负手）</h4>
+    <div class="meta">Day 1–3 · 当场可做</div>
+    <p>这是本线成单的胜负手——现场用对方的数据跑收益模型。</p>
+    <ul><li>现场演示系统工具：品牌诊断 → 问题词 → 语料 → 监测全流程</li><li>用对方手上客户数算账：10 个客户 × 月订阅均价 ≈ 月流水，× 40% 拓新 + 客户续费点数 10%/8% 持续分润</li><li>强调 100 次品牌诊断 = 100 个免费获客钩子，第一个月就能用来激活老客户</li></ul>
+  </div>
+  <div class="titem">
+    <h4>第 3 步 · 标杆案例承诺</h4>
+    <div class="meta">Day 3–7</div>
+    <p>降低决策压力：不要求对方一上来就大规模铺。</p>
+    <ul><li>给对方定「首个 30 天跑通 1 个标杆案例」的小目标（可用其自有品牌或老客户）</li><li>提供总部案例：新东方、松鼠跃动等代运营案例作方法论背书</li><li>明确交付标准：30 天完整循环 + 每步交付物 + 监测对比存档</li></ul>
+  </div>
+  <div class="titem">
+    <h4>第 4 步 · 签约打款</h4>
+    <div class="meta">Day 7–10</div>
+    <p>3,980 元/年，低客单价当场可定。</p>
+    <ul><li>合同要点：年费、100 次诊断、40%/10%/8% 三个分成比例、结算周期</li><li>异议就地处理（见 1.5），价格谈判空间为零——用权益对冲，不用降价</li></ul>
+  </div>
+  <div class="titem">
+    <h4>第 5 步 · 交付交接</h4>
+    <div class="meta">签约后 3 天内</div>
+    <ul><li>拉交付群：合伙人 + 工具培训师 + 商务</li><li>开通账号、完成工具操作培训与认证</li><li>发放「合伙人作战包」：销售话术、报价单模板、诊断报告模板、常见异议 Q&amp;A</li></ul>
+  </div>
+  <div class="titem">
+    <h4>第 6 步 · 持续赋能（销售的长尾责任）</h4>
+    <div class="meta">每月固定动作</div>
+    <ul><li>每月 1 次回访：标杆案例进度、诊断次数消耗、客户续费情况</li><li>首单协助：合伙人谈第一个客户时可申请总部陪谈 1 次</li><li>续费提醒：年费到期前 30 天启动续约；诊断次数用完引导充值</li></ul>
+  </div>
 </div>
 
 <h3>1.4 核心话术</h3>
-<div class="script"><strong>开场（打差异化）：</strong>"X总，你肯定见过摘星AI、微盟启星、珍岛这些——他们的工具是卖给企业的，买完没人教，最后客户还得签他们的代运营，钱让他们赚完了。我们反过来：把《GEO 团体标准》制定参与者跑出来的整套代运营流程装进工具，交给你，教会你，你卖给自己的客户，我们只拿小头。你不是在买软件，是在拿一个区域的生意。"</div>
-<div class="script"><strong>算账（对有客户资源的）：</strong>"你手上 10 家企业客户对吧？每家先用品牌诊断免费体检一次——100 次诊断就在你年费里，够你把所有老客户扫一遍。扫完有意向的，转成工具订阅，你拿 40%；客户以后充值点数，基础点你拿 10%、信源点 8%，这是持续的收入，不是一锤子买卖。"</div>
-<div class="script"><strong>推首单（推 30 天标杆）：</strong>"别一上来就铺 10 个客户。先用你自己或最熟的一个客户跑 30 天：诊断、问题词、语料、监测一个完整循环。跑通了，你拿着前后对比截图去谈后面的客户，比什么话术都硬。"</div>
+<div class="quote"><b>开场（打差异化）：</b>"X总，你肯定见过摘星AI、微盟启星、珍岛这些——他们的工具是卖给企业的，买完没人教，最后客户还得签他们的代运营，钱让他们赚完了。我们反过来：把《GEO 团体标准》制定参与者跑出来的整套代运营流程装进工具，交给你，教会你，你卖给自己的客户，我们只拿小头。你不是在买软件，是在拿一个区域的生意。"</div>
+<div class="quote"><b>算账（对有客户资源的）：</b>"你手上 10 家企业客户对吧？每家先用品牌诊断免费体检一次——100 次诊断就在你年费里，够你把所有老客户扫一遍。扫完有意向的，转成工具订阅，你拿 40%；客户以后充值点数，基础点你拿 10%、信源点 8%，这是持续的收入，不是一锤子买卖。"</div>
+<div class="quote"><b>推首单（推 30 天标杆）：</b>"别一上来就铺 10 个客户。先用你自己或最熟的一个客户跑 30 天：诊断、问题词、语料、监测一个完整循环。跑通了，你拿着前后对比截图去谈后面的客户，比什么话术都硬。"</div>
 
 <h3>1.5 异议处理</h3>
 <table>
-<thead><tr><th>异议</th><th>应对</th></tr></thead>
-<tbody>
-<tr><td><strong>"3,980 有点贵"</strong></td><td>"拆开看：100 次品牌诊断，市面上单次诊断收费 200–500 元，100 次就是 2 万–5 万的价值，年费已经回本了；工具代理资格和分成体系等于是送的。而且你第一个月用它激活老客户，拓新分成很快就能覆盖年费。"</td></tr>
-<tr><td><strong>"我能赚到钱吗？"</strong></td><td>"我只给你算得清的部分：40% 拓新、10% 基础点、8% 信源点，比例写在合同里。赚多少取决于你手上的客户数量和推进节奏——我们不承诺躺赚，但工具、培训、案例背书、陪谈支持都给你，跑不跑得出来看执行。"</td></tr>
-<tr><td><strong>"客户会买账吗？GEO 他们听都没听过"</strong></td><td>"越没听过越是机会。你就问客户一句：'你在豆包、DeepSeek 里搜你们行业，出现的是你还是你对手？'——品牌诊断当场出结果，看得见摸得着，比讲概念有效一百倍。"</td></tr>
-<tr><td><strong>"跟自己直接买工具订阅有什么区别"</strong></td><td>"订阅是你自己用，合伙人是拿来做生意：代理价、40% 拓新分成、点数分润、培训认证、总部背书，全在合伙人体系里。你自己用顺手了再升级，也行。"</td></tr>
-<tr><td><strong>"你们会不会绕开我直接做我的客户"</strong></td><td>"不会，也没必要——你们的客户你们交付，我们赚的是工具和点数的钱，你越做大我们越省销售成本，这是利益绑定，不是竞争关系。合同里客户归属写清楚。"</td></tr>
-</tbody>
+  <tr><th>异议</th><th>应对</th></tr>
+  <tr><td>"3,980 有点贵"</td><td>"拆开看：100 次品牌诊断，市面上单次诊断收费 200–500 元，100 次就是 2 万–5 万的价值，年费已经回本了；工具代理资格和分成体系等于是送的。而且你第一个月用它激活老客户，拓新分成很快就能覆盖年费。"</td></tr>
+  <tr><td>"我能赚到钱吗？"</td><td>"我只给你算得清的部分：40% 拓新、10% 基础点、8% 信源点，比例写在合同里。赚多少取决于你手上的客户数量和推进节奏——我们不承诺躺赚，但工具、培训、案例背书、陪谈支持都给你，跑不跑得出来看执行。"</td></tr>
+  <tr><td>"客户会买账吗？GEO 他们听都没听过"</td><td>"越没听过越是机会。你就问客户一句：'你在豆包、DeepSeek 里搜你们行业，出现的是你还是你对手？'——品牌诊断当场出结果，看得见摸得着，比讲概念有效一百倍。"</td></tr>
+  <tr><td>"跟自己直接买工具订阅有什么区别"</td><td>"订阅是你自己用，合伙人是拿来做生意：代理价、40% 拓新分成、点数分润、培训认证、总部背书，全在合伙人体系里。你自己用顺手了再升级，也行。"</td></tr>
+  <tr><td>"你们会不会绕开我直接做我的客户"</td><td>"不会，也没必要——你们的客户你们交付，我们赚的是工具和点数的钱，你越做大我们越省销售成本，这是利益绑定，不是竞争关系。合同里客户归属写清楚。"</td></tr>
 </table>
-</div>
 
-<div class="card">
 <h2>二、业务线二：全案代运营销售 SOP</h2>
 
 <h3>2.1 客户准入门槛（不过线不接）</h3>
 <table>
-<thead><tr><th>门槛项</th><th>标准</th></tr></thead>
-<tbody>
-<tr><td><strong>预算</strong></td><td>≥ 29,800 元/季度，且可接受按季度续投（全年预算 12 万+ 更佳）</td></tr>
-<tr><td><strong>品牌基础</strong></td><td>行业头部/区域头部，或有明确品牌诉求的成长型企业</td></tr>
-<tr><td><strong>决策链</strong></td><td>能对接到拍板人（老板/市场负责人），无多头扯皮</td></tr>
-<tr><td><strong>认知</strong></td><td>理解 GEO 是长期经营 AI 可见度，不做一次性排名幻想</td></tr>
-</tbody>
+  <tr><th>门槛项</th><th>标准</th></tr>
+  <tr><td><b>预算</b></td><td>≥ 29,800 元/季度，且可接受按季度续投（全年预算 12 万+ 更佳）</td></tr>
+  <tr><td><b>品牌基础</b></td><td>行业头部/区域头部，或有明确品牌诉求的成长型企业</td></tr>
+  <tr><td><b>决策链</b></td><td>能对接到拍板人（老板/市场负责人），无多头扯皮</td></tr>
+  <tr><td><b>认知</b></td><td>理解 GEO 是长期经营 AI 可见度，不做一次性排名幻想</td></tr>
 </table>
-<div class="tip">⚠️ <strong>两条不许：</strong>①预算不足的客户不得硬推进代运营（转工具线留住）；②过了线的头部客户不得为图省事降级卖工具了事——高客单交付是公司的利润锚。</div>
+<div class="warn"><b>两条不许：</b>①预算不足的客户不得硬推进代运营（转工具线留住）；②过了线的头部客户不得为图省事降级卖工具了事——高客单交付是公司的利润锚。</div>
 
 <h3>2.2 销售流程（七步，周期 2–6 周）</h3>
-<div class="flow">
-<div class="flow-node purple">线索初筛</div><div class="flow-arrow">→</div>
-<div class="flow-node">免费诊断</div><div class="flow-arrow">→</div>
-<div class="flow-node">深度访谈</div><div class="flow-arrow">→</div>
-<div class="flow-node green">方案报价</div><div class="flow-arrow">→</div>
-<div class="flow-node orange">商务谈判</div><div class="flow-arrow">→</div>
-<div class="flow-node">签约启动</div><div class="flow-arrow">→</div>
-<div class="flow-node">交付衔接续约</div>
-</div>
-
-<div class="phase">
-<h3>第 1 步 · 线索初筛 <span class="badge badge-accent">Day 1 · 15分钟</span></h3>
-<div class="sub">四问定型</div>
-<p><strong>四问：</strong>行业与体量？预算区间？谁拍板？现在 AI 平台上搜得到你们吗？</p>
-<p><strong>动作：</strong>过 2.1 门槛的进全案流程；不过线的当场分流工具线，态度不变。</p>
-</div>
-
-<div class="phase">
-<h3>第 2 步 · 免费品牌诊断（钩子） <span class="badge badge-accent">Day 1–3</span></h3>
-<div class="sub">用报告制造危机感</div>
-<p><strong>动作：</strong>出「AI 可见度诊断报告」：品牌在六大 AI 平台的被推荐情况、竞品对比、核心问题词缺口。</p>
-<p><strong>原则：</strong>报告只呈现问题与机会，方案概要口头讲——细节留给正式方案。</p>
-</div>
-
-<div class="phase">
-<h3>第 3 步 · 深度需求访谈 <span class="badge badge-accent">Day 3–7 · 60–90分钟（最好当面）</span></h3>
-<div class="sub">三层问题库方法过一遍</div>
-<p><strong>动作：</strong>三层问题库过一遍：核心词（品牌/产品）、行业词、拓展词。</p>
-<p><strong>摸清：</strong>目标客群、核心卖点、可动用的官方信源（官网/公众号/官媒报道）、内容产能。</p>
-<p><strong>判断：</strong>客户属于标准版还是旗舰版口径（旗舰版问题词按六大平台合计计数，同一词 6 平台均有推荐计 6 个，不去重）。</p>
-</div>
-
-<div class="phase">
-<h3>第 4 步 · 出具定制方案 + 报价 <span class="badge badge-accent">Day 7–12</span></h3>
-<div class="sub">方案结构即专业度</div>
-<p><strong>方案结构：</strong>诊断结论 → 目标问题词清单 → 语料策略 → 信源组合与测算 → 投放排期 → 监测与验收标准 → 报价。</p>
-<p><strong>报价口径：</strong>29,800 元/季度起，按问题词数量与服务范围分档；金额以最终合同为准。</p>
-<p><strong>形式：</strong>方案以 HTML/Word 双版本交付，视觉即专业度。</p>
-</div>
-
-<div class="phase">
-<h3>第 5 步 · 商务谈判 <span class="badge badge-green">Day 12–25</span></h3>
-<div class="sub">守住价格底线，可调的是范围</div>
-<p><strong>原则：</strong>首轮讲方案只讲客户能得到什么，不讲我们多辛苦。</p>
-<p><strong>价格：</strong>守住 29,800 底线，可调整的是服务范围（增减问题词/信源组合），不是单价。</p>
-<p><strong>比稿：</strong>竞争对手比稿时，打「团标制定参与者 + 人工全量交付 + 交付物清单」三张牌。</p>
-</div>
-
-<div class="phase">
-<h3>第 6 步 · 签约与启动 <span class="badge badge-green">Day 25–35</span></h3>
-<div class="sub">合同细节即风控</div>
-<p><strong>合同要点：</strong>服务周期（季度）、问题词清单（逐条列明，尤其旗舰版新增拓展词逐条详列）、验收标准、双方配合义务。</p>
-<p><strong>铁律：</strong>合同金额以合同扫描件为准——其他资料金额与合同不一致时，一律以合同为主。</p>
-<p><strong>动作：</strong>签约后 48 小时内拉交付团队开启动会。</p>
-</div>
-
-<div class="phase">
-<h3>第 7 步 · 交付衔接 + 续约铺垫（销售不放手的环节） <span class="badge badge-green">交付期内持续</span></h3>
-<div class="sub">销售转「客户成功」角色</div>
-<p><strong>动作：</strong>每两周同步一次进度，盯交付节奏（诊断→问题词→语料→信源投放→监测周报）。</p>
-<p><strong>续约：</strong>季度中期即启动续约话题：用监测数据说话（推荐变化、问题词覆盖增长）；续约报价提前于到期 30 天出具；大客户可谈年度框架价。</p>
+<div class="timeline">
+  <div class="titem">
+    <h4>第 1 步 · 线索初筛</h4>
+    <div class="meta">Day 1 · 15 分钟</div>
+    <ul><li>四问定型：行业与体量？预算区间？谁拍板？现在 AI 平台上搜得到你们吗？</li><li>过 2.1 门槛的进全案流程；不过线的当场分流工具线，态度不变</li></ul>
+  </div>
+  <div class="titem">
+    <h4>第 2 步 · 免费品牌诊断（钩子）</h4>
+    <div class="meta">Day 1–3</div>
+    <ul><li>出「AI 可见度诊断报告」：品牌在六大 AI 平台的被推荐情况、竞品对比、核心问题词缺口</li><li>报告只呈现问题与机会，方案概要口头讲——细节留给正式方案</li></ul>
+  </div>
+  <div class="titem">
+    <h4>第 3 步 · 深度需求访谈</h4>
+    <div class="meta">Day 3–7 · 60–90 分钟（最好当面）</div>
+    <ul><li>三层问题库方法过一遍：核心词（品牌/产品）、行业词、拓展词</li><li>摸清：目标客群、核心卖点、可动用的官方信源（官网/公众号/官媒报道）、内容产能</li><li>判断客户属于标准版还是旗舰版口径（旗舰版问题词按六大平台合计计数，同一词 6 平台均有推荐计 6 个，不去重）</li></ul>
+  </div>
+  <div class="titem">
+    <h4>第 4 步 · 出具定制方案 + 报价</h4>
+    <div class="meta">Day 7–12</div>
+    <ul><li>方案结构：诊断结论 → 目标问题词清单 → 语料策略 → 信源组合与测算 → 投放排期 → 监测与验收标准 → 报价</li><li>报价口径：29,800 元/季度起，按问题词数量与服务范围分档；金额以最终合同为准</li><li>方案以 HTML/Word 双版本交付，视觉即专业度</li></ul>
+  </div>
+  <div class="titem">
+    <h4>第 5 步 · 商务谈判</h4>
+    <div class="meta">Day 12–25</div>
+    <ul><li>首轮讲方案：只讲客户能得到什么，不讲我们多辛苦</li><li>异议处理见 2.4；价格守住 29,800 底线，可调整的是服务范围（增减问题词/信源组合），不是单价</li><li>竞争对手比稿时，打「团标制定参与者 + 人工全量交付 + 交付物清单」三张牌</li></ul>
+  </div>
+  <div class="titem">
+    <h4>第 6 步 · 签约与启动</h4>
+    <div class="meta">Day 25–35</div>
+    <ul><li>合同要点：服务周期（季度）、问题词清单（逐条列明，尤其旗舰版新增拓展词逐条详列）、验收标准、双方配合义务</li><li>合同金额以合同扫描件为准——其他资料金额与合同不一致时，一律以合同为主</li><li>签约后 48 小时内拉交付团队开启动会</li></ul>
+  </div>
+  <div class="titem">
+    <h4>第 7 步 · 交付衔接 + 续约铺垫（销售不放手的环节）</h4>
+    <div class="meta">交付期内持续</div>
+    <ul><li>启动会后销售转「客户成功」角色：每两周同步一次进度，盯交付节奏（诊断→问题词→语料→信源投放→监测周报）</li><li>季度中期即启动续约话题：用监测数据说话（推荐变化、问题词覆盖增长）</li><li>续约报价提前于到期 30 天出具；大客户可谈年度框架价</li></ul>
+  </div>
 </div>
 
 <h3>2.3 核心话术</h3>
-<div class="script"><strong>开场（立差异化）：</strong>"X总，市面上的 GEO 服务商——摘星、微盟启星、珍岛、引旗——模式都是卖你一套工具，然后劝你加钱买他们的代运营，工具变成收割入口。我们是《GEO 团体标准》的制定参与者，给新东方、松鼠跃动这类品牌做的是人工全量交付：什么问题词、什么语料、发到什么信源、怎么验证，每一步都有交付物，你随时查。"</div>
-<div class="script"><strong>抛诊断钩子：</strong>"我先不谈合作，先免费给你们做一次 AI 可见度诊断——看看客户在豆包、DeepSeek、文心一言里问你们行业的问题时，AI 推荐的是你，还是你的对手。报告明天给你，看完再决定聊不聊。"</div>
-<div class="script"><strong>谈价值（对价格锚）：</strong>"29,800 一个季度，你买的是三件事：一套逐条列明的问题词清单、一批按信源分级策略投放的语料、一份每周期更新的监测报告。这些是能拿给老板看的东西，不是后台数据截图。"</div>
-<div class="script"><strong>推续约：</strong>"这是这个季度的监测对比——这批问题词的推荐率起来了，但 GEO 是持续经营，停投之后 AI 会逐步降低引用。下个季度我们在现有基础上扩 30% 的问题词覆盖，方案下周给你。"</div>
+<div class="quote"><b>开场（立差异化）：</b>"X总，市面上的 GEO 服务商——摘星、微盟启星、珍岛、引旗——模式都是卖你一套工具，然后劝你加钱买他们的代运营，工具变成收割入口。我们是《GEO 团体标准》的制定参与者，给新东方、松鼠跃动这类品牌做的是人工全量交付：什么问题词、什么语料、发到什么信源、怎么验证，每一步都有交付物，你随时查。"</div>
+<div class="quote"><b>抛诊断钩子：</b>"我先不谈合作，先免费给你们做一次 AI 可见度诊断——看看客户在豆包、DeepSeek、文心一言里问你们行业的问题时，AI 推荐的是你，还是你的对手。报告明天给你，看完再决定聊不聊。"</div>
+<div class="quote"><b>谈价值（对价格锚）：</b>"29,800 一个季度，你买的是三件事：一套逐条列明的问题词清单、一批按信源分级策略投放的语料、一份每周期更新的监测报告。这些是能拿给老板看的东西，不是后台数据截图。"</div>
+<div class="quote"><b>推续约：</b>"这是这个季度的监测对比——这批问题词的推荐率起来了，但 GEO 是持续经营，停投之后 AI 会逐步降低引用。下个季度我们在现有基础上扩 30% 的问题词覆盖，方案下周给你。"</div>
 
 <h3>2.4 异议处理</h3>
 <table>
-<thead><tr><th>异议</th><th>应对</th></tr></thead>
-<tbody>
-<tr><td><strong>"为什么不直接卖工具给我们自己用？"</strong></td><td>"可以，工具线我们有。但工具是给谁都能用的标准化流程，你们这个体量要的是结果和效率——头部品牌的问题词策略、信源组合、语料深度都不是模板能覆盖的，这也是我们只服务高预算客户的原因：人工全量交付，成本摆在这，值得的客户才做。"</td></tr>
-<tr><td><strong>"能不能保证效果？"</strong></td><td>"我们承诺的是交付标准：问题词清单逐条列明、语料按信源分级投放、每周期监测报告。推荐率的变化受 AI 平台算法影响，任何承诺具体数字的都是外行——但我们的每一步都留痕可验证，这是团标参与者的做法。"</td></tr>
-<tr><td><strong>"比别家贵"</strong></td><td>"你把两家的交付物清单放一起比：问题词数量口径（我们按六大平台合计算）、语料篇数、信源构成、监测频率。比完你会发现便宜的那家省掉的都是看不见的环节——而看不见的环节恰恰决定 AI 推不推荐你。"</td></tr>
-<tr><td><strong>"先做个便宜的试试"</strong></td><td>"试错成本才是最贵的。要不这样：先用免费诊断把问题摸清，方案按 29,800 的标准出，但第一个月我们优先做最核心的一批问题词，你看到推荐变化再全量铺——节奏可以谈，交付标准不打折。"</td></tr>
-<tr><td><strong>"我们要内部汇报，等等看"</strong></td><td>"应该的。我配合你汇报：诊断报告、方案、竞品对比这三样材料我给你做成汇报版，你们内部什么时候定，我什么时候启动——但 AI 可见度这个窗口期，你对手先做三个月，你追的成本就不止这个数了。"</td></tr>
-</tbody>
+  <tr><th>异议</th><th>应对</th></tr>
+  <tr><td>"为什么不直接卖工具给我们自己用？"</td><td>"可以，工具线我们有。但工具是给谁都能用的标准化流程，你们这个体量要的是结果和效率——头部品牌的问题词策略、信源组合、语料深度都不是模板能覆盖的，这也是我们只服务高预算客户的原因：人工全量交付，成本摆在这，值得的客户才做。"</td></tr>
+  <tr><td>"能不能保证效果？"</td><td>"我们承诺的是交付标准：问题词清单逐条列明、语料按信源分级投放、每周期监测报告。推荐率的变化受 AI 平台算法影响，任何承诺具体数字的都是外行——但我们的每一步都留痕可验证，这是团标参与者的做法。"</td></tr>
+  <tr><td>"比别家贵"</td><td>"你把两家的交付物清单放一起比：问题词数量口径（我们按六大平台合计算）、语料篇数、信源构成、监测频率。比完你会发现便宜的那家省掉的都是看不见的环节——而看不见的环节恰恰决定 AI 推不推荐你。"</td></tr>
+  <tr><td>"先做个便宜的试试"</td><td>"试错成本才是最贵的。要不这样：先用免费诊断把问题摸清，方案按 29,800 的标准出，但第一个月我们优先做最核心的一批问题词，你看到推荐变化再全量铺——节奏可以谈，交付标准不打折。"</td></tr>
+  <tr><td>"我们要内部汇报，等等看"</td><td>"应该的。我配合你汇报：诊断报告、方案、竞品对比这三样材料我给你做成汇报版，你们内部什么时候定，我什么时候启动——但 AI 可见度这个窗口期，你对手先做三个月，你追的成本就不止这个数了。"</td></tr>
 </table>
-</div>
 
-<div class="card">
 <h2>三、通用规则（两条线共用）</h2>
 
 <h3>3.1 内部机制</h3>
 <table>
-<thead><tr><th>事项</th><th>口径</th></tr></thead>
-<tbody>
-<tr><td><strong>销售提成</strong></td><td>两条线统一<strong>终算 6%</strong></td></tr>
-<tr><td><strong>拓客方式</strong></td><td><strong>自助拓客</strong>，无分配线索依赖</td></tr>
-<tr><td><strong>拓展重点</strong></td><td><strong>代理商（生态合伙人）优先</strong>——一个合伙人 = 一个本地渠道，长期产出高于散单</td></tr>
-<tr><td><strong>双线互转</strong></td><td>工具用户成长（预算/规模上来）→ 升级全案；全案接触中预算不足的 → 转工具线留住，不得流失</td></tr>
-</tbody>
+  <tr><th>事项</th><th>口径</th></tr>
+  <tr><td><b>销售提成</b></td><td>两条线统一<b>终算 6%</b></td></tr>
+  <tr><td><b>拓客方式</b></td><td><b>自助拓客</b>，无分配线索依赖</td></tr>
+  <tr><td><b>拓展重点</b></td><td><b>代理商（生态合伙人）优先</b>——一个合伙人 = 一个本地渠道，长期产出高于散单</td></tr>
+  <tr><td><b>双线互转</b></td><td>工具用户成长（预算/规模上来）→ 升级全案；全案接触中预算不足的 → 转工具线留住，不得流失</td></tr>
 </table>
 
 <h3>3.2 红线清单（违规即事故）</h3>
-<table>
-<thead><tr><th>事项</th><th>口径（不可错）</th></tr></thead>
-<tbody>
-<tr><td><strong>报价口径</strong></td><td>工具 598/980/1,980 元/月、合伙人 3,980 元/年、全案 29,800 元/季度起——不得口头改价、放大分成比例</td></tr>
-<tr><td><strong>合同金额</strong></td><td>以合同扫描件为准，其他资料金额与合同不一致时以合同为主</td></tr>
-<tr><td><strong>旗舰版问题词</strong></td><td>≥660 指六大 AI 平台总合计，同一词 6 平台均有推荐计 6 个，按平台累计不去重；升级旗舰版时新增拓展词逐条详细列出</td></tr>
-<tr><td><strong>效果承诺</strong></td><td>全案线只承诺交付标准，不承诺具体推荐率数字；工具线/合伙人线不承诺任何收入数字</td></tr>
-<tr><td><strong>黑帽红线</strong></td><td>严禁批量灌水、虚假信息投放（内容被 AI 批量识别即整体失效，反面教材见弘动数据案例）</td></tr>
-<tr><td><strong>竞品尺度</strong></td><td>只讲模式差异，不点名贬低、不引用未经证实数据</td></tr>
-<tr><td><strong>信源费用</strong></td><td>官媒信源费用不含在服务费内，按需另付，销售必须提前讲清</td></tr>
-</tbody>
-</table>
+<div class="warn">
+<ul>
+<li><b>报价口径：</b>工具 598/980/1,980 元/月、合伙人 3,980 元/年、全案 29,800 元/季度起——不得口头改价、放大分成比例</li>
+<li><b>合同金额：</b>以合同扫描件为准，其他资料金额与合同不一致时以合同为主</li>
+<li><b>旗舰版问题词：</b>≥660 指六大 AI 平台总合计，同一词 6 平台均有推荐计 6 个，按平台累计不去重；升级旗舰版时新增拓展词逐条详细列出</li>
+<li><b>效果承诺：</b>全案线只承诺交付标准，不承诺具体推荐率数字；工具线/合伙人线不承诺任何收入数字</li>
+<li><b>黑帽红线：</b>严禁批量灌水、虚假信息投放（内容被 AI 批量识别即整体失效，反面教材见弘动数据案例）</li>
+<li><b>竞品尺度：</b>只讲模式差异，不点名贬低、不引用未经证实数据</li>
+<li><b>信源费用：</b>官媒信源费用不含在服务费内，按需另付，销售必须提前讲清</li>
+</ul>
+</div>
 
 <h3>3.3 线索池衔接（对接周报口径）</h3>
 <table>
-<thead><tr><th>周报线索类型</th><th>承接动作</th></tr></thead>
-<tbody>
-<tr><td>"想拿代理 / 给本地企业做 GEO"（如高领·发现庆阳）</td><td>直接进合伙人线第 2 步算账演示</td></tr>
-<tr><td>"自己投喂效果差、想了解全案模式"（如江苏BOSS博远）</td><td>全案线：先免费诊断，按流程走</td></tr>
-<tr><td>"要课件 / 想学课程"</td><td>按话术引导工具订阅（先工具后教学），不从课程切入</td></tr>
-<tr><td>"预算几千/嫌代运营贵"</td><td>工具订阅线：598 体验版起步，30 天跑出第一个结果</td></tr>
-<tr><td>有 GEO 痛史（做过掉出推荐）</td><td>诊断切入 + 全案/合伙人双线判断</td></tr>
-</tbody>
+  <tr><th>周报线索类型</th><th>承接动作</th></tr>
+  <tr><td>"想拿代理 / 给本地企业做 GEO"（如高领·发现庆阳）</td><td>直接进合伙人线第 2 步算账演示</td></tr>
+  <tr><td>"自己投喂效果差、想了解全案模式"（如江苏BOSS博远）</td><td>全案线：先免费诊断，按流程走</td></tr>
+  <tr><td>"要课件 / 想学课程"</td><td>按话术引导工具订阅（先工具后教学），不从课程切入</td></tr>
+  <tr><td>"预算几千/嫌代运营贵"</td><td>工具订阅线：598 体验版起步，30 天跑出第一个结果</td></tr>
+  <tr><td>有 GEO 痛史（做过掉出推荐）</td><td>诊断切入 + 全案/合伙人双线判断</td></tr>
 </table>
-</div>
 
-<div class="card">
 <h2>四、高频口径 FAQ（14 问）</h2>
-<p style="color:var(--muted);font-size:13px;margin-bottom:12px">两条业务线客户与销售最常问的口径问题，按价格与分成、合作模式、效果验证、竞品对比四大类归档。点击问题展开答案。</p>
+<p style="color:#6B7280;font-size:13px;margin-bottom:12px">两条业务线客户与销售最常问的口径问题，按价格与分成、合作模式、效果验证、竞品对比四大类归档。点击问题展开答案。</p>
 
 <h3>4.1 价格与分成类</h3>
 <details class="faq"><summary>Q1：系统工具怎么收费？</summary><p>按月订阅三档：体验版 598 元/月（100 基础点，适合单品牌轻度运营）、PLUS 版 980 元/月（300 基础点，适合 1–2 品牌标准运营）、MAX 版 1,980 元/月（1,000 基础点，适合 3–5 品牌高频运营加内容生产）。另有定制版按需报价。点数用完可单独充值：充 500 送 50、充 1,000 送 150、充 3,000 送 600、充 5,000 送 1,250，用得越多越划算。</p></details>
@@ -387,10 +310,9 @@ footer { text-align:center; color:var(--muted); padding:20px; font-size:12px; }
 <details class="faq"><summary>Q12：跟摘星AI、微盟启星、珍岛、引旗这些有什么区别？</summary><p>模式差异：他们是「工具钩子收割代运营」——工具卖给企业，买完没人教，最后客户还得签他们的代运营，钱让他们赚完。我们反过来：把《GEO 团体标准》制定参与者跑通的整套代运营流程装进工具，交给用户自己跑、教会他们、还分他们钱（合伙人 40%/10%/8% 分成）。只讲模式差异，不贬低对方。</p></details>
 <details class="faq"><summary>Q13：为什么你们的工具里要教信源分级？别家一键群发不更快？</summary><p>一键群发发的是免费自媒体，AI 权重最低，发了等于白发。我们的工具里装的是三层问题库和信源分级逻辑——什么内容、发在哪、怎么验，这是团标方法论。可以拿任何一家的媒体清单来对比验证。</p></details>
 <details class="faq"><summary>Q14：怎么验证你们说的是真的？</summary><p>三个动作：① 要交付物清单——问题词、语料、信源链接、监测报告逐条对；② 自己去六大 AI 平台搜客户的行业词，看推荐结果；③ 找我们的标杆案例前后对比截图看。眼见为实，效果会说话。</p></details>
-</div>
 
+<div class="footer">逆传播AIGEO 销售 SOP · 双业务线（生态合伙人 × 全案代运营） · 2026年8月29日 · 内部资料</div>
 </div>
-<footer>逆传播AIGEO 销售 SOP · 双业务线（生态合伙人 × 全案代运营） · 2026年8月29日</footer>
 <script>
 (function(){
   var input = document.getElementById('search-input');
@@ -455,7 +377,7 @@ footer { text-align:center; color:var(--muted); padding:20px; font-size:12px; }
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     var oldBg = el.style.background, oldT = el.style.transition;
     el.style.transition = 'background 0.4s';
-    el.style.background = '#ffedd5';
+    el.style.background = '#FFEDD5';
     setTimeout(function(){ el.style.background = oldBg; el.style.transition = oldT; }, 1600);
     box.style.display = 'none';
     input.value = '';
