@@ -91,8 +91,22 @@
   .pricing-strip .cell .name { font-size:13px; color:#6B7280; }
   .pricing-strip .cell .price { font-size:20px; font-weight:700; color:#E8590C; margin-top:2px; }
   .pricing-strip .cell .note { font-size:11.5px; color:#9CA3AF; margin-top:2px; }
+  /* 分页视图 */
+  .page { display:none; }
+  .page.active { display:block; animation:pageIn .18s ease; }
+  @keyframes pageIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+  .nav-link.active { background:#E8590C; color:#fff; border-color:#E8590C; }
+  .nav-link.nav-all { background:#1F2937; color:#fff; border-color:#1F2937; margin-left:auto; }
+  .nav-link.nav-all:hover { background:#111827; border-color:#111827; }
+  .page-nav { display:flex; gap:12px; margin:30px 0 8px; }
+  .page-nav a, .page-nav span.pn { flex:1; display:block; text-decoration:none; background:#fff; border:1px solid #F3F4F6; border-radius:10px; padding:12px 16px; font-size:13px; color:#D9480F; box-shadow:0 1px 4px rgba(0,0,0,.06); transition:all .18s; }
+  .page-nav a:hover { background:#FFF3E0; border-color:#FFE8CC; }
+  .page-nav .pn-lab { display:block; font-size:11px; color:#9CA3AF; margin-bottom:2px; }
+  .page-nav .next { text-align:right; }
+  .page-nav span.pn { color:#9CA3AF; background:#F9FAFB; }
   @media (max-width:640px){ .header { padding:26px 22px; } .header h1 { font-size:21px; } .kpi .item { min-width:140px; } }
 </style>
+<noscript><style>.page{display:block!important}.page-nav{display:none!important}</style></noscript>
 </head>
 <body>
 <div class="wrap" id="top">
@@ -108,15 +122,15 @@
 </div>
 
 <nav class="nav-bar" aria-label="章节导航">
-  <a class="nav-link" href="#overview">〇 总纲</a>
-  <a class="nav-link" href="#handbook">一 产品手册</a>
-  <a class="nav-link" href="#subscribe">二 系统订阅SOP</a>
-  <a class="nav-link" href="#partner">三 合伙人SOP</a>
-  <a class="nav-link" href="#manage">四 代运营SOP</a>
-  <a class="nav-link" href="#rules">五 通用规则</a>
-  <a class="nav-link" href="#faq">六 FAQ</a>
-  <a class="nav-link" href="#hook">七 钩子话术</a>
-  <a class="nav-link nav-top" href="#top">▲ 顶部</a>
+  <a class="nav-link" href="#overview" data-go="overview">〇 总纲</a>
+  <a class="nav-link" href="#handbook" data-go="handbook">一 产品手册</a>
+  <a class="nav-link" href="#subscribe" data-go="subscribe">二 系统订阅SOP</a>
+  <a class="nav-link" href="#partner" data-go="partner">三 合伙人SOP</a>
+  <a class="nav-link" href="#manage" data-go="manage">四 代运营SOP</a>
+  <a class="nav-link" href="#rules" data-go="rules">五 通用规则</a>
+  <a class="nav-link" href="#faq" data-go="faq">六 FAQ</a>
+  <a class="nav-link" href="#hook" data-go="hook">七 钩子话术</a>
+  <a class="nav-link nav-all" href="#all" data-go="all">≡ 全部展开</a>
 </nav>
 
 <div class="search-bar">
@@ -127,6 +141,7 @@
 </div>
 </div>
 
+<section class="page" id="page-overview" data-page="overview">
 <h2 id="overview">〇、总纲：一条线索，两套打法</h2>
 <div class="card">
 <p><b>公司整体市场方向只有两条，落地成三条销售线：</b>①系统工具线（面向普通人/小商家/渠道商，先推工具，不主推课程教学）——分为 <b>A 段工具订阅（1,800 元/季起，蓄水与跑量）</b>与 <b>B 段生态合伙人（6,980 元/年，渠道放量杠杆）</b>；②全案代运营线（只服务预算充足、有品牌诉求的头部客户）。销售为<b>自助拓客</b>，重点拓展<b>代理商（生态合伙人）</b>。</p>
@@ -166,6 +181,13 @@
   <tr><td><b>红线</b></td><td>不夸大分成收益、不承诺躺赚</td><td>预算不过线不硬推；效果承诺只按交付标准口径说</td></tr>
 </table>
 
+<div class="page-nav">
+  <span class="pn prev"><span class="pn-lab">← 上一章</span>已是第一章</span>
+  <a class="pn next" href="#handbook" data-go="handbook"><span class="pn-lab">下一章 →</span>一 产品手册</a>
+</div>
+</section>
+
+<section class="page" id="page-handbook" data-page="handbook">
 <h2 id="handbook">一、系统工具产品手册（卖什么）</h2>
 
 <h3>1.1 套餐版本总览</h3>
@@ -393,6 +415,13 @@
   <tr><td>连续 2 个月无进展</td><td>执行力 / 理解卡点</td><td>触发人工诊断复核，向代运营或合伙人分流</td></tr>
 </table>
 
+<div class="page-nav">
+  <a class="pn prev" href="#overview" data-go="overview"><span class="pn-lab">← 上一章</span>〇 总纲</a>
+  <a class="pn next" href="#subscribe" data-go="subscribe"><span class="pn-lab">下一章 →</span>二 系统订阅SOP</a>
+</div>
+</section>
+
+<section class="page" id="page-subscribe" data-page="subscribe">
 <h2 id="subscribe">二、业务线一 · A：系统工具订阅销售 SOP（72 小时流水线）</h2>
 <div class="card">
 <p><b>一句话目标：</b>把工具单从“商务 1v1 慢谈”改成“流水线快转”——<b>线索到付款 ≤ 72 小时</b>。</p>
@@ -605,6 +634,13 @@
 </ul>
 </div>
 
+<div class="page-nav">
+  <a class="pn prev" href="#handbook" data-go="handbook"><span class="pn-lab">← 上一章</span>一 产品手册</a>
+  <a class="pn next" href="#partner" data-go="partner"><span class="pn-lab">下一章 →</span>三 合伙人SOP</a>
+</div>
+</section>
+
+<section class="page" id="page-partner" data-page="partner">
 <h2 id="partner">三、业务线一 · B：生态合伙人销售 SOP</h2>
 
 <h3>3.1 目标画像与资格筛选</h3>
@@ -686,6 +722,13 @@
   <tr><td>"你们会不会绕开我直接做我的客户"</td><td>"不会，也没必要——你们的客户你们交付，我们赚的是工具和点数的钱，你越做大我们越省销售成本，这是利益绑定，不是竞争关系。合同里客户归属写清楚。"</td></tr>
 </table>
 
+<div class="page-nav">
+  <a class="pn prev" href="#subscribe" data-go="subscribe"><span class="pn-lab">← 上一章</span>二 系统订阅SOP</a>
+  <a class="pn next" href="#manage" data-go="manage"><span class="pn-lab">下一章 →</span>四 代运营SOP</a>
+</div>
+</section>
+
+<section class="page" id="page-manage" data-page="manage">
 <h2 id="manage">四、业务线二：全案代运营销售 SOP</h2>
 
 <h3>4.1 客户准入门槛（不过线不接）</h3>
@@ -753,6 +796,13 @@
   <tr><td>"我们要内部汇报，等等看"</td><td>"应该的。我配合你汇报：诊断报告、方案、竞品对比这三样材料我给你做成汇报版，你们内部什么时候定，我什么时候启动——但 AI 可见度这个窗口期，你对手先做三个月，你追的成本就不止这个数了。"</td></tr>
 </table>
 
+<div class="page-nav">
+  <a class="pn prev" href="#partner" data-go="partner"><span class="pn-lab">← 上一章</span>三 合伙人SOP</a>
+  <a class="pn next" href="#rules" data-go="rules"><span class="pn-lab">下一章 →</span>五 通用规则</a>
+</div>
+</section>
+
+<section class="page" id="page-rules" data-page="rules">
 <h2 id="rules">五、通用规则（三条线共用）</h2>
 
 <h3>5.1 内部机制</h3>
@@ -788,6 +838,13 @@
   <tr><td>有 GEO 痛史（做过掉出推荐）</td><td>诊断切入 + 全案/合伙人双线判断</td></tr>
 </table>
 
+<div class="page-nav">
+  <a class="pn prev" href="#manage" data-go="manage"><span class="pn-lab">← 上一章</span>四 代运营SOP</a>
+  <a class="pn next" href="#faq" data-go="faq"><span class="pn-lab">下一章 →</span>六 FAQ</a>
+</div>
+</section>
+
+<section class="page" id="page-faq" data-page="faq">
 <h2 id="faq">六、高频口径 FAQ（14 问）</h2>
 <p style="color:#6B7280;font-size:13px;margin-bottom:12px">覆盖产品、价格与分成、合作模式、效果验证、竞品对比等高频问题。点击问题展开答案。</p>
 
@@ -813,6 +870,13 @@
 <details class="faq"><summary>Q13：为什么你们的工具里要教信源分级？别家一键群发不更快？</summary><p>一键群发发的是免费自媒体，AI 权重最低，发了等于白发。我们的工具里装的是三层问题库和信源分级逻辑——什么内容、发在哪、怎么验，这是团标方法论。可以拿任何一家的媒体清单来对比验证。</p></details>
 <details class="faq"><summary>Q14：怎么验证你们说的是真的？</summary><p>三个动作：① 要交付物清单——问题词、语料、信源链接、监测报告逐条对；② 自己去六大 AI 平台搜客户的行业词，看推荐结果；③ 找我们的标杆案例前后对比截图看。眼见为实，效果会说话。</p></details>
 
+<div class="page-nav">
+  <a class="pn prev" href="#rules" data-go="rules"><span class="pn-lab">← 上一章</span>五 通用规则</a>
+  <a class="pn next" href="#hook" data-go="hook"><span class="pn-lab">下一章 →</span>七 钩子话术</a>
+</div>
+</section>
+
+<section class="page" id="page-hook" data-page="hook">
 <h2 id="hook">七、前端商务 · 注册转化钩子话术（注册率专项）</h2>
 <div class="card">
 <p><b>问题：</b>低预算客户微信/电话都说“了解下”，但实际注册率极低。本话术解决两件事——<b>① 让客户愿意注册并真正用起来；② 让用过的客户愿意付费自行下单。</b></p>
@@ -918,8 +982,60 @@
   <tr><td><b>付费转化</b></td><td>报告数据 → 1,800 低门槛试用 → 送点数升级</td></tr>
 </table>
 
+<div class="page-nav">
+  <a class="pn prev" href="#faq" data-go="faq"><span class="pn-lab">← 上一章</span>六 FAQ</a>
+  <span class="pn next"><span class="pn-lab">下一章 →</span>已是最后一章</span>
+</div>
+</section>
+
 <div class="footer">智汇Growth 商务作战手册（系统工具产品手册 × 销售SOP三线 × 注册转化钩子话术） · 2026年9月24日更新（新增系统订阅 SOP） · 内部资料 · 报价以最新口径为准</div>
 </div>
+<script>
+(function(){
+  var BASE = '智汇Growth 商务作战手册';
+  function secs(){ return document.querySelectorAll('.page'); }
+  function show(p, scroll){
+    var list = secs(), hit = false, label = '', i, s, on;
+    for (i = 0; i < list.length; i++){
+      s = list[i];
+      on = (p === 'all') || (s.getAttribute('data-page') === p);
+      s.classList.toggle('active', on);
+      if (s.getAttribute('data-page') === p){
+        hit = true;
+        var hh = s.querySelector('h2');
+        label = hh ? hh.textContent : '';
+      }
+    }
+    if (!hit && p !== 'all'){
+      s = list[0];
+      if (s){ s.classList.add('active'); var h0 = s.querySelector('h2'); label = h0 ? h0.textContent : ''; p = s.getAttribute('data-page'); }
+    }
+    var links = document.querySelectorAll('[data-go]');
+    for (i = 0; i < links.length; i++) links[i].classList.toggle('active', links[i].getAttribute('data-go') === p);
+    document.title = (p === 'all') ? BASE : (BASE + ' · ' + String(label).replace(/^[\u3007\u4e00-\u4e03]\u3001?/, ''));
+    var act = document.querySelector('.nav-link.active');
+    var bar = document.querySelector('.nav-bar');
+    if (act && bar && bar.scrollWidth > bar.clientWidth + 4){
+      var left = act.offsetLeft - bar.clientWidth / 2 + act.offsetWidth / 2;
+      try { bar.scrollTo({ left: left, behavior: 'smooth' }); } catch (e2) { bar.scrollLeft = left; }
+    }
+    if (scroll !== false) window.scrollTo(0, 0);
+    return p;
+  }
+  window.__showPage = show;
+  function cur(){ var h = (location.hash || '').replace('#', ''); return h || 'overview'; }
+  document.addEventListener('click', function(ev){
+    var a = ev.target.closest && ev.target.closest('[data-go]');
+    if (!a) return;
+    ev.preventDefault();
+    var p = show(a.getAttribute('data-go'));
+    try { history.pushState({ p: p }, '', '#' + p); } catch (e) { location.hash = p; }
+  });
+  window.addEventListener('popstate', function(e){ show((e.state && e.state.p) || cur(), false); });
+  show(cur(), false);
+  try { history.replaceState({ p: cur() }, '', '#' + cur()); } catch (e) {}
+})();
+</script>
 <script>
 (function(){
   var input = document.getElementById('search-input');
@@ -981,6 +1097,7 @@
     var d = el;
     while (d && d.tagName !== 'DETAILS') d = d.parentElement;
     if (d) d.open = true;
+    if (el.closest && window.__showPage){ var pg = el.closest('.page'); if (pg) window.__showPage(pg.getAttribute('data-page'), false); }
     el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     var oldBg = el.style.background, oldT = el.style.transition;
     el.style.transition = 'background 0.4s';
