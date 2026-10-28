@@ -5,88 +5,144 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>智汇Growth 商务作战手册 · 新人版</title>
 <style>
+/* ============================================================
+   智汇Growth 商务作战手册 · 设计系统
+   风格基准：智汇Growth 官方 logo（蓝→青→绿渐变轨道）+
+             对外合作方案 V2 模板「深空仪表盘风」
+   主色: #060914 深空 / #FF6B35 能量橙 / #4F46E5 紫光 / #06B6D4 青光
+   字体: 微软雅黑全局锁死
+   严禁: text-shadow / opacity（会触发矢量文字栅格化导致发虚）
+   ============================================================ */
+:root{
+  --space:#060914; --space-2:#0E1428; --space-3:#1B2240;
+  --ink:#0F172A; --ink-2:#334155; --ink-3:#64748B; --ink-4:#94A3B8;
+  --energy:#FF6B35; --energy-d:#E04A14; --energy-l:#FFA07A; --energy-bg:#FFF1EB;
+  --violet:#4F46E5; --violet-d:#3730A3; --violet-bg:#F3F2FF;
+  --cyan:#06B6D4; --cyan-d:#0E7490; --cyan-bg:#ECFDFF;
+  --lime:#84CC16; --gold:#F59E0B; --rose:#F43F5E;
+  --line:#E5E9F2; --line-2:#EEF1F8; --bg:#F5F7FB;
+}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:#F7F8FA;color:#1F2937;line-height:1.8;padding:24px 14px 40px}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact;scroll-behavior:smooth}
+body,body div,body span,body p,body li,body td,body th,body h1,body h2,body h3,body h4,body h5,body strong,body b{font-family:"Microsoft YaHei","微软雅黑","PingFang SC","Microsoft JhengHei",sans-serif}
+body{background:var(--bg);color:var(--ink);line-height:1.8;padding:22px 14px 40px}
 .wrap{max-width:1060px;margin:0 auto}
-.hero{background:linear-gradient(135deg,#E8590C,#F59E0B);color:#fff;border-radius:18px;padding:30px 34px;margin-bottom:16px}
-.hero h1{font-size:25px;margin-bottom:6px}
-.hero p{opacity:.95;font-size:14px}
-.hero .tags{margin-top:12px}
-.hero .tags span{display:inline-block;background:rgba(255,255,255,.2);border-radius:20px;padding:2px 13px;font-size:12px;margin:4px 6px 0 0}
-.nav-bar{position:sticky;top:0;z-index:200;display:flex;gap:8px;overflow-x:auto;background:#fff;border:1px solid #ECEFF3;border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,.06);padding:9px 12px;margin-bottom:12px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+
+/* ===== 页头：深空仪表盘 ===== */
+.hero{position:relative;overflow:hidden;color:#fff;border-radius:20px;padding:34px 38px;margin-bottom:16px;
+  background:
+    radial-gradient(ellipse 900px 420px at 16% 12%, rgba(79,70,229,.42) 0%, transparent 55%),
+    radial-gradient(ellipse 720px 360px at 86% 78%, rgba(6,182,212,.30) 0%, transparent 50%),
+    radial-gradient(ellipse 1000px 520px at 52% 116%, rgba(255,107,53,.24) 0%, transparent 62%),
+    linear-gradient(135deg,#060914 0%,#0E1428 52%,#1B1240 100%)}
+.hero-row{display:flex;align-items:center;gap:18px}
+.hero-logo{width:52px;height:52px;flex:0 0 auto;filter:drop-shadow(0 2px 10px rgba(6,182,212,.45))}
+.hero h1{font-size:25px;letter-spacing:.5px}
+.hero .sub{font-size:13.5px;color:#C7D2E5;margin-top:4px}
+.hero .tags{margin-top:14px}
+.hero .tags span{display:inline-block;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:2px 13px;font-size:12px;margin:4px 7px 0 0;color:#E8EEF8}
+
+/* ===== 导航 ===== */
+.nav-bar{position:sticky;top:0;z-index:200;display:flex;gap:8px;overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 12px rgba(15,23,42,.07);padding:9px 12px;margin-bottom:12px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .nav-bar::-webkit-scrollbar{display:none}
-.nav-link{flex:0 0 auto;text-decoration:none;font-size:13px;font-weight:600;color:#D9480F;background:#FFF3E0;border:1px solid #FFE3C2;border-radius:20px;padding:7px 15px;transition:all .2s;white-space:nowrap}
-.nav-link:hover{background:#F76707;color:#fff;border-color:#F76707}
-.nav-link.active{background:#E8590C;color:#fff;border-color:#E8590C}
-.search-bar{position:sticky;top:58px;z-index:100;background:#fff;border:1px solid #ECEFF3;border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,.05);margin-bottom:16px}
+.nav-link{flex:0 0 auto;text-decoration:none;font-size:13px;font-weight:600;color:var(--energy-d);background:var(--energy-bg);border:1px solid #FFD9C7;border-radius:20px;padding:7px 15px;transition:all .2s;white-space:nowrap}
+.nav-link:hover{background:var(--energy);color:#fff;border-color:var(--energy)}
+.nav-link.active{background:var(--energy);color:#fff;border-color:var(--energy)}
+.nav-link.all{background:var(--space-2);color:#C7D2E5;border-color:var(--space-2);margin-left:auto}
+.nav-link.all:hover{background:var(--space);color:#fff;border-color:var(--space)}
+
+/* ===== 搜索 ===== */
+.search-bar{position:sticky;top:58px;z-index:100;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 12px rgba(15,23,42,.06);margin-bottom:18px}
 .search-inner{position:relative;max-width:760px;margin:0 auto;padding:10px 16px}
-.search-inner input{width:100%;padding:10px 40px 10px 14px;font-size:14px;border:1.5px solid #ECEFF3;border-radius:10px;outline:none;background:#fff}
-.search-inner input:focus{border-color:#F76707}
-.search-clear{position:absolute;right:28px;top:50%;transform:translateY(-50%);cursor:pointer;color:#9CA3AF;display:none;font-size:14px}
-.search-results{position:absolute;left:16px;right:16px;top:calc(100% - 4px);background:#fff;border:1px solid #ECEFF3;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.14);max-height:62vh;overflow-y:auto;display:none;z-index:300}
-.sr-item{padding:9px 14px;cursor:pointer;font-size:13px;border-bottom:1px solid #F3F4F6;line-height:1.6}
-.sr-item:hover{background:#FFF8E1}
-.sr-item mark{background:#FED7AA;color:inherit;padding:0 2px;border-radius:2px}
-.sr-tag{display:inline-block;min-width:34px;font-size:11px;color:#F76707;font-weight:700;margin-right:8px}
+.search-inner input{width:100%;padding:10px 40px 10px 14px;font-size:14px;border:1.5px solid var(--line);border-radius:10px;outline:none;background:#fff;color:var(--ink)}
+.search-inner input:focus{border-color:var(--energy)}
+.search-clear{position:absolute;right:28px;top:50%;transform:translateY(-50%);cursor:pointer;color:var(--ink-4);display:none;font-size:14px}
+.search-results{position:absolute;left:16px;right:16px;top:calc(100% - 4px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 34px rgba(15,23,42,.18);max-height:62vh;overflow-y:auto;display:none;z-index:300}
+.sr-item{padding:9px 14px;cursor:pointer;font-size:13px;border-bottom:1px solid var(--line-2);line-height:1.6;color:var(--ink-2)}
+.sr-item:hover{background:var(--energy-bg)}
+.sr-item mark{background:#FFD9C7;color:inherit;padding:0 2px;border-radius:2px}
+.sr-tag{display:inline-block;min-width:34px;font-size:11px;color:var(--energy-d);font-weight:700;margin-right:8px}
+
+/* ===== 视图 ===== */
 .page{display:none}
 .page.active{display:block;animation:fade .2s ease}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.p-head{background:#fff;border:1px solid #ECEFF3;border-radius:16px;padding:20px 26px;margin-bottom:18px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.p-head .ptag{display:inline-block;background:#FFF3E0;color:#D9480F;border:1px solid #FFE3C2;border-radius:6px;font-size:12px;padding:1px 10px;margin-bottom:8px}
-.p-head h2{font-size:21px;color:#D9480F;border-left:5px solid #F76707;padding-left:12px;margin-bottom:8px}
-.p-head .lead{font-size:14px;color:#4B5563}
-h3{font-size:17px;color:#E8590C;margin:26px 0 10px;padding-bottom:6px;border-bottom:1px dashed #FFE3C2}
-h4{font-size:15px;color:#D9480F;margin:18px 0 8px}
-h5{font-size:14px;color:#B45309;margin:14px 0 6px}
-p{margin:8px 0;font-size:14.5px;color:#374151}
-ul,ol{margin:8px 0 8px 22px;font-size:14.5px;color:#374151}
+.p-head{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 26px 18px;margin-bottom:20px;box-shadow:0 1px 4px rgba(15,23,42,.05)}
+.p-head::before{content:'';position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,var(--energy) 0%,var(--violet) 52%,var(--cyan) 100%)}
+.p-head .ptag{display:inline-block;background:var(--space-2);color:#fff;border-radius:6px;font-size:11.5px;padding:2px 11px;margin-bottom:9px;letter-spacing:.5px}
+.p-head h2{font-size:21px;color:var(--space-2);border-left:5px solid var(--energy);padding-left:13px;margin-bottom:9px}
+.p-head .lead{font-size:14px;color:var(--ink-2)}
+
+/* ===== 正文排版 ===== */
+h3{font-size:17px;color:var(--space-2);margin:28px 0 12px;padding-left:12px;position:relative}
+h3::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:2px;background:var(--energy)}
+h4{font-size:15px;color:var(--energy-d);margin:18px 0 8px}
+h5{font-size:14px;color:var(--violet-d);margin:14px 0 6px}
+p{margin:8px 0;font-size:14.5px;color:var(--ink-2)}
+ul,ol{margin:8px 0 10px 22px;font-size:14.5px;color:var(--ink-2)}
 li{margin-bottom:5px}
-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05);margin:12px 0 18px;font-size:13.5px}
-th{background:#FFF3E0;color:#D9480F;padding:10px 12px;text-align:left;font-size:13px;font-weight:600}
-td{padding:9px 12px;border-top:1px solid #F3F4F6;vertical-align:top;color:#374151}
-tbody tr:hover{background:#FFFBF5}
-blockquote.quote{background:#FFF8E1;border-left:4px solid #F76707;border-radius:0 10px 10px 0;padding:12px 18px;margin:12px 0;font-size:14px;color:#5B4A22}
-hr{border:0;border-top:1px dashed #E5E7EB;margin:22px 0}
-code{background:#FFF3E0;color:#B45309;padding:1px 6px;border-radius:5px;font-size:13px;font-family:Consolas,Monaco,monospace}
-pre.card-pre{background:#fff;border:1px solid #ECEFF3;border-radius:12px;padding:16px 18px;overflow-x:auto;font-size:13px;line-height:1.6;color:#374151;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.box{display:inline-block;width:13px;height:13px;border:1.5px solid #C9CDD4;border-radius:3px;margin-right:6px;vertical-align:-2px}
-.box.ok{background:#10B981;border-color:#10B981}
-.path-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:12px;margin:14px 0 8px}
-.path-card{background:#fff;border:1px solid #ECEFF3;border-radius:14px;padding:16px 18px;position:relative;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.path-card .d{position:absolute;top:14px;right:16px;font-size:12px;font-weight:700;color:#F76707;background:#FFF3E0;border-radius:6px;padding:1px 8px}
-.path-card b{font-size:15px;color:#1F2937}
-.path-card p{font-size:13px;color:#6B7280;margin:6px 0 8px}
-.path-card a{font-size:13px;color:#E8590C;text-decoration:none;font-weight:600}
+strong{color:var(--ink)}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(15,23,42,.05);margin:12px 0 18px;font-size:13.5px}
+th{background:var(--space-2);color:#fff;padding:11px 13px;text-align:left;font-size:13px;font-weight:600;letter-spacing:.3px}
+td{padding:10px 13px;border-top:1px solid var(--line-2);vertical-align:top;color:var(--ink-2)}
+tbody tr:nth-child(even){background:#FAFBFD}
+tbody tr:hover{background:var(--energy-bg)}
+blockquote.quote{background:var(--violet-bg);border-left:4px solid var(--violet);border-radius:0 10px 10px 0;padding:13px 18px;margin:13px 0;font-size:14px;color:#2E2A6B}
+blockquote.quote strong{color:var(--violet-d)}
+hr{border:0;border-top:1px solid var(--line-2);margin:24px 0}
+code{background:var(--energy-bg);color:var(--energy-d);padding:1px 6px;border-radius:5px;font-size:13px;font-family:Consolas,Monaco,monospace}
+pre.card-pre{background:#fff;border:1px solid var(--line);border-top:3px solid var(--space-2);border-radius:12px;padding:16px 18px;overflow-x:auto;font-size:13px;line-height:1.65;color:var(--ink-2);box-shadow:0 1px 4px rgba(15,23,42,.05);font-family:Consolas,Monaco,monospace}
+.box{display:inline-block;width:13px;height:13px;border:1.5px solid #C3CBD9;border-radius:3px;margin-right:6px;vertical-align:-2px}
+.box.ok{background:var(--lime);border-color:var(--lime)}
+
+/* ===== 学习路径 / 三线卡 ===== */
+.path-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:13px;margin:16px 0 8px}
+.path-card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px 18px 15px;box-shadow:0 1px 4px rgba(15,23,42,.05)}
+.path-card::before{content:'';position:absolute;left:0;top:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--violet))}
+.path-card .d{position:absolute;top:14px;right:16px;font-size:11.5px;font-weight:700;color:var(--violet-d);background:var(--violet-bg);border-radius:6px;padding:1px 8px}
+.path-card b{font-size:15px;color:var(--space-2)}
+.path-card p{font-size:13px;color:var(--ink-3);margin:6px 0 9px}
+.path-card a{font-size:13px;color:var(--energy-d);text-decoration:none;font-weight:600}
 .path-card a:hover{text-decoration:underline}
 .line-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:14px 0 8px}
-.line-card{background:#fff;border-radius:14px;padding:18px 20px;box-shadow:0 1px 4px rgba(0,0,0,.05);border-top:4px solid #F76707}
-.line-card.la{border-top-color:#F76707}
-.line-card.lb{border-top-color:#0F6E56}
-.line-card.lc{border-top-color:#534AB7}
-.line-card .lt{font-size:15px;font-weight:600;color:#1F2937}
-.line-card .lp{font-size:13px;color:#E8590C;font-weight:600;margin:2px 0 6px}
-.line-card p{font-size:13.5px;color:#6B7280;margin:0 0 10px}
-.line-card a{font-size:13px;color:#E8590C;text-decoration:none;font-weight:600}
-.pager{display:flex;gap:12px;margin:26px 0 6px}
-.pager a,.pager span{flex:1;display:block;background:#fff;border:1px solid #ECEFF3;border-radius:12px;padding:12px 16px;font-size:13.5px;color:#D9480F;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.pager a:hover{background:#FFF3E0}
+.line-card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px 16px;box-shadow:0 1px 4px rgba(15,23,42,.06)}
+.line-card::before{content:'';position:absolute;left:0;top:0;right:0;height:4px}
+.line-card.la::before{background:var(--energy)}
+.line-card.lb::before{background:var(--cyan)}
+.line-card.lc::before{background:var(--violet)}
+.line-card .lt{font-size:15px;font-weight:600;color:var(--space-2)}
+.line-card .lp{font-size:13px;color:var(--energy-d);font-weight:600;margin:2px 0 6px}
+.line-card p{font-size:13.5px;color:var(--ink-3);margin:0 0 10px}
+.line-card a{font-size:13px;color:var(--energy-d);text-decoration:none;font-weight:600}
+
+/* ===== 翻页 / 页脚 ===== */
+.pager{display:flex;gap:12px;margin:28px 0 6px}
+.pager a,.pager span{flex:1;display:block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:13.5px;color:var(--energy-d);text-decoration:none;box-shadow:0 1px 4px rgba(15,23,42,.04)}
+.pager a:hover{background:var(--energy-bg);border-color:#FFD9C7}
 .pager .next{text-align:right}
-.pager span{color:#9CA3AF;background:#FAFAFA}
-.footer{text-align:center;color:#9CA3AF;font-size:12px;margin-top:30px;line-height:1.9}
+.pager span{color:var(--ink-4);background:#FAFBFD}
+.footer{text-align:center;color:var(--ink-4);font-size:12px;margin-top:32px;line-height:2}
+.footer b{color:var(--ink-3)}
 @media print{
+  @page{size:A4;margin:12mm}
   body{background:#fff;padding:0}
   .nav-bar,.search-bar,.pager{display:none!important}
   .page{display:block!important;page-break-after:always}
-  .p-head{box-shadow:none}
+  .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .p-head,.path-card,.line-card{box-shadow:none}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
 <div class="hero">
+<div class="hero-row">
+<img class="hero-logo" src="zhihuigrowth_logo.png" alt="智汇Growth" />
+<div>
 <h1>智汇Growth 商务作战手册 · 新人版</h1>
-<p>产品与报价基础 · 电销三线逐字话术 · 真实案例复盘 —— 每条业务线独立成篇，照着念就能打</p>
+<div class="sub">产品与报价基础 · 电销三线逐字话术 · 真实案例复盘 —— 每条业务线独立成篇，照着念就能打</div>
+</div>
+</div>
 <div class="tags">
 <span>工具 1,800 / 2,979 / 5,979 元/季起（不含税）</span>
 <span>全案代运营 29,800 元/季起</span>
@@ -98,7 +154,7 @@ pre.card-pre{background:#fff;border:1px solid #ECEFF3;border-radius:12px;padding
 
 <nav class="nav-bar" aria-label="章节导航">
 <a class="nav-link" href="#start" data-go="start">怎么用</a><a class="nav-link" href="#basics" data-go="basics">① 报价基础</a><a class="nav-link" href="#guide" data-go="guide">② 电销总纲</a><a class="nav-link" href="#line-a" data-go="line-a">③ 线A 工具订阅</a><a class="nav-link" href="#line-b" data-go="line-b">④ 线B 全案代运营</a><a class="nav-link" href="#line-c" data-go="line-c">⑤ 线C 生态合伙人</a><a class="nav-link" href="#case" data-go="case">⑥ 真实案例</a>
-<a class="nav-link" href="#all" data-go="all">≡ 全部展开</a>
+<a class="nav-link all" href="#all" data-go="all">≡ 全部展开</a>
 </nav>
 
 <div class="search-bar">
@@ -740,7 +796,7 @@ pre.card-pre{background:#fff;border:1px solid #ECEFF3;border-radius:12px;padding
 
 <div class="footer">
 智汇Growth 商务作战手册（新人版） · 三线电销话术 + 报价基础 + 真实案例复盘 · 内部资料 · 报价以最新口径为准<br>
-品牌统一「智汇Growth」｜平台 6 个不含知乎｜效果承诺只认合同口径
+品牌统一「<b>智汇Growth</b>」｜平台 6 个不含知乎｜效果承诺只认合同口径｜设计基准：智汇Growth 官方视觉系统
 </div>
 </div>
 <script>
@@ -800,7 +856,7 @@ pre.card-pre{background:#fff;border:1px solid #ECEFF3;border-radius:12px;padding
     if(el.closest&&window.__showPage){var pg=el.closest('.page');if(pg)window.__showPage(pg.getAttribute('data-page'),false)}
     el.scrollIntoView({behavior:'smooth',block:'center'});
     var ob=el.style.background,ot=el.style.transition;
-    el.style.transition='background .4s';el.style.background='#FFF3E0';
+    el.style.transition='background .4s';el.style.background='#FFF1EB';
     setTimeout(function(){el.style.background=ob;el.style.transition=ot},1600);
     box.style.display='none';input.value='';clearBtn.style.display='none';
   }
