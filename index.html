@@ -123,6 +123,38 @@ pre.card-pre{background:#fff;border:1px solid var(--line);border-top:3px solid v
 .pager span{color:var(--ink-4);background:#FAFBFD}
 .footer{text-align:center;color:var(--ink-4);font-size:12px;margin-top:32px;line-height:2}
 .footer b{color:var(--ink-3)}
+/* ===== 案例折叠卡 ===== */
+.case-tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:16px 0 10px}
+.case-tools span{font-size:12.5px;color:var(--ink-4)}
+.case-tools button{font-family:inherit;font-size:12.5px;color:var(--ink-3);background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 12px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.case-tools button:hover{background:var(--energy-bg);border-color:#FFD9C7;color:var(--energy-d)}
+details.case-fold{background:#fff;border:1px solid var(--line);border-radius:14px;margin:11px 0;box-shadow:0 1px 4px rgba(15,23,42,.05);overflow:hidden}
+details.case-fold[open]{border-color:#FFD9C7;box-shadow:0 4px 16px rgba(255,107,53,.09)}
+details.case-fold>.case-sum{display:flex;align-items:center;gap:11px;padding:14px 17px;cursor:pointer;list-style:none;border-left:4px solid var(--energy);background:#fff}
+details.case-fold[open]>.case-sum{background:var(--energy-bg)}
+details.case-fold>.case-sum::-webkit-details-marker{display:none}
+details.case-fold>.case-sum:hover{background:var(--energy-bg)}
+.case-num{flex:none;font-size:12px;font-weight:700;color:var(--energy-d);background:var(--energy-bg);border:1px solid #FFD9C7;border-radius:7px;padding:2px 9px}
+details.case-fold[open] .case-num{background:#fff}
+.case-name{flex:none;font-size:15.5px;font-weight:700;color:var(--space-2)}
+.case-meta{flex:1;min-width:0;font-size:12.5px;color:var(--ink-4);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.case-pill{flex:none;font-size:12px;font-weight:700;color:#fff;background:var(--energy);border-radius:20px;padding:2px 10px;white-space:nowrap}
+.case-caret{flex:none;width:8px;height:8px;margin-left:auto;border-right:2px solid var(--ink-4);border-bottom:2px solid var(--ink-4);transform:rotate(45deg);transition:transform .2s}
+details.case-fold[open] .case-caret{transform:rotate(-135deg);border-color:var(--energy-d)}
+.case-body{padding:2px 18px 18px;border-top:1px solid var(--line)}
+.case-body>h3:first-child{margin-top:16px}
+@media (max-width:640px){
+  .case-meta{display:none}
+  .case-name{font-size:14.5px;white-space:normal}
+  .case-pill{font-size:11.5px;padding:2px 8px}
+  .case-body{padding:2px 13px 15px}
+}
+
+@media (max-width:760px){
+  table{display:block;width:100%;max-width:100%;overflow-x:auto;white-space:normal}
+  pre.card-pre{overflow-x:auto}
+}
+
 @media print{
   @page{size:A4;margin:12mm}
   body{background:#fff;padding:0}
@@ -130,6 +162,10 @@ pre.card-pre{background:#fff;border:1px solid var(--line);border-top:3px solid v
   .page{display:block!important;page-break-after:always}
   .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .p-head,.path-card,.line-card{box-shadow:none}
+  .case-tools{display:none!important}
+  details.case-fold{box-shadow:none;border:none;margin:0 0 8px;page-break-inside:avoid}
+  details.case-fold>.case-sum{background:#fff;padding:8px 0;page-break-after:avoid}
+  .case-body{border-top:none;padding:0}
 }
 </style>
 </head>
@@ -695,8 +731,12 @@ pre.card-pre{background:#fff;border:1px solid var(--line);border-top:3px solid v
 <div class="pager"><a class="prev" href="#line-b" data-go="line-b">← 上一章<br>④ 线B 全案代运营</a><a class="next" href="#case" data-go="case">下一章 →<br>⑥ 真实成交案例</a></div>
 </section><section class="page" id="page-case" data-page="case">
 <div class="p-head"><span class="ptag">成交案例</span><h2>六、真实成交案例</h2><div class="lead">真成交的案例，每个独立成篇。看两件事：流程怎么走、哪些说法可以直接抄。</div></div>
-<blockquote class="quote">这里放的全是<strong>真成交</strong>的案例，每个案例独立成篇。<br/>每篇只讲三件事：<strong>客户是谁 → 流程怎么走 → 哪些说法可以直接抄</strong>。<br/>案例一：上海臣峰环境（4 天成交）｜案例二：上志国际（1 个月）｜案例三：东莞环球美天（2 周）｜案例四：Maktart 养肤净水器（1 通电话）。</blockquote>
+<blockquote class="quote">这里放的全是<strong>真成交</strong>的案例，每个案例独立成篇（下面按案例折叠，点标题只看你要的那一单）。<br/>每篇只讲三件事：<strong>客户是谁 → 流程怎么走 → 哪些说法可以直接抄</strong>。</blockquote>
 <hr/>
+<div class="case-tools"><span id="case-count"></span><button type="button" data-case="open">全部展开</button><button type="button" data-case="close">全部收起</button></div>
+<details class="case-fold">
+<summary class="case-sum"><span class="case-num">案例一</span><span class="case-name">上海臣峰环境</span><span class="case-meta">B 端保洁服务商，一通电话 + 一次线上会议 = 成交，从首次接上到成交只用了 4 天</span><span class="case-pill">签季度合同</span><span class="case-caret" aria-hidden="true"></span></summary>
+<div class="case-body">
 <blockquote class="quote"><strong>一句话</strong>：B 端保洁服务商，<strong>一通电话 + 一次线上会议 = 成交</strong>，从首次接上到成交只用了 4 天。</blockquote>
 <hr/>
 <h3>一、案例速览</h3>
@@ -830,9 +870,11 @@ pre.card-pre{background:#fff;border:1px solid var(--line);border-top:3px solid v
 <blockquote class="quote">💡 <strong>用法</strong>：<strong>提前说清"要你配合什么"</strong>，后面收资料、收数据就不像填表负担，而是项目的一部分。</blockquote>
 <hr/>
 <h3>六、关键原话（教学用）</h3>
-<blockquote class="quote">隋：「<strong>我要的结果是转化</strong>，而不是只光能展示就行了。」<br/>隋：「<strong>我们原先是在百度竞价排名做 SEO，效果相当好</strong>，我们有很多大的项目客户都是通过百度这边来获得的。」<br/>隋：「<strong>这个还是要想一想，很多描述还是要准确些。</strong>」<br/>隋：「<strong>价格上太贵了。给个优惠价格。优化我是要持续做的。</strong>」<br/>隋：「<strong>最终还是要看转化的。</strong>」<br/>隋（会后）：「<strong>他讲的就非常的详细专业化内容，所以我们跟友商在做的 GEO 内容就是两个不同的服务。</strong>」<br/>徐：「<strong>我这边也还需要同步运营老师做相应的检测的</strong>」<br/>徐：「<strong>您看您明天上午还是下午几点方便呀</strong>」<br/>徐：「<strong>他比我讲的更专业</strong>」<br/>徐：「<strong>我们服务是不需要您同事这边每天进行其他优化上的操作的</strong>」<br/>徐：「<strong>我们肯定是希望长期合作的……给您打造成行业的标杆</strong>」<br/>徐：「<strong>我这边同步下运营老师做监测报告</strong>」</blockquote>
-<hr/>
-<hr/>
+<blockquote class="quote">隋：「<strong>我要的结果是转化</strong>，而不是只光能展示就行了。」<br/>隋：「<strong>我们原先是在百度竞价排名做 SEO，效果相当好</strong>，我们有很多大的项目客户都是通过百度这边来获得的。」<br/>隋：「<strong>这个还是要想一想，很多描述还是要准确些。</strong>」<br/>隋：「<strong>价格上太贵了。给个优惠价格。优化我是要持续做的。</strong>」<br/>隋：「<strong>最终还是要看转化的。</strong>」<br/>隋（会后）：「<strong>他讲的就非常的详细专业化内容，所以我们跟友商在做的 GEO 内容就是两个不同的服务。</strong>」<br/>徐：「<strong>我这边也还需要同步运营老师做相应的检测的</strong>」<br/>徐：「<strong>您看您明天上午还是下午几点方便呀</strong>」<br/>徐：「<strong>他比我讲的更专业</strong>」<br/>徐：「<strong>我们服务是不需要您同事这边每天进行其他优化上的操作的</strong>」<br/>徐：「<strong>我们肯定是希望长期合作的……给您打造成行业的标杆</strong>」<br/>徐：「<strong>我这边同步下运营老师做监测报告</strong>」</blockquote></div>
+</details>
+<details class="case-fold">
+<summary class="case-sum"><span class="case-num">案例二</span><span class="case-name">上志国际</span><span class="case-meta">香港贵金属交易平台（现货黄金 / 白银 / 人民币公斤条），成交周期一个月</span><span class="case-pill">专业版 · 48,800 元</span><span class="case-caret" aria-hidden="true"></span></summary>
+<div class="case-body">
 <blockquote class="quote"><strong>一句话</strong>：香港贵金属交易平台（现货黄金 / 白银 / 人民币公斤条），<strong>成交周期一个月，成交专业版 48,800 元</strong>。<br/><strong>特殊点：金融行业 —— 推进前先核实客户资质是否具备</strong>（这一步决定了能不能做，也决定了怎么讲）。</blockquote>
 <hr/>
 <h3>一、案例速览</h3>
@@ -960,8 +1002,11 @@ pre.card-pre{background:#fff;border:1px solid var(--line);border-top:3px solid v
 <h3>六、关键原话（教学用）</h3>
 <blockquote class="quote">客户：「我们是贵金属公司，能做 GEO 吗」<br/>客户：「<strong>不搜索平台的话就没办法推荐是吗</strong>」<br/>客户：「<strong>不搜索平台的话 AI 不能推荐平台，但一般客户不会让 AI 推荐平台</strong>」（客户自己产生的认知冲突）<br/>客户：「<strong>这个达标情况判断依据是什么</strong>」<br/>客户：「抓取的信源有哪些」<br/>客户：「我看合同期写了一年，能改成一个季度吗」<br/>客户：「那我们如果按年签了一个季度之后不做了，需要付违约金吗」<br/>客户：「我们没有纳税号」；「开票需要额外收费吗」；「专票普票收一样费用吗」<br/>客户（3/31）：「确定了，现货黄金、现货白银、人民币公斤条」<br/>我方：「<strong>您这边有相关的监管资质吗？因为金融行业的要求还是比较高的。</strong>」<br/>我方：「<strong>香港的资质也是可以的。</strong>」<br/>我方：「有效的 GEO 不单单是让 AI 单纯提一下品牌名，而是构建一个『AI 里的品牌信息闭环』」<br/>我方：「<strong>AI 平台是需要结合问题词的语义去分析推荐出结果的。</strong>」<br/>我方：「<strong>您这边实在理解不了的话，建议还是电话沟通，比较高效哈。</strong>」<br/>我方：「<strong>可以尽快敲定：一是春节后这波 AI 流量非常大……二是目前您的同行已经有在做 GEO 营销的，后面越多的竞对涌入，我们这边需要承担的费用也是越来越高的，报价单时效过后，我们也需要重新二次评估费用的。</strong>」<br/>我方：「<strong>按年框签是为了确保您这边权益的，因为 GEO 营销我们大概每个季度调研可能会上涨。</strong>」<br/>我方：「<strong>我们可以增加这项条款。</strong>」</blockquote>
 <hr/>
-<p>*案例二完。*</p>
-<hr/>
+<p>*案例二完。*</p></div>
+</details>
+<details class="case-fold">
+<summary class="case-sum"><span class="case-num">案例三</span><span class="case-name">东莞环球美天医疗美容</span><span class="case-meta">东莞本地最大连锁轻医美机构，从微信群一条咨询到成交只花两周</span><span class="case-pill">基础版 · 20,000 元</span><span class="case-caret" aria-hidden="true"></span></summary>
+<div class="case-body">
 <blockquote class="quote"><strong>一句话</strong>：东莞本地最大连锁轻医美机构，<strong>从微信群一条咨询到成交只花两周，成交基础版 20,000 元</strong>。<br/><strong>特殊点：医疗健康行业 —— 推进前先核实客户资质是否具备</strong>（本案例已核实：具备）。</blockquote>
 <hr/>
 <h3>一、案例速览</h3>
@@ -1086,8 +1131,11 @@ pre.card-pre{background:#fff;border:1px solid var(--line);border-top:3px solid v
 <h3>六、关键原话（教学用）</h3>
 <blockquote class="quote">客户：“你好，我是做医美行业，想了解一下方案和报价”<br/>客户：“因为词的优化和关键词，我们新媒体运营已经有多年的经验和词条了”<br/>客户：“你们有方案就联系我，我看能不能落实”<br/>客户：“<strong>轻医美，我们排第一</strong>”“我们是当地最大的连锁”<br/>客户：“<strong>给我一个干掉同行的方案</strong>”<br/>客户：“习惯搜的词句，方案确认后我整理给你”“我们有本地数据”<br/>客户：“价钱我汇报了，等上面沟通一下”<br/>客户：“你看加上优惠，给我个七折，可以的话出个完整的报价和服务内容给我”<br/>客户：“<strong>合同我们还要过审呢</strong>”<br/>客户：“<strong>我比较注重官媒收录的情况</strong>”<br/>客户：“以后加词和内容是怎么算”“中间效果好，我可以升版本，补钱就可以是吧”<br/>客户：“<strong>提供一下你们公司的营运执照还有公司账号这些，我们要一起审核</strong>”<br/>我方：“<strong>这个是填写您最想要的问题推荐，因为在 AI 中搜的问题不是按照之前百度 SEO 的逻辑的</strong>”<br/>我方：“<strong>咱们品牌机构在当地还是有一定行业地位</strong>”<br/>我方：“<strong>如果(您)有明确的预算，不妨直接告诉我，只要在我权限内，我一定会尽力帮您争取！</strong>”<br/>我方：“<strong>最低可以给到 8 折的优惠不含税底价</strong>”<br/>我方：“<strong>七折这个优惠力度目前都没有给到过的……咱们今天能确定走合同打款吗？</strong>”<br/>我方：“<strong>整体的问题词数量不变，可以免费增加一个核心业务线呀</strong>”<br/>我方：“<strong>我们用的全是官方媒体信源的</strong>”<br/>我方：“<strong>后续加词和内容就是按版本升级的</strong>”<br/>我方：“收到，您看下是否还有其他问题需要调整的，<strong>我一并同步法务同事做修改</strong>”</blockquote>
 <hr/>
-<p>*案例三完。*</p>
-<hr/>
+<p>*案例三完。*</p></div>
+</details>
+<details class="case-fold">
+<summary class="case-sum"><span class="case-num">案例四</span><span class="case-name">Maktart 养肤净水器</span><span class="case-meta">C 端新品牌（上线仅 10 天），一通 34 分钟电话把方案、顾虑、预算全部谈完…</span><span class="case-pill">基础版 · 19,800 元</span><span class="case-caret" aria-hidden="true"></span></summary>
+<div class="case-body">
 <blockquote class="quote"><strong>一句话</strong>：C 端新品牌（上线仅 10 天），<strong>一通 34 分钟电话把方案、顾虑、预算全部谈完</strong>，客户当场说“这个月就可以开始做”，最终成交基础版 19,800 元。</blockquote>
 <hr/>
 <h3>一、案例速览</h3>
@@ -1187,7 +1235,8 @@ pre.card-pre{background:#fff;border:1px solid var(--line);border-top:3px solid v
 <h3>六、关键原话（教学用）</h3>
 <blockquote class="quote">客户：“<strong>哇好混乱啊，泰国都出来了</strong>”<br/>客户：“我们对你们这个领域比较空白……可能对消费者来说暂时还没有很熟悉”<br/>客户：“我们是工厂做出来的品牌，<strong>我们工厂都做了有 40 年了</strong>”<br/>客户：“<strong>我都搜小红书，我觉得 AI 有点慢，它的信息后置</strong>”<br/>客户：“<strong>我做还是你做哦？</strong>”<br/>客户：“因为我是这个项目负责人，我的预算要拆分给怎么样的推广方式，<strong>我对这个没底</strong>”<br/>客户：“我们之前找的服务商<strong>踩过坑</strong>，所以比较谨慎”<br/>客户：“在小红书一搜，每个人都说自己做得很好……<strong>对于我们来说其实是挺难区分的</strong>”<br/>客户：“<strong>如果 1 万 8 的话……摊到每个月 6000，就试水吧，我也好交代一点</strong>”<br/>客户：“最晚下周一给您回复”“这个月就可以开始做了”<br/>我方：“<strong>最核心的原因就是 AI 大模型对于咱们品牌没有一个清楚的定位</strong>”<br/>我方：“<strong>所有执行动作都是我们运营老师做……核心语料需要您逐条审核</strong>”<br/>我方：“<strong>豆包日活 3 亿起，用户基数最庞大的是 DeepSeek</strong>”<br/>我方：“<strong>推荐率不低于 70% 是能保证的；客资转化目前所有服务商都保证不了</strong>”<br/>我方：“<strong>可以先开展一个季度，您看到效果之后，肯定会选择跟我们签年度深度合作</strong>”<br/>我方：“<strong>做的越早做的越久，认知工程体系会更完善，就像打地基一样</strong>”</blockquote>
 <hr/>
-<p>*案例四完。*</p>
+<p>*案例四完。*</p></div>
+</details>
 <div class="pager"><a class="prev" href="#line-c" data-go="line-c">← 上一章<br>⑤ 线C 生态合伙人</a><span class="next">已是最后一章 →</span></div>
 </section>
 </main>
@@ -1286,6 +1335,21 @@ pre.card-pre{background:#fff;border:1px solid var(--line);border-top:3px solid v
   });
   clearBtn.addEventListener('click',function(){input.value='';box.style.display='none';clearBtn.style.display='none';input.focus()});
   document.addEventListener('click',function(ev){if(!ev.target.closest('.search-bar'))box.style.display='none'});
+})();
+</script>
+<script>
+(function(){
+  function folds(){return Array.prototype.slice.call(document.querySelectorAll('details.case-fold'))}
+  document.addEventListener('click',function(ev){
+    var b=ev.target.closest&&ev.target.closest('[data-case]');
+    if(!b)return;
+    var open=b.getAttribute('data-case')==='open';
+    folds().forEach(function(d){d.open=open});
+    if(!open)window.scrollTo(0,0);
+  });
+  var hint=document.getElementById('case-count');
+  if(hint)hint.textContent='共 '+folds().length+' 个案例 · 点标题展开／收起，只看你要的那一单';
+  window.addEventListener('beforeprint',function(){folds().forEach(function(d){d.open=true})});
 })();
 </script>
 </body>
