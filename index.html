@@ -9,14 +9,15 @@
    智汇Growth 商务作战手册 · 设计系统
    风格基准：智汇Growth 官方 logo（蓝→青→绿渐变轨道）+
              对外合作方案 V2 模板「深空仪表盘风」
-   主色: #060914 深空 / #FF6B35 能量橙 / #4F46E5 紫光 / #06B6D4 青光
+   主色: #060914 深空 / #1E88E5 科技蓝 / #22C3A6 青光 / #4F46E5 紫光（去橙色，统一科技风）
    字体: 微软雅黑全局锁死
    严禁: text-shadow / opacity（会触发矢量文字栅格化导致发虚）
    ============================================================ */
 :root{
   --space:#060914; --space-2:#0E1428; --space-3:#1B2240;
   --ink:#0F172A; --ink-2:#334155; --ink-3:#64748B; --ink-4:#94A3B8;
-  --energy:#FF6B35; --energy-d:#E04A14; --energy-l:#FFA07A; --energy-bg:#FFF1EB;
+  --energy:#1E88E5; --energy-d:#0B5FB0; --energy-l:#7CBDF2; --energy-bg:#EAF3FE; --energy-bd:#C9E1FA;
+  --teal:#22C3A6; --teal-d:#0F8E78; --teal-bg:#E8FAF5;
   --violet:#4F46E5; --violet-d:#3730A3; --violet-bg:#F3F2FF;
   --cyan:#06B6D4; --cyan-d:#0E7490; --cyan-bg:#ECFDFF;
   --lime:#84CC16; --gold:#F59E0B; --rose:#F43F5E;
@@ -32,8 +33,8 @@ body{background:var(--bg);color:var(--ink);line-height:1.8;padding:22px 14px 40p
 .hero{position:relative;overflow:hidden;color:#fff;border-radius:20px;padding:34px 38px;margin-bottom:16px;
   background:
     radial-gradient(ellipse 900px 420px at 16% 12%, rgba(79,70,229,.42) 0%, transparent 55%),
-    radial-gradient(ellipse 720px 360px at 86% 78%, rgba(6,182,212,.30) 0%, transparent 50%),
-    radial-gradient(ellipse 1000px 520px at 52% 116%, rgba(255,107,53,.24) 0%, transparent 62%),
+    radial-gradient(ellipse 720px 360px at 86% 78%, rgba(34,195,166,.30) 0%, transparent 50%),
+    radial-gradient(ellipse 1000px 520px at 52% 116%, rgba(30,136,229,.32) 0%, transparent 62%),
     linear-gradient(135deg,#060914 0%,#0E1428 52%,#1B1240 100%)}
 .hero-row{display:flex;align-items:center;gap:18px}
 .hero-logo{width:52px;height:52px;flex:0 0 auto;filter:drop-shadow(0 2px 10px rgba(6,182,212,.45))}
@@ -45,7 +46,7 @@ body{background:var(--bg);color:var(--ink);line-height:1.8;padding:22px 14px 40p
 /* ===== 导航 ===== */
 .nav-bar{position:sticky;top:0;z-index:200;display:flex;gap:8px;overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 12px rgba(15,23,42,.07);padding:9px 12px;margin-bottom:12px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .nav-bar::-webkit-scrollbar{display:none}
-.nav-link{flex:0 0 auto;text-decoration:none;font-size:13px;font-weight:600;color:var(--energy-d);background:var(--energy-bg);border:1px solid #FFD9C7;border-radius:20px;padding:7px 15px;transition:all .2s;white-space:nowrap}
+.nav-link{flex:0 0 auto;text-decoration:none;font-size:13px;font-weight:600;color:var(--energy-d);background:var(--energy-bg);border:1px solid var(--energy-bd);border-radius:20px;padding:7px 15px;transition:all .2s;white-space:nowrap}
 .nav-link:hover{background:var(--energy);color:#fff;border-color:var(--energy)}
 .nav-link.active{background:var(--energy);color:#fff;border-color:var(--energy)}
 .nav-link.all{background:var(--space-2);color:#C7D2E5;border-color:var(--space-2);margin-left:auto}
@@ -60,7 +61,7 @@ body{background:var(--bg);color:var(--ink);line-height:1.8;padding:22px 14px 40p
 .search-results{position:absolute;left:16px;right:16px;top:calc(100% - 4px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 34px rgba(15,23,42,.18);max-height:62vh;overflow-y:auto;display:none;z-index:300}
 .sr-item{padding:9px 14px;cursor:pointer;font-size:13px;border-bottom:1px solid var(--line-2);line-height:1.6;color:var(--ink-2)}
 .sr-item:hover{background:var(--energy-bg)}
-.sr-item mark{background:#FFD9C7;color:inherit;padding:0 2px;border-radius:2px}
+.sr-item mark{background:var(--energy-bd);color:inherit;padding:0 2px;border-radius:2px}
 .sr-tag{display:inline-block;min-width:34px;font-size:11px;color:var(--energy-d);font-weight:700;margin-right:8px}
 
 /* ===== 视图 ===== */
@@ -68,7 +69,7 @@ body{background:var(--bg);color:var(--ink);line-height:1.8;padding:22px 14px 40p
 .page.active{display:block;animation:fade .2s ease}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .p-head{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 26px 18px;margin-bottom:20px;box-shadow:0 1px 4px rgba(15,23,42,.05)}
-.p-head::before{content:'';position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,var(--energy) 0%,var(--violet) 52%,var(--cyan) 100%)}
+.p-head::before{content:'';position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,var(--energy) 0%,var(--teal) 52%,var(--violet) 100%)}
 .p-head .ptag{display:inline-block;background:var(--space-2);color:#fff;border-radius:6px;font-size:11.5px;padding:2px 11px;margin-bottom:9px;letter-spacing:.5px}
 .p-head h2{font-size:21px;color:var(--space-2);border-left:5px solid var(--energy);padding-left:13px;margin-bottom:9px}
 .p-head .lead{font-size:14px;color:var(--ink-2)}
@@ -108,7 +109,7 @@ pre.card-pre{background:#fff;border:1px solid var(--line);border-top:3px solid v
 .line-card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px 16px;box-shadow:0 1px 4px rgba(15,23,42,.06)}
 .line-card::before{content:'';position:absolute;left:0;top:0;right:0;height:4px}
 .line-card.la::before{background:var(--energy)}
-.line-card.lb::before{background:var(--cyan)}
+.line-card.lb::before{background:var(--teal)}
 .line-card.lc::before{background:var(--violet)}
 .line-card .lt{font-size:15px;font-weight:600;color:var(--space-2)}
 .line-card .lp{font-size:13px;color:var(--energy-d);font-weight:600;margin:2px 0 6px}
@@ -118,7 +119,7 @@ pre.card-pre{background:#fff;border:1px solid var(--line);border-top:3px solid v
 /* ===== 翻页 / 页脚 ===== */
 .pager{display:flex;gap:12px;margin:28px 0 6px}
 .pager a,.pager span{flex:1;display:block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:13.5px;color:var(--energy-d);text-decoration:none;box-shadow:0 1px 4px rgba(15,23,42,.04)}
-.pager a:hover{background:var(--energy-bg);border-color:#FFD9C7}
+.pager a:hover{background:var(--energy-bg);border-color:var(--energy-bd)}
 .pager .next{text-align:right}
 .pager span{color:var(--ink-4);background:#FAFBFD}
 .footer{text-align:center;color:var(--ink-4);font-size:12px;margin-top:32px;line-height:2}
@@ -127,18 +128,18 @@ pre.card-pre{background:#fff;border:1px solid var(--line);border-top:3px solid v
 .case-tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:16px 0 10px}
 .case-tools span{font-size:12.5px;color:var(--ink-4)}
 .case-tools button{font-family:inherit;font-size:12.5px;color:var(--ink-3);background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 12px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
-.case-tools button:hover{background:var(--energy-bg);border-color:#FFD9C7;color:var(--energy-d)}
+.case-tools button:hover{background:var(--energy-bg);border-color:var(--energy-bd);color:var(--energy-d)}
 details.case-fold{background:#fff;border:1px solid var(--line);border-radius:14px;margin:11px 0;box-shadow:0 1px 4px rgba(15,23,42,.05);overflow:hidden}
-details.case-fold[open]{border-color:#FFD9C7;box-shadow:0 4px 16px rgba(255,107,53,.09)}
+details.case-fold[open]{border-color:var(--energy-bd);box-shadow:0 4px 16px rgba(30,136,229,.12)}
 details.case-fold>.case-sum{display:flex;align-items:center;gap:11px;padding:14px 17px;cursor:pointer;list-style:none;border-left:4px solid var(--energy);background:#fff}
 details.case-fold[open]>.case-sum{background:var(--energy-bg)}
 details.case-fold>.case-sum::-webkit-details-marker{display:none}
 details.case-fold>.case-sum:hover{background:var(--energy-bg)}
-.case-num{flex:none;font-size:12px;font-weight:700;color:var(--energy-d);background:var(--energy-bg);border:1px solid #FFD9C7;border-radius:7px;padding:2px 9px}
+.case-num{flex:none;font-size:12px;font-weight:700;color:var(--energy-d);background:var(--energy-bg);border:1px solid var(--energy-bd);border-radius:7px;padding:2px 9px}
 details.case-fold[open] .case-num{background:#fff}
 .case-name{flex:none;font-size:15.5px;font-weight:700;color:var(--space-2)}
 .case-meta{flex:1;min-width:0;font-size:12.5px;color:var(--ink-4);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.case-pill{flex:none;font-size:12px;font-weight:700;color:#fff;background:var(--energy);border-radius:20px;padding:2px 10px;white-space:nowrap}
+.case-pill{flex:none;font-size:12px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--energy) 0%,var(--teal) 100%);border-radius:20px;padding:2px 10px;white-space:nowrap}
 .case-caret{flex:none;width:8px;height:8px;margin-left:auto;border-right:2px solid var(--ink-4);border-bottom:2px solid var(--ink-4);transform:rotate(45deg);transition:transform .2s}
 details.case-fold[open] .case-caret{transform:rotate(-135deg);border-color:var(--energy-d)}
 .case-body{padding:2px 18px 18px;border-top:1px solid var(--line)}
@@ -735,7 +736,7 @@ details.case-fold[open] .case-caret{transform:rotate(-135deg);border-color:var(-
 <hr/>
 <div class="case-tools"><span id="case-count"></span><button type="button" data-case="open">全部展开</button><button type="button" data-case="close">全部收起</button></div>
 <details class="case-fold">
-<summary class="case-sum"><span class="case-num">案例一</span><span class="case-name">上海臣峰环境</span><span class="case-meta">B 端保洁服务商，一通电话 + 一次线上会议 = 成交，从首次接上到成交只用了 4 天</span><span class="case-pill">签季度合同</span><span class="case-caret" aria-hidden="true"></span></summary>
+<summary class="case-sum"><span class="case-num">案例一</span><span class="case-name">上海臣峰环境</span><span class="case-meta">B 端保洁服务商，一通电话 + 一次线上会议 = 成交，从首次接上到成交只用了 4 天</span><span class="case-pill">专业版 · 48,800 元</span><span class="case-caret" aria-hidden="true"></span></summary>
 <div class="case-body">
 <blockquote class="quote"><strong>一句话</strong>：B 端保洁服务商，<strong>一通电话 + 一次线上会议 = 成交</strong>，从首次接上到成交只用了 4 天。</blockquote>
 <hr/>
@@ -750,7 +751,7 @@ details.case-fold[open] .case-caret{transform:rotate(-135deg);border-color:var(-
 <tr><td>核心诉求</td><td><strong>要转化，不要展现</strong>；并且<strong>已经有另一家服务商</strong>（合同到 8 月才到期）</td></tr>
 <tr><td>全流程</td><td><strong>网销回流 → 首电深谈 → 诊断报告 + 表单 → 腾讯会议会销 → 当天成交 → 合同 / 开票 / 打款 / 启动</strong></td></tr>
 <tr><td>成交周期</td><td>4/11 首次接上 → <strong>4/15 成交 = 4 天</strong>；4/20 走完合同寄出</td></tr>
-<tr><td>成交结果</td><td><strong>签季度合同</strong>，交付以飞书服务群承接</td></tr>
+<tr><td>成交结果</td><td><strong>专业版 · 48,800 元</strong>（签季度合同，交付以飞书服务群承接）</td></tr>
 </tbody></table>
 <hr/>
 <h3>二、客户是谁（先看这个，再看话术）</h3>
@@ -1303,7 +1304,7 @@ details.case-fold[open] .case-caret{transform:rotate(-135deg);border-color:var(-
     if(el.closest&&window.__showPage){var pg=el.closest('.page');if(pg)window.__showPage(pg.getAttribute('data-page'),false)}
     el.scrollIntoView({behavior:'smooth',block:'center'});
     var ob=el.style.background,ot=el.style.transition;
-    el.style.transition='background .4s';el.style.background='#FFF1EB';
+    el.style.transition='background .4s';el.style.background='#EAF3FE';
     setTimeout(function(){el.style.background=ob;el.style.transition=ot},1600);
     box.style.display='none';input.value='';clearBtn.style.display='none';
   }
